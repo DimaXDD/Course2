@@ -2,17 +2,19 @@
 #include <vector>
 #include <algorithm>
 #include <limits.h>
+#include <Windows.h>
+
 using namespace std;
 
 
 #define V 5
-
-#define CHILD 3
 #define GENES ABCDE
-
 #define START 0
 
-#define POP_SIZE 5
+
+int child = 0;
+int populationSize = 0;
+int evoCount = 0;
 
 
 int map[V][V] = { { INT_MAX, 25, 40, 31, 27},
@@ -20,6 +22,7 @@ int map[V][V] = { { INT_MAX, 25, 40, 31, 27},
 				{ 19, 15, INT_MAX, 6, 1},
 				{ 9, 50, 24, INT_MAX, 6 },
 				{ 22, 8, 7, 10, INT_MAX } };
+
 struct individual {
 	string gnome;
 	int fitness;
@@ -97,24 +100,24 @@ bool lessthan(struct individual t1,
 	return t1.fitness < t2.fitness;
 }
 
-void TSPUtil(int map[V][V])
+void Genetic_algo(int map[V][V])
 {
 	int gen = 1;
-	int gen_thres = 30;
+	int gen_thres = evoCount;
 
 	vector<struct individual> population;
 	struct individual temp;
 
-	for (int i = 0; i < POP_SIZE; i++) {
+	for (int i = 0; i < populationSize; i++) {
 		temp.gnome = create_gnome();
 		temp.fitness = cal_fitness(temp.gnome);
 		population.push_back(temp);
 	}
 
-	cout << "\nInitial population: " << endl
-		<< "GNOME	 FITNESS VALUE\n";
-	for (int i = 0; i < POP_SIZE; i++)
-		cout << population[i].gnome << " "
+	cout << "\nСтартовая популяция: " << endl;
+	cout << "Геном популяци \tвес генома\n";
+	for (int i = 0; i < populationSize; i++)
+		cout << population[i].gnome << "\t\t"
 		<< population[i].fitness << endl;
 	cout << "\n";
 
@@ -123,13 +126,13 @@ void TSPUtil(int map[V][V])
 	sort(population.begin(), population.end(), lessthan);
 
 	while (temperature > 100 && gen <= gen_thres) {
-		cout << endl << "best one" << population[0].gnome << endl;
-		cout << endl << "best one" << population[0].fitness << endl;
+		cout << endl << "Лучший геном: " << population[0].gnome;
+		cout << " его вес: " << population[0].fitness << "\n\n";
 
-		cout << "\nCurrent temp: " << temperature << "\n";
+		/*cout << "\nтекущий буфер: " << temperature << "\n";*/
 		vector<struct individual> new_population;
 
-		for (int i = 0; i < CHILD; i++) {
+		for (int i = 0; i < child; i++) {
 
 			struct individual p1 = population[i];
 
@@ -149,45 +152,42 @@ void TSPUtil(int map[V][V])
 					new_population.push_back(new_gnome);
 					break;
 				}
-				//else {
-
-				//	// Accepting the rejected children at
-				//	// a possible probability above threshold.
-				//	float prob = pow(2.7,
-				//		-1 * ((float)(new_gnome.fitness
-				//			- population[i].fitness)
-				//			/ temperature));
-				//	if (prob > 0.5) {
-				//		new_population.push_back(new_gnome);
-				//		break;
-				//	}
-				//}
 			}
 		}
 
 		temperature = cooldown(temperature);
-		for (int i = 0; i < CHILD; i++)
+		for (int i = 0; i < child; i++)
 		{
 			population.push_back(new_population[i]);
 		}
 		sort(population.begin(), population.end(), lessthan);
 
-		for (int i = 0; i < CHILD; i++)
+		for (int i = 0; i < child; i++)
 		{
 			population.pop_back();
 		}
 
-		cout << "Generation " << gen << " \n";
-		cout << "GNOME	 FITNESS VALUE\n";
+		cout << "Поколение " << gen << " \n";
+		cout << "Геном популяци \tвес генома\n";
 
-		for (int i = 0; i < POP_SIZE; i++)
-			cout << population[i].gnome << " "
+		for (int i = 0; i < populationSize; i++)
+			cout << population[i].gnome << "\t\t"
 			<< population[i].fitness << endl;
 		gen++;
 	}
+	cout << "\n\nнаиболее оптимальный маршрут, найденный генетическим алгоритмом с текущими параметрами: ";
+	cout << population[0].gnome[2];
+	cout << "\n\n";
 }
 
 int main()
 {
-	TSPUtil(map);
+	setlocale(LC_ALL, "ru");
+	cout << "Введите размер популяций: "; 
+	cin >> populationSize;
+	cout << "Введите количество потомков в одной популяции: "; 
+	cin >> child;
+	cout << "Введите количество эволюционных циклов: "; 
+	cin >> evoCount;
+	Genetic_algo(map);
 }
