@@ -6,11 +6,9 @@
 
 using namespace std;
 
-
 #define V 5
 #define GENES ABCDE
 #define START 0
-
 
 int child = 0;
 int populationSize = 0;
@@ -183,11 +181,29 @@ void Genetic_algo(int map[V][V])
 int main()
 {
 	setlocale(LC_ALL, "ru");
-	cout << "Введите размер популяций: "; 
-	cin >> populationSize;
-	cout << "Введите количество потомков в одной популяции: "; 
-	cin >> child;
-	cout << "Введите количество эволюционных циклов: "; 
-	cin >> evoCount;
+	do
+	{
+		cout << "Введите размер популяций: ";
+		cin >> populationSize;
+		cin.clear();
+		cin.ignore(32767, '\n');
+	} while (populationSize <= 0);
+	
+	do
+	{
+		cout << "Введите количество потомков в одной популяции: ";
+		cin >> child;
+		cin.clear();
+		cin.ignore(32767, '\n');
+	} while (child <= 0);
+
+	do
+	{
+		cout << "Введите количество эволюций: ";
+		cin >> evoCount;
+		cin.clear();
+		cin.ignore(32767, '\n');
+	} while (evoCount <= 0);
+
 	Genetic_algo(map);
 }
