@@ -14,18 +14,27 @@ int child = 0;
 int populationSize = 0;
 int evoCount = 0;
 
-
-int map[V][V] = { { INT_MAX, 25, 40, 31, 27},
+// Расстояние между 5 городами в виде матрицы
+int cities[V][V] = { { INT_MAX, 25, 40, 31, 27},
 				{ 5, INT_MAX, 17, 30, 25},
 				{ 19, 15, INT_MAX, 6, 1},
 				{ 9, 50, 24, INT_MAX, 6 },
 				{ 22, 8, 7, 10, INT_MAX } };
 
+// Расстояние между 8 городами
+//int cities[V][V] = { { INT_MAX, 25, 40, 31, 27, 10, 5, 9},
+//				{ 5, INT_MAX, 17, 30, 25, 15, 20, 10},
+//				{ 19, 15, INT_MAX, 6, 1, 20, 30, 25},
+//				{ 9, 50, 24, INT_MAX, 6, 10, 5, 9 },
+//				{ 22, 8, 7, 10, INT_MAX, 15, 20, 10 },
+//				{ 10, 15, 20, 10, 15, INT_MAX, 17, 30 },
+//				{ 5, 20, 30, 5, 20, 17, INT_MAX, 6 },
+//				{ 9, 10, 25, 9, 10, 30, 6, INT_MAX } };
+
 struct individual {
 	string gnome;
 	int fitness;
 };
-
 
 int rand_num(int start, int end)
 {
@@ -33,7 +42,6 @@ int rand_num(int start, int end)
 	int rnum = start + rand() % r;
 	return rnum;
 }
-
 
 bool repeat(string s, char ch)
 {
@@ -43,7 +51,6 @@ bool repeat(string s, char ch)
 	}
 	return false;
 }
-
 
 string mutatedGene(string gnome)
 {
@@ -80,9 +87,9 @@ int cal_fitness(string gnome)
 
 	int f = 0;
 	for (int i = 0; i < gnome.size() - 1; i++) {
-		if (map[gnome[i] - 48][gnome[i + 1] - 48] == INT_MAX)
+		if (cities[gnome[i] - 48][gnome[i + 1] - 48] == INT_MAX)
 			return INT_MAX;
-		f += map[gnome[i] - 48][gnome[i + 1] - 48];
+		f += cities[gnome[i] - 48][gnome[i + 1] - 48];
 	}
 	return f;
 }
@@ -98,7 +105,7 @@ bool lessthan(struct individual t1,
 	return t1.fitness < t2.fitness;
 }
 
-void Genetic_algo(int map[V][V])
+void Genetic_algo(int cities[V][V])
 {
 	int gen = 1;
 	int gen_thres = evoCount;
@@ -113,9 +120,9 @@ void Genetic_algo(int map[V][V])
 	}
 
 	cout << "\nСтартовая популяция: " << endl;
-	cout << "Геном популяци \tвес генома\n";
+	cout << "Геном популяции \t||вес генома\n";
 	for (int i = 0; i < populationSize; i++)
-		cout << population[i].gnome << "\t\t"
+		cout << population[i].gnome << "\t\t\t"
 		<< population[i].fitness << endl;
 	cout << "\n";
 
@@ -166,15 +173,15 @@ void Genetic_algo(int map[V][V])
 		}
 
 		cout << "Поколение " << gen << " \n";
-		cout << "Геном популяци \tвес генома\n";
+		cout << "Геном популяции \t||вес генома\n";
 
 		for (int i = 0; i < populationSize; i++)
-			cout << population[i].gnome << "\t\t"
+			cout << population[i].gnome << "\t\t\t"
 			<< population[i].fitness << endl;
 		gen++;
 	}
 	cout << "\n\nнаиболее оптимальный маршрут, найденный генетическим алгоритмом с текущими параметрами: ";
-	cout << population[0].gnome[2];
+	cout << population[0].gnome;
 	cout << "\n\n";
 }
 
@@ -205,5 +212,5 @@ int main()
 		cin.ignore(32767, '\n');
 	} while (evoCount <= 0);
 
-	Genetic_algo(map);
+	Genetic_algo(cities);
 }
