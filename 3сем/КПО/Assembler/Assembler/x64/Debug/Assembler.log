@@ -1,0 +1,11 @@
+﻿  Assembling LP_asm01.asm...
+LP_asm01.asm(1): error A2008: syntax error : .
+LP_asm01.asm(2): error A2008: syntax error : .
+LP_asm01.asm(8): error A2008: syntax error : .
+LP_asm01.asm(31): error A2070: invalid instruction operands
+LP_asm01.asm(32): error A2070: invalid instruction operands
+LP_asm01.asm(33): error A2070: invalid instruction operands
+LP_asm01.asm(36): error A2008: syntax error : MessageBoxA
+LP_asm01.asm(42): error A2008: syntax error : main
+LP_asm01.asm(44): error A2088: END directive required at end of file
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml64.exe /c /nologo /Zi /Fo"x64\Debug\LP_asm01.obj" /W3 /errorReport:prompt  /TaLP_asm01.asm" с кодом "1".

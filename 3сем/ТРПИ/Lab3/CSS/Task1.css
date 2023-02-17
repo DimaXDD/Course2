@@ -1,0 +1,65 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+body .wrapper {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  max-width: 1200px;
+  min-width: 500px;
+  background-color: #ed6f6f;
+  width: 100%;
+  margin: 20px 30px 20px 30px;
+}
+body .wrapper .content {
+  margin: 10px 7px;
+  text-align: justify;
+  text-indent: 1.1em;
+  font-size: 1.2em;
+  color: #151515;
+}
+body .wrapper .comments {
+  width: 100%;
+  padding: 10px 60px;
+  box-sizing: border-box;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: flex-start;
+}
+body .wrapper .comments .comment {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 10px 7px;
+  background-color: #98c319;
+  border-radius: 5px;
+}
+body .wrapper .comments .comment .comment-text {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 40px;
+  width: 100%;
+  word-break: break-all;
+  flex: 1;
+}
+body .wrapper .comments .addCommentButton {
+  align-self: center;
+}
+body .wrapper .comments .addCommentText {
+  min-height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+body .wrapper .comments .commentList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+}/*# sourceMappingURL=Task1.css.map */

@@ -1,0 +1,62 @@
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |Name |     |Type |       |ID type |          |Line |         |Value |
+                fi        integer        Функция              3              0               
+
+               fix        integer       Параметр              6              0               
+
+               fiy        integer       Параметр              9              0               
+
+               fiz        integer     Переменная             15              0               
+
+                fs         string        Функция             35
+
+               fsa         string       Параметр             38
+
+               fsb         string       Параметр             41
+
+               fsc         string     Переменная             47
+
+            substr         string        Функция             52
+
+               fsa         string       Параметр             55
+
+               fsp        integer       Параметр             58              0               
+
+               fsn        integer       Параметр             62              0               
+
+                l0        integer       Параметр             71              1               
+
+                l0        integer       Параметр             73              3               
+
+             mainx        integer     Переменная             89              0               
+
+             mainy        integer     Переменная             93              0               
+
+             mainz        integer     Переменная             97              0               
+
+            mainsa         string     Переменная            101
+
+            mainsb         string     Переменная            105
+
+            mainsc         string     Переменная            109
+
+            strlen         string        Функция            114
+
+             mainp         string       Параметр            117
+
+                l0        integer       Параметр            122              1               
+
+                l0        integer       Параметр            126              5               
+
+                L0         string       Параметр            131
+
+                L0         string       Параметр            137
+
+                L0         string       Параметр            160
+
+                l0        integer       Параметр            176              0               
+
+
+01 tfi(ti,ti){dti;i=iv(ivi);ri;};tfi(ti,ti){dti;dtfi(ti,ti,ti);i=i(i,l,l)vi;ri;};m{dti;dti;dti;dti;dti;dti;dtfi(ti);i=l;i=l;i=l;i=l;i=i(i,i);i=i(i,i);pl;pi;pi;pi(i);rl;};

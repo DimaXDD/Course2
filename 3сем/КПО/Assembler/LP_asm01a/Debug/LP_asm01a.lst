@@ -1,0 +1,112 @@
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    10/17/22 19:09:10
+LP_asm01a.asm						     Page 1 - 1
+
+
+				.586P																;система команд(процессор Pentium)
+				.MODEL FLAT, STDCALL												;модель памяти, соглашение о вызовах
+
+
+				getmin		PROTO : DWORD, : DWORD
+				getmax		PROTO : DWORD, : DWORD
+
+				.STACK 4096															;выделение стека
+
+ 00000000			.CONST																;сегмент констант
+
+ 00000000			.DATA																;сегмент данных
+ 00000000 00000000		num  sdword ?
+
+ 00000000			.CODE																;сенмент кода
+
+ 00000000			getmin PROC parm1 : DWORD, parm2 : DWORD 
+ 00000003			START:
+ 00000003  8B 4D 0C			mov ecx, parm2
+ 00000006  8B 75 08			mov esi, parm1
+ 00000009  8B 06			mov eax, [esi]
+ 0000000B  49				dec ecx
+ 0000000C  83 C6 04			add esi, 4
+ 0000000F			CYCLE:
+ 0000000F  8B 16			mov edx, [esi]
+ 00000011  3B C2			cmp eax, edx
+ 00000013  7C 02			jl minimum
+ 00000015  8B C2			mov eax, edx
+ 00000017			minimum:	
+ 00000017  83 C6 04			add esi, 4
+ 0000001A  E2 F3		loop CYCLE
+				ret
+ 00000020			getmin ENDP
+
+ 00000020			getmax PROC parm1 : DWORD, parm2 : DWORD 
+ 00000023			START:
+ 00000023  8B 4D 0C			mov ecx, parm2
+ 00000026  8B 75 08			mov esi, parm1
+ 00000029  8B 06			mov eax, [esi]
+ 0000002B  49				dec ecx
+ 0000002C  83 C6 04			add esi, 4
+ 0000002F			CYCLE:
+ 0000002F  8B 16			mov edx, [esi]
+ 00000031  3B C2			cmp eax, edx
+ 00000033  7F 02			jg maximum
+ 00000035  8B C2			mov eax, edx
+
+ 00000037			maximum:	
+ 00000037  83 C6 04			add esi, 4
+ 0000003A  E2 F3		loop CYCLE
+
+				ret
+ 00000040			getmax ENDP
+
+
+				END
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    10/17/22 19:09:10
+LP_asm01a.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CONST  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'CONST'	 ReadOnly
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000004 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000040 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+getmax . . . . . . . . . . . . .	P Near	 00000020 _TEXT	Length= 00000020 Public STDCALL
+  parm1  . . . . . . . . . . . .	DWord	 bp + 00000008
+  parm2  . . . . . . . . . . . .	DWord	 bp + 0000000C
+  START  . . . . . . . . . . . .	L Near	 00000023 _TEXT	
+  CYCLE  . . . . . . . . . . . .	L Near	 0000002F _TEXT	
+  maximum  . . . . . . . . . . .	L Near	 00000037 _TEXT	
+getmin . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000020 Public STDCALL
+  parm1  . . . . . . . . . . . .	DWord	 bp + 00000008
+  parm2  . . . . . . . . . . . .	DWord	 bp + 0000000C
+  START  . . . . . . . . . . . .	L Near	 00000003 _TEXT	
+  CYCLE  . . . . . . . . . . . .	L Near	 0000000F _TEXT	
+  minimum  . . . . . . . . . . .	L Near	 00000017 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+num  . . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors

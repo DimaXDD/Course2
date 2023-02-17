@@ -1,0 +1,15 @@
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\bin\Debug\net6.0\OOP_Lab7.exe
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\bin\Debug\net6.0\OOP_Lab7.deps.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\bin\Debug\net6.0\OOP_Lab7.runtimeconfig.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\bin\Debug\net6.0\OOP_Lab7.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\bin\Debug\net6.0\OOP_Lab7.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.csproj.AssemblyReference.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.GeneratedMSBuildEditorConfig.editorconfig
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.AssemblyInfoInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.AssemblyInfo.cs
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.csproj.CoreCompileInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\refint\OOP_Lab7.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\OOP_Lab7.genruntimeconfig.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab7\OOP_Lab7\obj\Debug\net6.0\ref\OOP_Lab7.dll

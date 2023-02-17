@@ -1,0 +1,182 @@
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    10/17/22 19:08:56
+LP_asm01.asm						     Page 1 - 1
+
+
+						.586P																;система команд(процессор Pentium)
+					.MODEL FLAT, STDCALL												;модель памяти, соглашение о вызовах
+					includelib kernel32.lib												;компоновщику: компоновать с kernel32
+
+					ExitProcess PROTO : DWORD											;прототип функции для заверения процесса Windows
+					MessageBoxA PROTO : DWORD, : DWORD, : DWORD, : DWORD				;прототип API-функции MessageBoxA
+					getmin		PROTO : DWORD, : DWORD
+					getmax		PROTO : DWORD, : DWORD
+
+					.STACK 4096															;выделение стека
+
+ 00000000				.CONST																;сегмент констант
+
+ 00000000				.DATA																;сегмент данных
+ 00000000 00000001			Array	SDWORD 1, 5, 6, -1, 8, 9, -4, 22, 9, 0													;												
+	   00000005
+	   00000006
+	   FFFFFFFF
+	   00000008
+	   00000009
+	   FFFFFFFC
+	   00000016
+	   00000009
+	   00000000
+ 00000028 00000000			min		SDWORD ?
+ 0000002C 00000000			max		SDWORD ?
+ 00000030 05				num		DB	5
+
+ = 00000000				MB_OK	EQU 0														;EQU определяет константу
+ 00000031 54 61 73 6B 31		STR1	DB "Task1a:",	0								;строка, первый элемент данные + нулевой бит
+	   61 3A 00
+ 00000039 CD E0 E8 EC E5		STR2	DB "Наименьшее значение в массиве: 0 ", 0										;строка, первый элемент данные + нулевой бит
+	   ED FC F8 E5 E5
+	   20 E7 ED E0 F7
+	   E5 ED E8 E5 20
+	   E2 20 EC E0 F1
+	   F1 E8 E2 E5 3A
+	   20 30 20 00
+ 0000005B 00000000			mas		dword	0h, 1h, 2h, 3h
+	   00000001
+	   00000002
+	   00000003
+ 0000006B  00000004 [			mas1	dword	4 dup(7h)
+	    00000007
+	   ]
+ 0000007B 00000000			HW		DWORD ?														;двойное слово длиной 4 байта, неинициализированно
+
+ 00000000				.CODE																;сенмент кода
+
+ 00000000				getmin PROC parm1 : DWORD, parm2 : DWORD 
+ 00000003				START:
+ 00000003  8B 4D 0C				mov ecx, parm2
+ 00000006  8B 75 08				mov esi, parm1
+ 00000009  8B 06				mov eax, [esi]
+ 0000000B  49					dec ecx
+ 0000000C  83 C6 04				add esi, 4
+ 0000000F				CYCLE:
+ 0000000F  8B 16				mov edx, [esi]
+ 00000011  3B C2				cmp eax, edx
+ 00000013  7C 02				jl minimum
+ 00000015  8B C2				mov eax, edx
+
+ 00000017				minimum:	
+ 00000017  83 C6 04				add esi, 4
+ 0000001A  E2 F3			loop CYCLE
+ 0000001C  A3 00000028 R		mov min, eax
+					ret
+
+
+ 00000025				getmin ENDP
+
+ 00000025			getmax PROC parm1 : DWORD, parm2 : DWORD 
+ 00000028			START:
+ 00000028  8B 4D 0C			mov ecx, parm2
+ 0000002B  8B 75 08			mov esi, parm1
+ 0000002E  8B 06			mov eax, [esi]
+ 00000030  49				dec ecx
+ 00000031  83 C6 04			add esi, 4
+ 00000034			CYCLE:
+ 00000034  8B 16			mov edx, [esi]
+ 00000036  3B C2			cmp eax, edx
+ 00000038  7F 02			jg maximum
+ 0000003A  8B C2			mov eax, edx
+
+ 0000003C			maximum:	
+ 0000003C  83 C6 04			add esi, 4
+ 0000003F  E2 F3		loop CYCLE
+ 00000041  A3 0000002C R	mov max, eax
+				ret
+
+
+ 0000004A			getmax ENDP
+
+ 0000004A				main PROC															;точка входа main
+ 0000004A				START :																;метка
+							INVOKE getmin, OFFSET Array, LENGTHOF Array
+							INVOKE getmax, OFFSET Array, LENGTHOF Array
+					
+							;mov al, num
+							;add STR2[31], al
+							INVOKE MessageBoxA, 0, OFFSET STR2, OFFSET STR1, 0
+							
+ 00000075  6A FF				push - 1														;код возврата процесса Windows(параметр ExitProcess)
+ 00000077  E8 00000000 E			call ExitProcess												;так завершается любой процесс Windows
+
+
+ 0000007C				main ENDP															;конец процедуры
+
+
+					end main															;конец модуля main
+
+
+						
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    10/17/22 19:08:56
+LP_asm01.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CONST  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'CONST'	 ReadOnly
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 0000007F Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000007C Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+MessageBoxA  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+getmax . . . . . . . . . . . . .	P Near	 00000025 _TEXT	Length= 00000025 Public STDCALL
+  parm1  . . . . . . . . . . . .	DWord	 bp + 00000008
+  parm2  . . . . . . . . . . . .	DWord	 bp + 0000000C
+  START  . . . . . . . . . . . .	L Near	 00000028 _TEXT	
+  CYCLE  . . . . . . . . . . . .	L Near	 00000034 _TEXT	
+  maximum  . . . . . . . . . . .	L Near	 0000003C _TEXT	
+getmin . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000025 Public STDCALL
+  parm1  . . . . . . . . . . . .	DWord	 bp + 00000008
+  parm2  . . . . . . . . . . . .	DWord	 bp + 0000000C
+  START  . . . . . . . . . . . .	L Near	 00000003 _TEXT	
+  CYCLE  . . . . . . . . . . . .	L Near	 0000000F _TEXT	
+  minimum  . . . . . . . . . . .	L Near	 00000017 _TEXT	
+main . . . . . . . . . . . . . .	P Near	 0000004A _TEXT	Length= 00000032 Public STDCALL
+  START  . . . . . . . . . . . .	L Near	 0000004A _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+Array  . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+HW . . . . . . . . . . . . . . .	DWord	 0000007B _DATA	
+MB_OK  . . . . . . . . . . . . .	Number	 00000000h   
+STR1 . . . . . . . . . . . . . .	Byte	 00000031 _DATA	
+STR2 . . . . . . . . . . . . . .	Byte	 00000039 _DATA	
+mas1 . . . . . . . . . . . . . .	DWord	 0000006B _DATA	
+mas  . . . . . . . . . . . . . .	DWord	 0000005B _DATA	
+max  . . . . . . . . . . . . . .	DWord	 0000002C _DATA	
+min  . . . . . . . . . . . . . .	DWord	 00000028 _DATA	
+num  . . . . . . . . . . . . . .	Byte	 00000030 _DATA	
+
+	   0 Warnings
+	   0 Errors

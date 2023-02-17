@@ -1,0 +1,39 @@
+Info: OOP_Lab11.Prod, OOP_Lab11, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Name: Prod
+FullName: OOP_Lab11.Prod
+Namespace: OOP_Lab11
+IsValueType: False
+IsClass: True
+
+Конструкторы: .ctor
+Конструкторы: .ctor
+
+Методы: Method_with_r
+
+Параметры: System.Int32
+Методы: Method1
+Методы: Method
+Методы: Method
+
+Параметры: System.String
+
+Параметры: System.Object
+Методы: get_Current
+Методы: Clone
+Методы: GetEnumerator
+Методы: MoveNext
+Методы: Reset
+Методы: GetType
+Методы: ToString
+Методы: Equals
+
+Параметры: System.Object
+Методы: GetHashCode
+
+Поля: Id
+Поля: Name
+
+Интерфейсы: IEnumerable
+Интерфейсы: IEnumerator
+Интерфейсы: ICloneable
+

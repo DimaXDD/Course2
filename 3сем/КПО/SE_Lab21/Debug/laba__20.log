@@ -1,0 +1,29 @@
+﻿  Control.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  Error.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  FST.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+C:\Users\dimat\Desktop\SE_Lab21\FST.cpp(70,37): warning C4267: инициализация: преобразование из "size_t" в "short"; возможна потеря данных
+  GRB.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  In.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  IT.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  LexicalAnalize.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.cpp(433,52): warning C4267: =: преобразование из "size_t" в "char"; возможна потеря данных
+  Log.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  LT.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  MFST.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+C:\Users\dimat\Desktop\SE_Lab21\MFST.cpp(251,68): warning C4267: =: преобразование из "size_t" в "short"; возможна потеря данных
+  Out.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  Parm.cpp
+C:\Users\dimat\Desktop\SE_Lab21\LexicalAnalize.h(24,3): warning C4091: static : пропускается слева от "LexAnalize::Flags", когда ни одна переменная не объявлена
+  Создание кода...
+  laba__20.vcxproj -> C:\Users\dimat\Desktop\SE_Lab21\Debug\laba__20.exe

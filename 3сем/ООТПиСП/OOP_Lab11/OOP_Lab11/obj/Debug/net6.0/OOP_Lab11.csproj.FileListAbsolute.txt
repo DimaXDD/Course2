@@ -1,0 +1,15 @@
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\bin\Debug\net6.0\OOP_Lab11.exe
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\bin\Debug\net6.0\OOP_Lab11.deps.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\bin\Debug\net6.0\OOP_Lab11.runtimeconfig.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\bin\Debug\net6.0\OOP_Lab11.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\bin\Debug\net6.0\OOP_Lab11.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.csproj.AssemblyReference.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.GeneratedMSBuildEditorConfig.editorconfig
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.AssemblyInfoInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.AssemblyInfo.cs
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.csproj.CoreCompileInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\refint\OOP_Lab11.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\OOP_Lab11.genruntimeconfig.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab11\OOP_Lab11\obj\Debug\net6.0\ref\OOP_Lab11.dll

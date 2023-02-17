@@ -1,0 +1,22 @@
+﻿  Lab5.cpp
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(12,1): warning C4005: IP_DEST_NET_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(173): message : см. предыдущее определение "IP_DEST_NET_UNREACHABLE"
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(13,1): warning C4005: IP_DEST_HOST_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(174): message : см. предыдущее определение "IP_DEST_HOST_UNREACHABLE"
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(14,1): warning C4005: IP_DEST_PROT_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(175): message : см. предыдущее определение "IP_DEST_PROT_UNREACHABLE"
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(15,1): warning C4005: IP_DEST_PORT_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(176): message : см. предыдущее определение "IP_DEST_PORT_UNREACHABLE"
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(16,1): warning C4005: IP_REQ_TIMED_OUT: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(181): message : см. предыдущее определение "IP_REQ_TIMED_OUT"
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(17,1): warning C4005: IP_BAD_REQ: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(182): message : см. предыдущее определение "IP_BAD_REQ"
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(18,1): warning C4005: IP_BAD_ROUTE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(183): message : см. предыдущее определение "IP_BAD_ROUTE"
+E:\2_курс\3сем\КСиС\Lab5\Lab5\Lab5.cpp(19,1): warning C4005: IP_TTL_EXPIRED_TRANSIT: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(184): message : см. предыдущее определение "IP_TTL_EXPIRED_TRANSIT"
+  Создание кода
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 42 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  Lab5.vcxproj -> E:\2_курс\3сем\КСиС\Lab5\Release\Lab5.exe

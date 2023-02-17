@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Check>
+    <title>NewCheck</title>
+    <dateOfSignature>2022-11-14T00:00:00</dateOfSignature>
+    <client>Dima</client>
+    <organization>OOP_Lab13</organization>
+    <Title>NewCheck</Title>
+    <DateOfSignature>2022-11-14T00:00:00</DateOfSignature>
+    <totalPrice>100</totalPrice>
+  </Check>
+  <Check>
+    <title>NewCheck</title>
+    <dateOfSignature>2022-11-13T00:00:00</dateOfSignature>
+    <client>Andrey</client>
+    <organization>OOP_Lab13</organization>
+    <Title>NewCheck</Title>
+    <DateOfSignature>2022-11-13T00:00:00</DateOfSignature>
+    <totalPrice>200</totalPrice>
+  </Check>
+  <Check>
+    <title>NewCheck</title>
+    <dateOfSignature>2022-11-12T00:00:00</dateOfSignature>
+    <client>Pavel</client>
+    <organization>OOP_Lab13</organization>
+    <Title>NewCheck</Title>
+    <DateOfSignature>2022-11-12T00:00:00</DateOfSignature>
+    <totalPrice>300</totalPrice>
+  </Check>
+</ArrayOfCheck>

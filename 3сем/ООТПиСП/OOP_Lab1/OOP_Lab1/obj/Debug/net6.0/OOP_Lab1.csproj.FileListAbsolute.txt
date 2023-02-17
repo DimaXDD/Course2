@@ -1,0 +1,15 @@
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\bin\Debug\net6.0\OOP_Lab1.exe
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\bin\Debug\net6.0\OOP_Lab1.deps.json
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\bin\Debug\net6.0\OOP_Lab1.runtimeconfig.json
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\bin\Debug\net6.0\OOP_Lab1.dll
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\bin\Debug\net6.0\OOP_Lab1.pdb
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.csproj.AssemblyReference.cache
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.GeneratedMSBuildEditorConfig.editorconfig
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.AssemblyInfoInputs.cache
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.AssemblyInfo.cs
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.csproj.CoreCompileInputs.cache
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.dll
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\refint\OOP_Lab1.dll
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.pdb
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\OOP_Lab1.genruntimeconfig.cache
+E:\Лабораторные\ООТПиСП\OOP_Lab1\OOP_Lab1\obj\Debug\net6.0\ref\OOP_Lab1.dll

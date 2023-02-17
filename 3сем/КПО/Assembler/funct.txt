@@ -1,0 +1,79 @@
+
+getmin PROC parm1 : DWORD, parm2 : DWORD 
+START:
+	mov ecx, parm2
+	mov esi, parm1
+	mov eax, [esi]
+	add esi, type Array
+	
+CYCLE:
+	mov edx, [esi]
+	cmp eax, edx
+	JL minimum
+	mov eax, edx
+minimum:
+	add esi, type Array
+loop CYCLE
+	mov min, eax
+ret
+
+int_to_char PROC uses eax ebx ecx edi esi,
+					pstr		: dword, ;адрес строки результата
+					intfield	: sdword ;число для преобразования
+
+	mov edi, pstr
+	mov esi, 0
+	mov eax, intfield												;число -> в eax
+	cdq
+	mov ebx, 10
+	idiv ebx														;eax = eax/ebx, остаток в edx(деление целых со знаком)
+	test eax, 80000000h												;тестируем знаковый бит
+	jz plus															;если положительный то переходим на plus
+	neg eax
+	neg edx
+	mov cl, '-'														;первый символ результата '-'
+	mov [edi], cl													;первый символ результата '-'
+	inc edi															;++edi
+
+plus:
+	push dx															;отстаток ->стек
+	inc esi															;++esi
+	test eax, eax													;eax == 0?
+	jz fin															;если да то переход на fin
+	cdq																;знак расростаняется с eax на edx
+	idiv ebx  
+	jmp plus														;безусловный переход на plus
+
+fin:																;если в ecx кол-во не 0-ых остатков = кол-ву символов результата
+	mov ecx, esi
+
+write:																 ;цикл записи результата
+	pop bx															 ;отстаок из стека ->bx
+	add bl,'0'														 ;сформировали символ в bl
+	mov [edi], bl													 ;bl -> в результат
+	inc edi
+	loop write														 ;если (--ecx)>0 переход на write
+	ret
+	
+int_to_char ENDP
+
+getmax PROC parm1 : DWORD, parm2 : DWORD 
+START:
+	mov ecx, parm2
+	mov esi, parm1
+	mov eax, [esi]
+	add esi, 4
+CYCLE:
+	mov edx, [esi]
+	cmp eax, edx
+	jg maximum
+	mov eax, edx
+
+maximum:	
+	add esi, 4
+loop CYCLE
+mov max, eax
+ret
+
+
+getmax ENDP

@@ -1,0 +1,35 @@
+integer function fi(integer x, integer y)
+{
+declare integer z;
+z= x*(x+y);
+return z; 
+}; 
+string function fs (string a, string b)
+{
+declare string c;
+declare string function substr(string a, integer p,
+ integer n);
+c = substr(a, 1,3)+ b;
+return c; 
+};
+main 
+{
+declare integer x;
+declare integer y;
+declare integer z;
+declare string sa;
+declare string sb;
+declare string sc;
+declare integer function strlen(string p);
+x = 1;
+y = 5;
+sa = '1234567890';
+sb = '1234567 890'; 
+z = fi(x,y);
+sc = fs(sa,sb);
+print 'контрольны йпример';
+print z;
+print sc;
+print strlen(sc);
+return 0;
+};

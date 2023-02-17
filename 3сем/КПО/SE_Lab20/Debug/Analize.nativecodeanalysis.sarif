@@ -1,0 +1,131 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31630.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/analize.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "cb81f2a262c66507a077aababa8e37a153e7cde901e5cd86de59b7a8979cdf10"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/analize.h"
+          },
+          "hashes": {
+            "sha-256": "354cbd24b6786e4dead359e5bd8c325ea0586b0f1efe4cb3a4f63a234f1135ba"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/stdafx.h"
+          },
+          "hashes": {
+            "sha-256": "cc6e5ff73399dc90eb696e8e4c33e7e4e60bd80a396b943a8b5f6d88f7da5e53"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/error.h"
+          },
+          "hashes": {
+            "sha-256": "5334c10ee8ad3ad25f155de199a2ac451a4e57ff176de8a3be6b40fe51304879"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/parm.h"
+          },
+          "hashes": {
+            "sha-256": "842b3d21527115d76940be5b7f4146bf9a3da3ac64ebcde3404398b7c684276c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/in.h"
+          },
+          "hashes": {
+            "sha-256": "b0f6312d7500641bf45908920c7713fe1aa8adae0b636d6d22b016b481c091e9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/fst.h"
+          },
+          "hashes": {
+            "sha-256": "71c9f793809b2d7271858fc62bc89e9a498d28518e3825cfd99295a2d584bba2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/out.h"
+          },
+          "hashes": {
+            "sha-256": "b4700bf4f918dc750d5dd25a8ef2e03ff12b4c49cec187393311192975969429"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/lt.h"
+          },
+          "hashes": {
+            "sha-256": "3adff20988072995501e3dd7b09534d9c7de66d648d732578f8422338339de6a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/test.h"
+          },
+          "hashes": {
+            "sha-256": "3a42211ac70026be0471e3e883e5ddb033aa776275757a34138de41e2a545c44"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/it.h"
+          },
+          "hashes": {
+            "sha-256": "4cb9d7e83860d8733fec59b1d0e83c25852a6bf4d19366c52fdc038711ff8674"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/log.h"
+          },
+          "hashes": {
+            "sha-256": "aa7ba51647f280bb14ee83f23379eec37cdeccc9d81122c92e3a4ca18b4dacca"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/курс_2/сем1/кпо/lab20/project1/lex.h"
+          },
+          "hashes": {
+            "sha-256": "59cc0331d776a57bf38a72a158f6dff8e6e97b3b18fd0c7db2d307a5871bf638"
+          }
+        }
+      ]
+    }
+  ]
+}

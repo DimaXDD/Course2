@@ -1,0 +1,4 @@
+﻿  AsmGen.cpp
+E:\2_курс\3сем\КПО\SE_Asm04\Deserealizer\AsmGen.cpp(51,21): warning C4018: <: несоответствие типов со знаком и без знака
+E:\2_курс\3сем\КПО\SE_Asm04\Deserealizer\AsmGen.cpp(79,20): warning C4018: <: несоответствие типов со знаком и без знака
+  Deserealizer.vcxproj -> E:\2_курс\3сем\КПО\SE_Asm04\Debug\Deserealizer.exe

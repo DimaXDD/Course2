@@ -1,0 +1,12 @@
+Файлы:
+OOP_Lab12.deps.json
+OOP_Lab12.dll
+OOP_Lab12.exe
+OOP_Lab12.pdb
+OOP_Lab12.runtimeconfig.json
+TDSlogfile.json
+
+
+Папки:
+TDSFiles
+TDSInspect

@@ -1,0 +1,15 @@
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\bin\Debug\net6.0\OOP_Lab19_20.exe
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\bin\Debug\net6.0\OOP_Lab19_20.deps.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\bin\Debug\net6.0\OOP_Lab19_20.runtimeconfig.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\bin\Debug\net6.0\OOP_Lab19_20.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\bin\Debug\net6.0\OOP_Lab19_20.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.csproj.AssemblyReference.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.GeneratedMSBuildEditorConfig.editorconfig
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.AssemblyInfoInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.AssemblyInfo.cs
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.csproj.CoreCompileInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\refint\OOP_Lab19_20.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\OOP_Lab19_20.genruntimeconfig.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab19_20\OOP_Lab19_20\obj\Debug\net6.0\ref\OOP_Lab19_20.dll

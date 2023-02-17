@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма для авторизации</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/style.css" type="text/css">
+    <script src="/JS/script.js"></script>
+    
+</head>
+<body>
+    <div class="dws-wrapper">
+        <div class="dws-form">
+            <!-- Вкладки на css -->
+            <input type="radio" id="tab-1" name="tabs"checked>
+            <label class="tab" for="tab-1" title="Вкладка-1">Авторизация</label>
+
+            <input type="radio" id="tab-2"  name="tabs">
+            <label class="tab" for="tab-2" title="Вкладка-2">Регистрация</label>
+
+             <!-- Вкалдки на js  -->
+            <!-- <label class="tab" title="Вкладка-1">Авторизация</label>
+            <label class="tab active" title="Вкладка-2">Регистрация</label> -->
+        
+
+            <form id="form-1" class="tab-form">
+            <div class="box-input">
+                <input class="input" type="email" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
+                <label>Введите E-mail</label>
+            </div>
+
+              <div class="box-input">
+                <input class="input" type="password" required>
+                <label>Введите пароль</label>
+              </div>
+
+                <a href="#" class="button">Войти</a>
+                <ul class="social">
+                    <li><a href="#"><div><i class="fa fa-facebook"></i></div></a></li>
+                    <li><a href="#"><div><i class="fa fa-twitter"></i></div></a></li>
+                    <li><a href="#"><div><i class="fa fa-instagram"></i></div></a></li>
+                    <li><a href="#"><div><i class="fa fa-vk"></i></div></a></li>
+                    <li><a href="#"><div><i class="fa fa-youtube"></i></div></a></li>
+                </ul>
+                <a href="#">Я забыл свой E-mail или пароль</a>
+            </form>
+            <form id="form-2"class="tab-form">
+                <div class="box-input">
+                    <input class="input" type="text" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
+                    <label>Введите E-mail</label>
+                </div>
+
+                <div class="box-input">
+                    <input class="input" type="text" required>
+                    <label>Введите свое имя</label>
+                </div>
+    
+                  <div class="box-input">
+                    <input class="input" type="password" required>
+                    <label>Введите пароль</label>
+                  </div>
+
+
+                <a href="#" class="button">Регистрация</a>
+           
+                <div class="recover">
+                    <input type="checkbox" id="ckbox">
+                    <label for="ckbox">Ознакомлен(-a) и принимаю <a href="#">условия регистрации</a></label>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
+

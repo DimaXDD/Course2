@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Discipline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>ООП</Name>
+  <Semester>2-ой семестр</Semester>
+  <Course>
+    <string>2-й курс</string>
+  </Course>
+  <Speciality>
+    <string>ПОИТ</string>
+  </Speciality>
+  <NumberOfLections>216</NumberOfLections>
+  <NumberOfLabs>24</NumberOfLabs>
+  <Control>Экзамен</Control>
+  <lector>
+    <Department>Программной инженерии</Department>
+    <Name>Н,В,Пацей</Name>
+    <Auditorium>206</Auditorium>
+  </lector>
+</Discipline>

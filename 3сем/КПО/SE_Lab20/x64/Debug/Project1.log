@@ -1,0 +1,19 @@
+﻿  Analize.cpp
+C:\Users\dimat\Desktop\Project1\Analize.cpp(522,40): warning C4267: =: преобразование из "size_t" в "char"; возможна потеря данных
+C:\Users\dimat\Desktop\Project1\Analize.cpp(525,58): warning C4267: =: преобразование из "size_t" в "char"; возможна потеря данных
+C:\Users\dimat\Desktop\Project1\Analize.cpp(589,48): warning C4267: =: преобразование из "size_t" в "char"; возможна потеря данных
+  Check.cpp
+  Error.cpp
+  FST.cpp
+C:\Users\dimat\Desktop\Project1\FST.cpp(149,31): warning C4267: =: преобразование из "size_t" в "short"; возможна потеря данных
+  In.cpp
+C:\Users\dimat\Desktop\Project1\In.cpp(100,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  IT.cpp
+  Log.cpp
+C:\Users\dimat\Desktop\Project1\Log.cpp(64,9): warning C4101: f: неиспользованная локальная переменная
+  LT.cpp
+  Main.cpp
+  Out.cpp
+  Parm.cpp
+  Создание кода...
+  Project1.vcxproj -> C:\Users\dimat\Desktop\Project1\x64\Debug\Lab20.exe

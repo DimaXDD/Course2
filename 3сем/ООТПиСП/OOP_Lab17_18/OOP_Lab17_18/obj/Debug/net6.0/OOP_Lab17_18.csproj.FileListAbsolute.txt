@@ -1,0 +1,15 @@
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\bin\Debug\net6.0\OOP_Lab17_18.exe
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\bin\Debug\net6.0\OOP_Lab17_18.deps.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\bin\Debug\net6.0\OOP_Lab17_18.runtimeconfig.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\bin\Debug\net6.0\OOP_Lab17_18.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\bin\Debug\net6.0\OOP_Lab17_18.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.csproj.AssemblyReference.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.GeneratedMSBuildEditorConfig.editorconfig
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.AssemblyInfoInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.AssemblyInfo.cs
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.csproj.CoreCompileInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\refint\OOP_Lab17_18.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\OOP_Lab17_18.genruntimeconfig.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab17_18\OOP_Lab17_18\obj\Debug\net6.0\ref\OOP_Lab17_18.dll

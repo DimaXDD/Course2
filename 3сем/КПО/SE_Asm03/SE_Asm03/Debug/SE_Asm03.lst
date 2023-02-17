@@ -1,0 +1,154 @@
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    09/22/22 20:40:56
+SE_Asm03.asm						     Page 1 - 1
+
+
+				.586P
+				.MODEL FLAT, STDCALL
+				includelib kernel32.lib
+
+				ExitProcess PROTO :DWORD
+				MessageBoxA PROTO : DWORD, : DWORD, : DWORD, : DWORD
+
+				.STACK 4096
+
+ 00000000			.CONST
+
+ 00000000			.DATA
+ 00000000 10 20 30 40			myBytes BYTE 10h, 20h, 30h, 40h					; 1 байт
+ 00000004 008A 003B 0044		myWords WORD 8Ah, 3Bh, 44h, 5Fh, 99h			; 2 байта
+	   005F 0099
+ 0000000E 00000001			myDoubles DWORD 1, 2, 3, 4, 5, 6				; 4 байта
+	   00000002
+	   00000003
+	   00000004
+	   00000005
+	   00000006
+ 00000026 0000000E R			myPointer DWORD myDoubles						; 4 байта
+
+ 0000002A 00000001			massive DWORD 1, 2, 3, 4, 5, 6, 7				; массив из 7 чисел, для задания с)
+	   00000002
+	   00000003
+	   00000004
+	   00000005
+	   00000006
+	   00000007
+ 00000046 00000000			sumOfElements DWORD 0							; сумма элементов массива, для задания с)
+					
+ 0000004A D2 F0 F3 E1 E0		STR1 DB "Трубач Дмитрий Сергеевич", 0			
+	   F7 20 C4 EC E8
+	   F2 F0 E8 E9 20
+	   D1 E5 F0 E3 E5
+	   E5 E2 E8 F7 00
+ 00000063 C5 F1 F2 FC 20		STR2 DB "Есть нулевой элемент", 0 
+	   ED F3 EB E5 E2
+	   EE E9 20 FD EB
+	   E5 EC E5 ED F2
+	   00
+ 00000078 CD F3 EB E5 E2		STR3 DB "Нулевого элемента не найдено", 0 
+	   EE E3 EE 20 FD
+	   EB E5 EC E5 ED
+	   F2 E0 20 ED E5
+	   20 ED E0 E9 E4
+	   E5 ED EE 00
+
+ 00000000			.CODE
+
+ 00000000			main PROC
+ 00000000			start: 
+ 00000000  BE 00000000			mov ESI, 0
+ 00000005  8B 86 0000000F R		mov EAX, myDoubles[ESI + 1] ; EAX = 33554432
+ 0000000B  8B 96 0000000E R		mov EDX, [myDoubles + ESI] ; EDX = 1
+
+					;Вычислить сумму элементов массива. Результат запомнить в регистре EAX.
+ 00000011  BE 0000002A R		mov ESI, OFFSET massive
+ 00000016  B9 00000007			mov ECX, lengthof massive						; сугубо счётчик
+ 0000001B  BB 00000001			mov EBX, 1
+ 00000020			CYCLE:
+ 00000020  8B 06			mov EAX, [ESI]									; EAX = massive[ESI], ESI = massive[0]
+ 00000022  01 05 00000046 R		add sumOfElements, EAX							; sumOfElements = sumOfElements + EAX, добавляем то, что в EAX
+ 00000028  83 C6 04			add ESI, type massive							; +4 байта
+ 0000002B  83 F8 00			cmp EAX, 0										; само сравнение
+ 0000002E  74 04			jz ZERO
+ 00000030  E2 EE			loop CYCLE										; --ECX, if (ECX != 0) goto CYCLE
+ 00000032  EB 07			jmp ALLOK
+
+ 00000034			ZERO:
+ 00000034  BB 00000000			mov EBX, 0	
+ 00000039  74 07			jz ZD1
+
+ 0000003B			ALLOK:
+ 0000003B  A1 00000046 R		mov eax, sumOfElements	
+ 00000040  75 1A			jnz ZD2
+
+
+ 00000042			ZD1:
+					INVOKE MessageBoxA, 0, OFFSET Str2, OFFSET Str1, 1
+					INVOKE ExitProcess, 2
+
+ 0000005C			ZD2:
+					INVOKE MessageBoxA, 0, OFFSET Str3, OFFSET Str1, 1
+					INVOKE ExitProcess, 2
+					
+ 00000076  6A FF		push -1
+ 00000078  E8 00000000 E	call ExitProcess
+
+ 0000007D			main ENDP
+
+				end main
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    09/22/22 20:40:56
+SE_Asm03.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CONST  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'CONST'	 ReadOnly
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000095 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000007D Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+MessageBoxA  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000007D Public STDCALL
+  start  . . . . . . . . . . . .	L Near	 00000000 _TEXT	
+  CYCLE  . . . . . . . . . . . .	L Near	 00000020 _TEXT	
+  ZERO . . . . . . . . . . . . .	L Near	 00000034 _TEXT	
+  ALLOK  . . . . . . . . . . . .	L Near	 0000003B _TEXT	
+  ZD1  . . . . . . . . . . . . .	L Near	 00000042 _TEXT	
+  ZD2  . . . . . . . . . . . . .	L Near	 0000005C _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+STR1 . . . . . . . . . . . . . .	Byte	 0000004A _DATA	
+STR2 . . . . . . . . . . . . . .	Byte	 00000063 _DATA	
+STR3 . . . . . . . . . . . . . .	Byte	 00000078 _DATA	
+massive  . . . . . . . . . . . .	DWord	 0000002A _DATA	
+myBytes  . . . . . . . . . . . .	Byte	 00000000 _DATA	
+myDoubles  . . . . . . . . . . .	DWord	 0000000E _DATA	
+myPointer  . . . . . . . . . . .	DWord	 00000026 _DATA	
+myWords  . . . . . . . . . . . .	Word	 00000004 _DATA	
+sumOfElements  . . . . . . . . .	DWord	 00000046 _DATA	
+
+	   0 Warnings
+	   0 Errors

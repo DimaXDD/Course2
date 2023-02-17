@@ -1,0 +1,15 @@
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.csproj.AssemblyReference.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.GeneratedMSBuildEditorConfig.editorconfig
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.AssemblyInfoInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.AssemblyInfo.cs
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.csproj.CoreCompileInputs.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\bin\Debug\net6.0\OOP_Lab15.exe
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\bin\Debug\net6.0\OOP_Lab15.deps.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\bin\Debug\net6.0\OOP_Lab15.runtimeconfig.json
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\bin\Debug\net6.0\OOP_Lab15.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\bin\Debug\net6.0\OOP_Lab15.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\refint\OOP_Lab15.dll
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.pdb
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\OOP_Lab15.genruntimeconfig.cache
+E:\2_курс\3сем\ООТПиСП\OOP_Lab15\OOP_Lab15\obj\Debug\net6.0\ref\OOP_Lab15.dll
