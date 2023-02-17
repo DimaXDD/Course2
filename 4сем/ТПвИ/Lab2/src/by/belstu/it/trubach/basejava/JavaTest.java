@@ -2,7 +2,10 @@ package by.belstu.it.trubach.basejava;
 
 import static java.lang.Math.log;
 
-
+/** Пример класса
+ * @author Дима$$
+ * @version 1.0
+ * */
 public class JavaTest {
 
     // c)
@@ -13,9 +16,16 @@ public class JavaTest {
     public final int a = 1;
     public static final int b = 2;
 
+    /** Метод main
+     *
+     *
+     * @param args - стринговый массив
+     * @return void
+     * */
+
     public static void main(String[] args) {
 
-        // b)
+        System.out.println("========== B) ==========");
         char c_var = 'a';
         String str = "Hello";
         int i_var = 100;
@@ -62,7 +72,7 @@ public class JavaTest {
         System.out.println("Float: " + Float.intBitsToFloat(0x7F800000));
         System.out.println("Float: " + Float.intBitsToFloat(0xFF800000));
 
-        // d)
+        System.out.println("========== D) ==========");
         System.out.println("Вывод Math.PI: " + Math.PI);
         System.out.println("Вывод Math.E: " + Math.E);
         System.out.println("Округление Math.PI: " + Math.round(Math.PI) );
@@ -70,7 +80,7 @@ public class JavaTest {
         System.out.println("Минимальное из: " + Math.min(Math.PI, Math.E) );
         System.out.println("Генерация случайного числа: " + Math.random() );
 
-        // e)
+        System.out.println("========== E) ==========");
         // Создать объекты разных классов оболочек и вывести их на экран
         Boolean bool_shell = new Boolean(true);
         Character char_shell = new Character('b');
@@ -108,7 +118,7 @@ public class JavaTest {
         Double f1 = new Double(0.0/0.0);
         System.out.println("Double.isNaN(0.0/0.0): " + f1.isNaN());
 
-        // e)
+        System.out.println("========== F) ==========");
         String s34 = "2345";
         int s35 = Integer.parseInt(s34);
         Integer i2 = Integer.valueOf(s34);
@@ -126,6 +136,69 @@ public class JavaTest {
         boolean b1 = Boolean.parseBoolean(s36);
         boolean b2 = Boolean.valueOf(s36);
         System.out.println("String to boolean: " + b1 + " " + b2);
+
+        String strComp = "Tolya";
+        String strComp2 = "Tolya";
+        System.out.println(strComp == strComp2);
+        System.out.println(strComp.equals(strComp2));
+        System.out.println(strComp.compareTo(strComp2));
+        System.out.println();
+
+        strComp2 = null;
+        System.out.println("Если одна строка null");
+        System.out.println(strComp == strComp2);
+        System.out.println(strComp.equals(strComp2));
+        // System.out.println(strComp.compareTo(strComp2));
+
+        String strExample = "Hello world";
+        System.out.println(strExample.split(" ")[0]);
+        System.out.println(strExample.contains("He"));
+        System.out.println(strExample.hashCode());
+        System.out.println(strExample.indexOf("l"));
+        System.out.println(strExample.length());
+        System.out.println(strExample.replace("l", "L"));
+
+        System.out.println("========== G) ==========");
+        char[][] c11 = new char[3][];
+        char[] c22[] = new char[2][3];
+        char c33[][] = new char[2][3];
+        c11[0] = new char[1];
+        c11[1] = new char[2];
+        c11[2] = new char[3];
+
+        System.out.println(c11.length);
+        System.out.println(c11[0].length);
+        System.out.println(c11[1].length);
+        System.out.println(c11[2].length);
+
+        c22[0][0] = 'a';
+        c22[0][1] = 'b';
+        c22[0][2] = 'c';
+        c22[1][0] = 'd';
+        c22[1][1] = 'e';
+        c22[1][2] = 'f';
+
+        c33[0][0] = 'a';
+        c33[0][1] = 'b';
+        c33[0][2] = 'c';
+        c33[1][0] = 'd';
+        c33[1][1] = 'e';
+        c33[1][2] = 'f';
+
+        boolean comRez = c22==c33;
+        System.out.println(comRez);
+        System.out.println(c22=c33);
+
+        for (char aa[]: c33) {
+            for (char b__: aa) {
+                System.out.println(b__);
+            }
+        }
+
+        WrapperString wrapperString = new WrapperString("123");
+
+        char ch1_ = '1';
+        char ch2_ = '2';
 
 
     }

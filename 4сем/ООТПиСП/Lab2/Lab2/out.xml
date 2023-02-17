@@ -8,12 +8,12 @@
   <Speciality>
     <string>ПОИТ</string>
   </Speciality>
-  <NumberOfLections>216</NumberOfLections>
-  <NumberOfLabs>24</NumberOfLabs>
+  <NumberOfLections>1232</NumberOfLections>
+  <NumberOfLabs>42</NumberOfLabs>
   <Control>Экзамен</Control>
   <lector>
     <Department>Программной инженерии</Department>
     <Name>Н,В,Пацей</Name>
-    <Auditorium>206</Auditorium>
+    <Auditorium>100-3а</Auditorium>
   </lector>
 </Discipline>

@@ -20,9 +20,9 @@ namespace Lab2
         }
 
         public List<Discipline> listOfDisciplines = new List<Discipline>();
-        Discipline discipline = new Discipline();   /// в этот объект пишем всю инфу из формы
+        Discipline discipline = new Discipline();   // в этот объект пишем всю инфу из формы
         string path = @"E:\2_курс\4сем\ООТПиСП\Lab2\Lab2\out.xml";
-        /// путь по которому будем записывать в xml-файл объект
+        // путь по которому будем записывать в xml-файл объект
 
         public void ExceptionsCheck()
         {
@@ -230,7 +230,7 @@ namespace Lab2
         // Лекционные часы
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         // Лабораторные часы
