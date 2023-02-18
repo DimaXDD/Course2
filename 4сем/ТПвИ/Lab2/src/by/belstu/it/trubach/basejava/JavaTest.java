@@ -195,10 +195,23 @@ public class JavaTest {
             }
         }
 
-        WrapperString wrapperString = new WrapperString("123");
+        System.out.println("========== H) ==========");
+        WrapperString WSElem = new WrapperString("Strochka");
 
-        char ch1_ = '1';
-        char ch2_ = '2';
+        WSElem.replace('a', 'b');
+        System.out.println(WSElem.getPstr());
+
+        WrapeprString AWS = new WrapeprString() {
+            public String pstr = "";
+            @Override
+            public void replace(char oldchar, char newchar) {
+                pstr = pstr.replace(oldchar, newchar);
+            }
+            public void delete(char newchar){
+                pstr = pstr.replace(newchar, ' ');
+                pstr = pstr.trim();
+            }
+        };
 
 
     }
