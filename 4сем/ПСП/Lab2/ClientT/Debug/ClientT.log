@@ -1,0 +1,4 @@
+﻿  ClientT.cpp
+E:\2_курс\4сем\ПСП\Lab2\ClientT\ClientT.cpp(98,4): warning C4101: obuf: неиспользованная локальная переменная
+E:\2_курс\4сем\ПСП\Lab2\ClientT\ClientT.cpp(97,8): warning C4101: ibuf: неиспользованная локальная переменная
+  ClientT.vcxproj -> E:\2_курс\4сем\ПСП\Lab2\Debug\ClientT.exe

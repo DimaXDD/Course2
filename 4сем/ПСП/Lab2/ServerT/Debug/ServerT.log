@@ -1,0 +1,3 @@
+﻿  ServerT.cpp
+E:\2_курс\4сем\ПСП\Lab2\ServerT\ServerT.cpp(97,7): warning C4101: t: неиспользованная локальная переменная
+  ServerT.vcxproj -> E:\2_курс\4сем\ПСП\Lab2\Debug\ServerT.exe
