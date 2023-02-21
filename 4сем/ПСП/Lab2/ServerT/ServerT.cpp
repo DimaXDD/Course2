@@ -97,9 +97,9 @@ int main()
 		int t;
 
 		if (FAILED(WSAStartup(MAKEWORD(1, 1), &ws)))
-			cout << "socket:" << WSAGetLastError() << endl;
+			cout << "Socket:" << WSAGetLastError() << endl;
 		if (INVALID_SOCKET == (s = socket(AF_INET, SOCK_STREAM, 0)))
-			cout << "socket:" << WSAGetLastError() << endl;
+			cout << "Socket:" << WSAGetLastError() << endl;
 
 		sockaddr_in c_adr;
 		sockaddr_in s_adr;
@@ -110,7 +110,7 @@ int main()
 		}
 
 		if (SOCKET_ERROR == (bind(s, (LPSOCKADDR)&s_adr, sizeof(s_adr))))
-			cout << "bind:" << WSAGetLastError() << endl;
+			cout << "Bind:" << WSAGetLastError() << endl;
 
 		if (SOCKET_ERROR == listen(s, 2))
 			cout << "listen:" << WSAGetLastError << endl;
@@ -120,7 +120,7 @@ int main()
 		{
 			int lcInt = sizeof(c_adr);
 			if (INVALID_SOCKET == (c = accept(s, (sockaddr*)&c_adr, &lcInt)))
-				cout << "accept:" << WSAGetLastError() << endl;
+				cout << "Accept:" << WSAGetLastError() << endl;
 
 			cout << "Client connected." << endl;
 			cout << "Client IP:    " << inet_ntoa(c_adr.sin_addr) << endl;
@@ -146,7 +146,7 @@ int main()
 		}
 
 		if (closesocket(c) == SOCKET_ERROR)
-			throw SetErrorMsgText("closesocket:", WSAGetLastError());
+			throw SetErrorMsgText("Closesocket:", WSAGetLastError());
 
 		if (WSACleanup() == SOCKET_ERROR)
 			throw SetErrorMsgText("Cleanup:", WSAGetLastError());

@@ -7,7 +7,9 @@ using namespace std;
 #pragma comment(lib, "WS2_32.lib")   // экспорт  WS2_32.dll
 #pragma warning(disable:4996)
 
-using namespace std;string  GetErrorMsgText(int code)    // cформировать текст ошибки 
+using namespace std;
+
+string GetErrorMsgText(int code)    // cформировать текст ошибки 
 {
 	string msgText;
 	switch (code)                      // проверка кода возврата  
@@ -67,7 +69,9 @@ using namespace std;string  GetErrorMsgText(int code)    // cформиров�
 	default: msgText = "***ERROR***"; break;
 	};
 	return msgText;
-};string SetErrorMsgText(string msgText, int code)
+};
+
+string SetErrorMsgText(string msgText, int code)
 {
 	return msgText + GetErrorMsgText(code);
 }
@@ -83,15 +87,15 @@ int main()
 
 
 		if ((cC = socket(AF_INET, SOCK_STREAM, NULL)) == INVALID_SOCKET)
-			throw  SetErrorMsgText("socket:", WSAGetLastError());
+			throw  SetErrorMsgText("Socket:", WSAGetLastError());
 
-		SOCKADDR_IN serv;                     // параметры  сокета sS
-		serv.sin_family = AF_INET;           // используется IP-адресация  
-		serv.sin_port = htons(2000);          // порт 2000
+		SOCKADDR_IN serv;								// параметры  сокета sS
+		serv.sin_family = AF_INET;						// используется IP-адресация  
+		serv.sin_port = htons(2000);					// порт 2000
 		serv.sin_addr.s_addr = inet_addr("127.0.0.1");  // адрес сервера
 
 		if ((connect(cC, (sockaddr*)&serv, sizeof(serv))) == SOCKET_ERROR)
-			throw  SetErrorMsgText("connect:", WSAGetLastError());
+			throw  SetErrorMsgText("Connect:", WSAGetLastError());
 
 
 		char ibuf[50],                      //буфер ввода 
@@ -124,11 +128,11 @@ int main()
 		cin >> t55;
 
 		if ((lobuf = send(cC, "", 1, NULL)) == SOCKET_ERROR)
-			throw  SetErrorMsgText("send:", WSAGetLastError());
+			throw  SetErrorMsgText("Send:", WSAGetLastError());
 
 
 		if (closesocket(cC) == SOCKET_ERROR)
-			throw  SetErrorMsgText("closesocket:", WSAGetLastError());
+			throw  SetErrorMsgText("Closesocket:", WSAGetLastError());
 
 		if (WSACleanup() == SOCKET_ERROR)
 			throw  SetErrorMsgText("Cleanup:", WSAGetLastError());
