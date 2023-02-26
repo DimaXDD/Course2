@@ -1,0 +1,16 @@
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\bin\Debug\Lab3.exe.config
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\bin\Debug\Lab3.exe
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\bin\Debug\Lab3.pdb
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.csproj.AssemblyReference.cache
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.csproj.SuggestedBindingRedirects.cache
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.Form1.resources
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.Properties.Resources.resources
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.csproj.GenerateResource.cache
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.csproj.CoreCompileInputs.cache
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.exe
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.pdb
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.Form2.resources
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.Form3.resources
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.Form4.resources
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\bin\Debug\System.ComponentModel.Annotations.dll
+E:\2_курс\4сем\ООТПиСП\Lab3\Lab3\obj\Debug\Lab3.csproj.CopyComplete
