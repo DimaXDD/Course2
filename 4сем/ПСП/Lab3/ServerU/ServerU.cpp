@@ -93,7 +93,7 @@ int main()
 		SOCKADDR_IN serv;
 		serv.sin_family = AF_INET;
 		serv.sin_port = htons(2000);
-		serv.sin_addr.s_addr = inet_addr("127.0.0.1"); // указываем сюда айпи
+		serv.sin_addr.s_addr = inet_addr("127.0.0.1"); // указываем сюда айпи сервера
 
 		if (bind(sS, (LPSOCKADDR)&serv, sizeof(serv)) == SOCKET_ERROR)
 			throw  SetErrorMsgText("bind:", WSAGetLastError());
@@ -102,7 +102,7 @@ int main()
 		SOCKADDR_IN clnt;
 		clnt.sin_family = AF_INET;
 		clnt.sin_port = htons(2000);
-		clnt.sin_addr.s_addr = inet_addr("127.0.0.1"); // указываем сюда айпи
+		clnt.sin_addr.s_addr = inet_addr("127.0.0.1"); // указываем сюда айпи клиента
 		memset(&clnt, 0, sizeof(clnt));
 		int lc = sizeof(clnt);
 		char ibuf[50];

@@ -99,8 +99,7 @@ int main()
 		SOCKADDR_IN serv;
 		serv.sin_family = AF_INET;
 		serv.sin_port = htons(2000);
-		serv.sin_addr.s_addr = inet_addr("192.168.56.104"); // сюда пишем айпи
-		char obuf[50] = "Hello from ClientU";
+		serv.sin_addr.s_addr = inet_addr("172.20.10.2"); // сюда пишем айпи сервера
 		int  lobuf = 0;
 		int lc = sizeof(serv);
 
@@ -108,10 +107,12 @@ int main()
 		int time = clock();
 		for (int i = 0; i < count; i++)
 		{
+			char obuf[50] = "Hello from ClientU";
+			char j[10];
+			itoa(i + 1, j, 10);
+			strcat(obuf, j);
 			if ((lobuf = sendto(cC, obuf, strlen(obuf) + 1, NULL, (sockaddr*)&serv, sizeof(serv))) == SOCKET_ERROR)
 				throw  SetErrorMsgText("sendto:", WSAGetLastError());
-			if (lobuf = recvfrom(cC, obuf, sizeof(obuf), NULL, (sockaddr*)&serv, &lc) == SOCKET_ERROR)
-				throw  SetErrorMsgText("recv:", WSAGetLastError());
 			cout << obuf << " " << i << endl;
 		}
 		cout << "\nProgram was running for " << time << " ticks or " << ((float)time) / CLOCKS_PER_SEC << " seconds.\n";
