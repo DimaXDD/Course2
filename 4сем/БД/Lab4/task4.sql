@@ -1,0 +1,6 @@
+﻿use UNIVER;
+
+SELECT isnull (TEACHER.TEACHER_NAME, '***') [Преподаватель],
+	PULPIT.PULPIT_NAME
+	FROM PULPIT left outer join TEACHER
+		ON PULPIT.PULPIT = TEACHER.PULPIT
