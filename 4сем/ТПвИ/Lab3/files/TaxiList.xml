@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container xmlns="http://msiter.ru" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://msiter.ru validation.xsd">
+<TaxiList>
+    <Taxi>
+        <NameCar>Geely</NameCar>
+        <Fuel>0.25</Fuel>
+        <Speed>120</Speed>
+        <Type>carType.economy</Type>
+    </Taxi>
+    <Taxi>
+        <NameCar>BMW</NameCar>
+        <Fuel>0.35</Fuel>
+        <Speed>180</Speed>
+        <Type>carType.comfort</Type>
+    </Taxi>
+    <Taxi>
+        <NameCar>Mercedes</NameCar>
+        <Fuel>0.40</Fuel>
+        <Speed>200</Speed>
+        <Type>carType.business</Type>
+    </Taxi>
+    <Taxi>
+        <NameCar>Rolls-Royce</NameCar>
+        <Fuel>0.5</Fuel>
+        <Speed>220</Speed>
+        <Type>carType.luxury</Type>
+    </Taxi>
+</TaxiList>
+</Container>

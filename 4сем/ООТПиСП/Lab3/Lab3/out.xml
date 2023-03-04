@@ -18,4 +18,22 @@
       <Auditorium>100-3a</Auditorium>
     </lector>
   </Discipline>
+  <Discipline>
+    <Name>ПСП</Name>
+    <Semester>1</Semester>
+    <Course>
+      <string>3-ий курс</string>
+    </Course>
+    <Speciality>
+      <string>ИСИТ</string>
+    </Speciality>
+    <NumberOfLections>123</NumberOfLections>
+    <NumberOfLabs>32435465</NumberOfLabs>
+    <Control>Экзамен</Control>
+    <lector>
+      <Department>Программной инженерии</Department>
+      <Name>Д,В,Шиман</Name>
+      <Auditorium>200-3a</Auditorium>
+    </lector>
+  </Discipline>
 </ArrayOfDiscipline>

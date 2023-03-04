@@ -37,6 +37,7 @@ public class TaxiPark {
     {
         taxiList.removeAll(taxiList);
     }
+    
 
     public class Manager implements IManager
     {

@@ -1,8 +1,0 @@
-февр. 25, 2023 1:49:54 PM by.trubach.main.Main main
-INFO: Созданы экземпляры классов Economy, Comfort, Business, Luxury
-февр. 25, 2023 1:49:54 PM by.trubach.main.Main main
-INFO: Создан экземпляр класса TaxiPark
-февр. 25, 2023 1:49:54 PM by.trubach.main.Main main
-INFO: Создали менеджера и посчитали по заданию
-февр. 25, 2023 1:49:54 PM by.trubach.main.Main main
-INFO: Конец программы!!!

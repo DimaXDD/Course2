@@ -3,7 +3,7 @@ import by.trubach.taxiexception.TaxiException;
 
 import java.io.Serializable;
 
-public class Taxi extends Car implements Comparable <Taxi> { // наследуем от Comparable, чтобы перегрузить compareTo()
+public class Taxi extends Car implements Comparable <Taxi>, Serializable { // наследуем от Comparable, чтобы перегрузить compareTo()
     private String nameCar;            // поля из класса Car
     private carType type;
     private double fuelRate;
@@ -32,6 +32,19 @@ public class Taxi extends Car implements Comparable <Taxi> { // наследуе
     public int compareTo(Taxi o)
     {
         return Integer.compare(this.getSpeed(), o.getSpeed());
+    }
+
+    // Переопределяем метод toString() для вывода информации о такси
+    @Override
+    public String toString() {
+        // Красивый вывод информации о такси на русском языке
+        return "Такси: " + nameCar + ","+ "\n" +
+                "тип: " + type + ","+  "\n" +
+                "расход топлива: " + fuelRate + ","+ "\n" +
+                "скорость: " + speed + ","+ "\n" +
+                "стоимость поездки: " + taxiFare + ","+ "\n" +
+                "прибыль: " + profit + "\n" +
+                "-----------------------------";
     }
 
     public double ride(double km) throws TaxiException       // метод для поездок, который будем переопределять в каждом классе
