@@ -95,7 +95,7 @@ public class Main {
 
         // валидация xml с xsd
         File schemaFile = new File("files/validation.xsd");
-        Source xmlFile = new StreamSource(new File("files/TaxiList.xml"));
+        Source xmlFile = new StreamSource(new File("files/taxilist.xml"));
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI); // нужно для считывания схемы
         Schema schema = schemaFactory.newSchema(schemaFile);    // здесь лежит прочитанная и понятная джаве сама xsd-схема
         Validator validator = schema.newValidator();            // запуск xsd-валидатора из javax.xml.validation.Validator
