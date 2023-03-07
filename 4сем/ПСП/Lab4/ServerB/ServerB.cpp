@@ -1,16 +1,10 @@
-﻿#include <iostream>
-#include <string>
+﻿#include "iostream"
 #include "Winsock2.h"
-#include <Windows.h>
 
-#pragma comment(lib, "WS2_32.lib")
-#pragma warming(disable:4996)
+#pragma comment(lib,"WS2_32.lib")
+#pragma warning(disable:4996) 
 
 using namespace std;
-
-SOCKET serverSocket;
-char name[] = "Hello";					// позывной сервера
-char checkServName[] = "CheckServ"; 	// позывной клиента
 
 string GetErrorMsgText(int code)
 {
@@ -188,137 +182,170 @@ string SetErrorMsgText(string msgText, int code)
 	return msgText + GetErrorMsgText(code);
 }
 
+
+SOCKET sS;
+SOCKET cS;
+
+
+bool GetServer(char* call, short port, sockaddr* from, int* flen)
+{
+	SOCKADDR_IN all;
+	all.sin_addr.s_addr = INADDR_BROADCAST;
+	all.sin_family = AF_INET;
+	all.sin_port = htons(2000);
+	from = (sockaddr*)&all;
+	int err = 0;
+
+	if ((err = sendto(cS, call, strlen(call) + 1, NULL, from, *flen) == SOCKET_ERROR))
+	{
+		throw SetErrorMsgText("sendto:", WSAGetLastError());
+	}
+
+	if ((err = recvfrom(cS, call, sizeof(call), NULL, from, flen) == SOCKET_ERROR))
+	{
+		return false;
+	}
+	cout << call << endl;
+	return true;
+
+}
 bool GetRequestFromClient(char* name, short port, sockaddr* from, int* flen)
 {
-	char nameServer[50];				// имя сервера
-	memset(from, 0, sizeof(flen));		// очистка структуры
-
-	if ((serverSocket = socket(AF_INET, SOCK_DGRAM, NULL)) == INVALID_SOCKET)	// для сетвеого протокола ipv4, датаграмнный сокет (поток)
+	char bfrom[50];
+	int err = 0;
+	while (true)
 	{
-		throw  SetErrorMsgText("socket:", WSAGetLastError());
-	}
 
-	SOCKADDR_IN serv;
-	serv.sin_family = AF_INET;
-	serv.sin_port = htons(port);
-	serv.sin_addr.s_addr = INADDR_ANY;
-
-	if (bind(serverSocket, (LPSOCKADDR)&serv, sizeof(serv)) == SOCKET_ERROR)	// связывание сокета с адресом
-	{
-		throw  SetErrorMsgText("Походу такой сервер уже есть: ", WSAGetLastError());
-	}
-
-	if ((recvfrom(serverSocket, nameServer, sizeof(nameServer), NULL, from, flen)) == SOCKET_ERROR) // ожидание запроса
-	{
-		if (WSAGetLastError() == WSAETIMEDOUT)
+		if ((err = recvfrom(sS, bfrom, sizeof(bfrom), NULL, from, flen)) == SOCKET_ERROR)
 		{
-			return false;
+			throw SetErrorMsgText("rexevfrom: ", WSAGetLastError());
 		}
-		else
+		if (strcmp(name, bfrom) == 0)
 		{
-			throw  SetErrorMsgText("recv:", WSAGetLastError());
+			return true;
 		}
 	}
 
-	if (!strcmp(nameServer, name)) // проверка на совпадение имени сервера
-	{
-		cout << endl << "Позывной сервера совпадает.";
-		return true;
-	}
-	else if (strcmp(nameServer, checkServName) == 0) {
-		cout << "Найден идентичный сервер!" << endl;
-		return false;
-	}
-	else
-	{
-		cout << endl << "Позывной сервера не совпадает.";
-		return false;
-	}
 }
 
-bool PutAnswerToClient(const char* name, sockaddr* to, int* lto)
+bool PutAnswerToClient(char* name, sockaddr* to, int* lto)
 {
-	if ((sendto(serverSocket, name, strlen(name) + 1, NULL, to, *lto)) == SOCKET_ERROR)
+	int err = 0;
+	if ((err = sendto(sS, name, strlen(name) + 1, NULL, to, *lto)) == SOCKET_ERROR)
 	{
-		throw  SetErrorMsgText("send:", WSAGetLastError());
+		throw SetErrorMsgText("sendto: ", WSAGetLastError());
+		return false;
 	}
-
 	return true;
 }
 
-void CheckServer() {
 
-	char checkServ[] = "CheckServ";
-
-	int checkServer;
-	if ((checkServer = socket(AF_INET, SOCK_DGRAM, NULL)) == INVALID_SOCKET)
-		throw  SetErrorMsgText("socket:", WSAGetLastError());
-
-	int optval = 1;										// equals to 'enabled'			
-
-	if (setsockopt(checkServer, SOL_SOCKET,				// уровень д-вия режима
-		SO_BROADCAST,									// режим сокета для исп-ния широковещ.адреса
-		(char*)&optval,									// значение режима сокета
-		sizeof(int)) == SOCKET_ERROR)					// длина буфера оптвал
-	{
-		throw  SetErrorMsgText("opt:", WSAGetLastError());
-	}
-
-	SOCKADDR_IN all;
-	all.sin_family = AF_INET;
-	all.sin_port = htons(2000);
-	all.sin_addr.s_addr = INADDR_BROADCAST;
-
-	if ((sendto(checkServer, checkServ, strlen(checkServ) + 1, NULL, (sockaddr*)&all, sizeof(all))) == SOCKET_ERROR)
-		throw  SetErrorMsgText("sendto:", WSAGetLastError());
-
-	if (closesocket(checkServer) == SOCKET_ERROR)
-		throw  SetErrorMsgText("closesocket:", WSAGetLastError());
-}
-
-int main()
+void main()
 {
-	setlocale(LC_ALL, "rus");
-	WSADATA wsaData;
-
 	try
 	{
-		if (WSAStartup(MAKEWORD(2, 0), &wsaData) != 0)								// инициализация библиотеки
-			throw  SetErrorMsgText("Startup:", WSAGetLastError());
 
-		CheckServer();
+		setlocale(LC_ALL, "rus");
+		char name[10] = "Hello";
+		WSADATA wsaData;
+		if (WSAStartup(MAKEWORD(2, 0), &wsaData) != 0)
+		{
+			throw SetErrorMsgText("wsaSartUp: ", WSAGetLastError());
+		}
+		DWORD timeout = 10;
 
-		while (true) {
-			SOCKADDR_IN clnt;
-			int lc = sizeof(clnt);
-
-			if (GetRequestFromClient(name, 2000, (sockaddr*)&clnt, &lc))
-			{
-				std::cout << std::endl << PutAnswerToClient(name, (sockaddr*)&clnt, &lc);
-			}
-			else
-			{
-				std::cout << std::endl << PutAnswerToClient("*Error name*", (sockaddr*)&clnt, &lc);
-			}
-
-			SOCKADDR_IN* addr = (SOCKADDR_IN*)&clnt;
-			std::cout << std::endl << "Порт клиента: " << addr->sin_port;
-			std::cout << std::endl << "IP-адрес клиента: " << inet_ntoa(addr->sin_addr);
-
-			if (closesocket(serverSocket) == SOCKET_ERROR)							// закрыть сокет
-				throw  SetErrorMsgText("closesocket:", WSAGetLastError());
+		if ((cS = socket(AF_INET, SOCK_DGRAM, NULL)) == INVALID_SOCKET)
+		{
+			throw SetErrorMsgText("socket create: ", WSAGetLastError());
+		}
+		int optval = 1;
+		if (setsockopt(cS, SOL_SOCKET, SO_BROADCAST, (char*)&timeout, sizeof(int)) == SOCKET_ERROR)
+		{
+			throw SetErrorMsgText("setsockopt: ", WSAGetLastError());
+		}
+		if (setsockopt(cS, SOL_SOCKET, SO_RCVTIMEO, (char*)&optval, sizeof(int)) == SOCKET_ERROR)
+		{
+			throw SetErrorMsgText("setsockopt: ", WSAGetLastError());
 		}
 
-		if (WSACleanup() == SOCKET_ERROR)											// завершить работу с библиотекой
-			throw  SetErrorMsgText("Cleanup:", WSAGetLastError());
+		SOCKADDR_IN all;
+		int allLen = sizeof(all);
+		if (GetServer(name, 2000, (sockaddr*)&all, &allLen))
+		{
+			cout << "В сети есть несколько серверов с позывным " << name << endl;
+			return;
+		}
+		else
+		{
+			cout << "В сети один сервер с позывным " << name << endl;
+		}
+		if (closesocket(cS) == SOCKET_ERROR)
+		{
+			throw SetErrorMsgText("close socket: ", WSAGetLastError());
+		}
+
+		if ((sS = socket(AF_INET, SOCK_DGRAM, NULL)) == INVALID_SOCKET)
+		{
+			throw SetErrorMsgText("creaate socket: ", WSAGetLastError());
+		}
+		SOCKADDR_IN  serv;
+		serv.sin_addr.s_addr = INADDR_ANY;
+		serv.sin_family = AF_INET;
+		serv.sin_port = htons(2000);
+
+		if (bind(sS, (LPSOCKADDR)&serv, sizeof(serv)) == SOCKET_ERROR)
+		{
+			throw SetErrorMsgText("bind: ", WSAGetLastError());
+		}
+
+
+
+		SOCKADDR_IN  from;
+		memset(&from, 0, sizeof(from));
+		int lbfrom = sizeof(from);
+		char hostName[20];
+		int err = 0;
+		hostent* addr;
+
+		if ((err = gethostname(hostName, sizeof(hostName))) == SOCKET_ERROR)
+		{
+			throw SetErrorMsgText("get host name: ", WSAGetLastError());
+		}
+
+		cout << "host name: " << hostName;
+		while (true)
+		{
+			if (!GetRequestFromClient(name, 2000, (sockaddr*)&from, &lbfrom))
+			{
+				throw SetErrorMsgText("getRequestFromClient: ", WSAGetLastError());
+			}
+
+			std::cout << endl << "IP: " << inet_ntoa(from.sin_addr) << "\tport: " << htons(from.sin_port) << endl;
+			lbfrom = sizeof(from);
+
+			//addr = gethostbyaddr(inet_ntoa(from.sin_addr), sizeof(inet_ntoa(from.sin_addr)), AF_INET);
+			//cout <<"workstation name: " << addr->h_name <<endl;
+			//
+
+
+			if (!PutAnswerToClient(name, (sockaddr*)&from, &lbfrom))
+			{
+				throw SetErrorMsgText("put answer: ", WSAGetLastError());
+			}
+		}
+
+
+		if (closesocket(sS) == SOCKET_ERROR)
+		{
+			throw SetErrorMsgText("close socket: ", WSAGetLastError());
+		}
+		if (WSACleanup() == SOCKET_ERROR)
+		{
+			throw SetErrorMsgText("cleanup: ", WSAGetLastError());
+		}
 	}
-	catch (string errorMsgText)
-	{
+	catch (string errorMsgText) {
 		cout << endl << "WSAGetLastError: " << errorMsgText;
 	}
 
-	system("pause");
-	return 0;
 }
-
-

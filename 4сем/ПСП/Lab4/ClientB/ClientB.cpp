@@ -4,7 +4,7 @@
 #include <Windows.h>
 
 #pragma comment(lib, "WS2_32.lib")
-#pragma warming(disable:4996)
+#pragma warning(disable:4996)
 
 using namespace std;
 
