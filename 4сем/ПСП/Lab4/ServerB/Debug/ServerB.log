@@ -1,4 +1,4 @@
 ﻿  ServerB.cpp
-E:\2_курс\4сем\ПСП\Lab4\ServerB\ServerB.cpp(88,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-E:\2_курс\4сем\ПСП\Lab4\ServerB\ServerB.cpp(152,12): warning C4101: addr: неиспользованная локальная переменная
+E:\2_курс\4сем\ПСП\Lab4\ServerB\ServerB.cpp(127,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+E:\2_курс\4сем\ПСП\Lab4\ServerB\ServerB.cpp(191,12): warning C4101: addr: неиспользованная локальная переменная
   ServerB.vcxproj -> E:\2_курс\4сем\ПСП\Lab4\Debug\ServerB.exe
