@@ -1,0 +1,8 @@
+﻿use UNIVER;
+
+select distinct PULPIT_NAME[Кафедра] --, PROFESSION_NAME
+from PULPIT inner join FACULTY
+on FACULTY.FACULTY = PULPIT.FACULTY inner join PROFESSION
+on FACULTY.FACULTY = PROFESSION.FACULTY
+where PROFESSION_NAME LIKE '%технологии%'
+or PROFESSION_NAME like ('%технология%')
