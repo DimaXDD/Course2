@@ -1,0 +1,4 @@
+﻿  Task1(String_generator).cpp
+E:\2_курс\4сем\МатПрога\Lab4\Task1(String_generator)\Task1(String_generator).cpp(24,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+E:\2_курс\4сем\МатПрога\Lab4\Task1(String_generator)\Task1(String_generator).cpp(35,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Task1(String_generator).vcxproj -> E:\2_курс\4сем\МатПрога\Lab4\Debug\Task1(String_generator).exe

@@ -117,7 +117,7 @@ void main()
 		}
 		SOCKADDR_IN sock;
 		int len = sizeof(sock);
-		char name[20] = "Svendell"; // DESKTOP-DDFE5SO (пишем сюда хост, к которому будем делать коннект)
+		char name[20] = "DimaDD"; // DESKTOP-DDFE5SO (пишем сюда хост, к которому будем делать коннект)
 		char call[20] = "Hello";
 		if (!GetServerByName(name, call, (sockaddr*)&sock, &len))
 		{
