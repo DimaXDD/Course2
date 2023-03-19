@@ -5,11 +5,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 public class DAO implements IConnect, IQuery {
-    private String url;             // url основной бд
-    private String user;            // юзер для подключения
-    private String password;        // его пароль
-    private Connection con;         // соединение
-    private Statement statement;    // стейтмент для запросов
+    private String url;
+    private String user;
+    private String password;
+    private Connection con;
+    private Statement statement;
     private static final Logger logger = Logger.getLogger(Main.class);
 
     // LOG
