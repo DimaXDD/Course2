@@ -1,3 +1,5 @@
-﻿  Task2(Levenshtein).cpp
+﻿  Levenshtein.cpp
+  Task2(Levenshtein).cpp
 E:\2_курс\4сем\МатПрога\Lab4\Task2(Levenshtein)\Task2(Levenshtein).cpp(40,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода...
   Task2(Levenshtein).vcxproj -> E:\2_курс\4сем\МатПрога\Lab4\Debug\Task2(Levenshtein).exe
