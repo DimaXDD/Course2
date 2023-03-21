@@ -34,7 +34,6 @@ int main()
 	}
 	cout << endl << endl;
 
-	srand(time(NULL) + 1);
 	char* s2 = GenerateRandomString(SECOND_LEN);
 	cout << "S2: " << endl;
 	for (int i = 0; i < SECOND_LEN; i++) {
