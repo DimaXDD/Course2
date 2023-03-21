@@ -104,8 +104,8 @@ int main()
 			0, // Совместное чтение и запись
 			NULL, // аттрибуты безопасности
 			OPEN_EXISTING, //  открытие существующего канала
-			NULL, // флаги и атрибуты
-			NULL)) == INVALID_HANDLE_VALUE) // доп флаги
+			NULL,
+			NULL)) == INVALID_HANDLE_VALUE)
 		{
 			throw SetPipeError("CreateFile: ", GetLastError());
 		}

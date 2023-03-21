@@ -7,9 +7,7 @@
 #pragma warning(disable:4996)
 
 // Локальный формат имени канала
-#define PIPE_NAME L"\\\\.\\pipe\\Tube"	// где: точка (.) - обозначает локальный компьютер;
-										// pipe - фиксированное слово;
-										// xxxxx - имя канала
+#define PIPE_NAME L"\\\\.\\pipe\\Tube"
 
 using namespace std;
 
@@ -92,14 +90,14 @@ int main()
 	{
 		// 1 блок - CreateNamedPipe (создать именованный канал) и ConnectNamedPipe (подсоединить сервер к каналу)
 		if ((sH = CreateNamedPipe(
-			PIPE_NAME, // Имя канала
+			PIPE_NAME,
 			PIPE_ACCESS_DUPLEX, // флаги направления канала (PIPE_ACCESS_DUPLEX - разрешает чтение и запись в канал)
 			PIPE_TYPE_MESSAGE | PIPE_WAIT, // разрешает запись данных сообщениями\потоком байт в синхронном режиме
 			1, // Максимальное кол-во экземпляров канала
-			NULL, // размер выходного буфера
-			NULL, // размер входного буфера
-			INFINITE, // время ожидания связи с клиентом
-			NULL)) == INVALID_HANDLE_VALUE) // аттрибуты безопасности 
+			NULL,
+			NULL,
+			INFINITE,
+			NULL)) == INVALID_HANDLE_VALUE) // атрибуты безопасности 
 		{
 			throw SetPipeError("CreateNamedPipe: ", GetLastError());
 

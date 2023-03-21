@@ -114,6 +114,5 @@ int main()
 	catch (string ErrorPipeText)
 	{
 		cout << "\nError in ClientNPct" << ErrorPipeText;
-		cout << "Доволен?\n\n";
 	}
 }
