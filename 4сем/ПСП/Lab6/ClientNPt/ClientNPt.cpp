@@ -89,7 +89,6 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	int countOfMessages = 0;
 	HANDLE cH; // дескриптор канала
 	DWORD dwWrite;
 	DWORD bytes;
