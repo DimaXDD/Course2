@@ -1,0 +1,3 @@
+﻿  ClientNPct.cpp
+E:\2_курс\4сем\ПСП\Lab6\ClientNPct\ClientNPct.cpp(92,8): warning C4101: dwWrite: неиспользованная локальная переменная
+  ClientNPct.vcxproj -> E:\2_курс\4сем\ПСП\Lab6\Debug\ClientNPct.exe

@@ -12,8 +12,9 @@
 										// xxxxx - имя канала
 
 // Сетевой формат имени канала
-#define PIPE_NAME_LAN L"\\\\SERVER\\pipe\\Tube"
-#define STOP "STOP"
+#define PIPE_NAME_LAN L"\\\\DimaDD\\pipe\\Tube"
+
+#define MAX_SIZE_OF_BUFFER 64
 
 using namespace std;
 
@@ -90,10 +91,12 @@ int main()
 
 	int countOfMessages = 0;
 	HANDLE cH; // дескриптор канала
-	DWORD lp;
-	DWORD mode = PIPE_READMODE_MESSAGE;
-	char ibuf[50] = "Hello from ClientNPt ";
-	char obuf[50];
+	DWORD dwWrite;
+	DWORD bytes;
+	char buffer[50] = { "Hello Server" };
+	char* outbuffer = new char[MAX_SIZE_OF_BUFFER];
+	memset(outbuffer, NULL, MAX_SIZE_OF_BUFFER);
+	DWORD state = PIPE_READMODE_MESSAGE;
 
 	try
 	{
@@ -110,33 +113,24 @@ int main()
 			throw SetPipeError("CreateFile: ", GetLastError());
 		}
 
-		if (!SetNamedPipeHandleState(cH, &mode, NULL, NULL))
+		if (!SetNamedPipeHandleState(cH, &state, NULL, NULL)) // функция предназначена для изменения динамических характеристик именованного канала
 		{
 			throw SetPipeError("SetNamedPipeHandleState: ", GetLastError());
 		}
 
-		cout << "Введите кол-во сообщений: ";
-		cin >> countOfMessages;
 
-		for (int i = 1; i < countOfMessages; ++i)
+		// 2 и 3 блок
+		if (!TransactNamedPipe(cH, // канал
+			buffer, //входной буфер
+			sizeof(buffer), // размер входного буфера
+			outbuffer, // выходной буфер
+			MAX_SIZE_OF_BUFFER, // размер выходного буфера
+			&bytes, // кол-во прочитанных байт
+			NULL)) // параметр для асинхронного доступа
 		{
-			string obufstr = "Hello from ClientNPt " + to_string(i);
-			strcpy_s(obuf, obufstr.c_str());
-
-			// 2 и 3 блок
-			if (!TransactNamedPipe(cH, obuf, sizeof(obuf), ibuf, sizeof(ibuf), &lp, NULL))
-			{
-				throw SetPipeError("TransactNamedPipe: ", GetLastError());
-			}
-
-			cout << "[OK] Sent message: " << ibuf << endl;
+			throw SetPipeError("TransactNamedPipe:", GetLastError());
 		}
-
-		if (!WriteFile(cH, STOP, sizeof(STOP), &lp, NULL))
-		{
-			throw SetPipeError("WriteFile: ", GetLastError());
-		}
-
+		cout << "Сервер прислал СМС: " << outbuffer << endl;
 
 		// 4 блок
 		if (!CloseHandle(cH))

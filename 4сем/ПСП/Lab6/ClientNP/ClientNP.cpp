@@ -12,8 +12,9 @@
 										// xxxxx - имя канала
 
 // Сетевой формат имени канала
-#define PIPE_NAME_LAN L"\\\\SERVER\\pipe\\Tube"
-#define STOP "STOP"
+#define PIPE_NAME_LAN L"\\\\DimaDD\\pipe\\Tube"
+
+#define MAX_SIZE_OF_BUFFER 64
 
 using namespace std;
 
@@ -89,8 +90,8 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	HANDLE cH; // дескриптор канала
-	DWORD lp;
-	char buf[50];
+	DWORD dwWrite;
+	char buffer[50] = { "Hello Server" };
 
 	try
 	{
@@ -113,28 +114,21 @@ int main()
 		cout << "Введите кол-во сообщений: ";
 		cin >> countOfMessages;
 
-		for (int i = 1; i < countOfMessages; ++i)
+		for (int i = 1; i <= countOfMessages; i++) 
 		{
-			string obuf = "Hello from ClientNP " + to_string(i);
-			
+
 			// 2 блок
-			if (!WriteFile(cH, obuf.c_str(), sizeof(obuf), &lp, NULL))
+			if (!WriteFile(cH, &buffer, strlen(buffer - 1), &dwWrite, NULL)) 
 			{
 				throw SetPipeError("WriteFile: ", GetLastError());
 			}
 
 			// 3 блок
-			if (!ReadFile(cH, buf, sizeof(buf), &lp, NULL))
+			if (!ReadFile(cH, buffer, MAX_SIZE_OF_BUFFER, &dwWrite, NULL)) 
 			{
 				throw SetPipeError("ReadFile: ", GetLastError());
 			}
-
-			cout << "[OK] Sent message: " << buf << endl;
-		}
-
-		if (!WriteFile(cH, STOP, sizeof(STOP), &lp, NULL))
-		{
-			throw SetPipeError("WriteFile: ", GetLastError());
+			cout << "Сервер прислал СМС: " << buffer << endl;
 		}
 
 		// 4 блок

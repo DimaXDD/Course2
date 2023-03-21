@@ -10,7 +10,6 @@
 #define PIPE_NAME L"\\\\.\\pipe\\Tube"	// где: точка (.) - обозначает локальный компьютер;
 										// pipe - фиксированное слово;
 										// xxxxx - имя канала
-//#define STOP "STOP"
 
 using namespace std;
 
@@ -86,7 +85,7 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	HANDLE sH;	// дескриптор канала
-	DWORD lp; // для блока 2
+	DWORD dwRead; // для блока 2
 	char buffer[50];
 
 	try
@@ -112,20 +111,12 @@ int main()
 
 		cout << "Начинаем прослушку" << endl;
 
-		while (true)
+
+		// 2 и 3 блок - ввод и вывод данных(функции ReadFile и WriteFile) в именованном канале
+		while (ReadFile(sH, buffer, strlen(buffer - 1), &dwRead, NULL) != FALSE)
 		{
-			// 2 и 3 блок - ввод и вывод данных(функции ReadFile и WriteFile) в именованном канале
-			if (ReadFile(sH, buffer, strlen(buffer - 1), &lp, NULL))
-			{
-				/*if (strcmp(buffer, STOP) == 0)
-					break;*/
-				cout << "Клиент прислал СМС: " << buffer << endl;
-				WriteFile(sH, &buffer, strlen(buffer), &lp, NULL);
-			}
-			else
-			{
-				throw SetPipeError("ReadFile: ", GetLastError());
-			}
+			cout << "Клиент прислал СМС: " << buffer << endl;
+			WriteFile(sH, &buffer, strlen(buffer), &dwRead, NULL);
 		}
 
 		// 4 блок - сервер разрывает соединение с помощью функции DisconnectNamedPipe и закрывает дескриптор именованного канала

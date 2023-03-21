@@ -12,8 +12,9 @@
 										// xxxxx - имя канала
 
 // Сетевой формат имени канала
-#define PIPE_NAME_LAN L"\\\\SERVER\\pipe\\Tube"
-#define STOP "STOP"
+#define PIPE_NAME_LAN L"\\\\DimaDD\\pipe\\Tube"
+
+#define MAX_SIZE_OF_BUFFER 64
 
 using namespace std;
 
@@ -88,37 +89,27 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	int countOfMessages = 0;
-	HANDLE cH; // дескриптор канала
-	DWORD lp;
-	char ibuf[50], obuf[50];
+	DWORD dwWrite;
+	DWORD bytes;
+	char buffer[50] = { "Hello Server" };
+	char* outbuffer = new char[MAX_SIZE_OF_BUFFER];
+	memset(outbuffer, NULL, MAX_SIZE_OF_BUFFER);
 
 	try
 	{
-		cout << "Введите кол-во сообщений: ";
-		cin >> countOfMessages;
 
-		if (countOfMessages > 1)
+		if (!CallNamedPipe(
+			PIPE_NAME, // канал
+			buffer, //входной буфер
+			sizeof(buffer), // размер входного буфера
+			outbuffer, // выходной буфер
+			MAX_SIZE_OF_BUFFER, // размер выходного буфера
+			&bytes, // кол-во прочитанных байт
+			NULL)) // параметр для асинхронного доступа
 		{
-			cout << "Более одного сообщения? У тебя всё сломается, смотри\n\n";
-			Sleep(2000);
+			throw SetPipeError("CallNamedPipe:", GetLastError());
 		}
-
-		for (int i = 1; i <= countOfMessages; ++i)
-		{
-			string obufstr = "Hello from ClientNPct " + to_string(i);
-			strcpy_s(obuf, obufstr.c_str());
-
-
-			// 2 и 3 блок
-			if (!CallNamedPipe(PIPE_NAME, obuf, sizeof(obuf), ibuf, sizeof(ibuf), &lp, NMPWAIT_WAIT_FOREVER))
-			{
-				throw SetPipeError("CallNamedPipe: ", GetLastError());
-
-			}
-
-			cout << "[OK] Sent message: " << ibuf << endl;
-		}
+		cout << "Сервер прислал СМС: " << outbuffer << endl;
 	}
 	catch (string ErrorPipeText)
 	{
