@@ -1,2 +1,6 @@
-﻿  Task5(Matrix).cpp
-  Task5(Matrix).vcxproj -> E:\2_курс\4сем\МатПрога\Lab4\Debug\Task5(Matrix).exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (Task5(Matrix).vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  LCS.cpp
+E:\2_курс\4сем\МатПрога\Lab4\Task5(Matrix)\LCS.cpp(42,6): warning C4101: n: неиспользованная локальная переменная
+  Task5(LCS).cpp
+  Создание кода...
+  Task5(Matrix).vcxproj -> E:\2_курс\4сем\МатПрога\Lab4\Debug\Task5(LCS).exe

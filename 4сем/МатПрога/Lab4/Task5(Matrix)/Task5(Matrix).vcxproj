@@ -24,6 +24,7 @@
     <ProjectGuid>{84911b29-97a4-4ac3-89cc-5954c1f86e36}</ProjectGuid>
     <RootNamespace>Task5Matrix</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Task5(LCS)</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="LCS.cpp" />
-    <ClCompile Include="Task5(Matrix).cpp" />
+    <ClCompile Include="Task5%28LCS%29.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LCS.h" />
