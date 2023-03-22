@@ -7,7 +7,7 @@ select a.FACULTY,
 	   G.IDGROUP,
 	   P.SUBJECT,
 	   --(2014 - g.YEAR_FIRST) [Курс]
-       round(avg(cast(NOTE AS float(4))), 2) as [Средняя оценка]
+       round(avg(cast(NOTE AS float())), 2) as [Средняя оценка]
 from FACULTY a
          join GROUPS G on a.FACULTY = G.FACULTY
          join STUDENT S on G.IDGROUP = S.IDGROUP
