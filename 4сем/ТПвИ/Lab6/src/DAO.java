@@ -125,19 +125,18 @@ public class DAO implements IConnect, IQuery {
         // Вывести информацию об авторах, написавших как минимум n книг
         try {
             logger.info("Запрос 3 (func Query3())");
-            String preparedQuery = "SELECT full_name, COUNT(*) AS count FROM authors " +
-                    "INNER JOIN books ON Authors.id = Books.author_id " +
-                    "GROUP BY full_name" +
-                    "HAVING COUNT(*) >= " + n;
-            PreparedStatement preparedStatement = con.prepareStatement(preparedQuery);
-            preparedStatement.setInt(1, n);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                String full_name = resultSet.getString(1);
-                String count = resultSet.getString(2);
-                logger.info("Запрос 3 (func Query3())");
-                System.out.println("ФИО: " + full_name + ", Количество книг: " + count);
+            String sql = "SELECT a.full_name, COUNT(*) as num_books\n" +
+                    "FROM Authors a \n" +
+                    "JOIN Books b on a.full_name = b.authors\n" +
+                    "GROUP BY a.full_name\n" +
+                    "HAVING COUNT(*) >= ?";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, n);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                String authorName = result.getString("full_name");
+                int numBooks = result.getInt("num_books");
+                System.out.println(authorName + " has written " + numBooks + " books");
             }
         }
         catch (Exception ex) {
