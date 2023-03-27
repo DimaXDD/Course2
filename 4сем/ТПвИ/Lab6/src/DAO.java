@@ -21,9 +21,9 @@ public class DAO implements IConnect, IQuery {
     public ArrayList<String> getProperties() {
         // сканируем файл database.properties с помощью ResourceBundle
         ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
-        url = resourceBundle.getString("url");
-        user = resourceBundle.getString("user");
-        password = resourceBundle.getString("password");
+        url = resourceBundle.getString("database.url");
+        user = resourceBundle.getString("database.username");
+        password = resourceBundle.getString("database.password");
 
         ArrayList<String> prop = new ArrayList<String>();
         prop.add(url);

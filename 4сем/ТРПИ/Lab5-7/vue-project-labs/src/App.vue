@@ -1,30 +1,35 @@
 <template>
-  <TheHeader/>
-  <TheCenter/>
-  <TheFooter/>
+    <TheHeader/>
+    <TheCenter/>
+    <TheFooter/>
+
 </template>
 
 <script>
 
-import TheHeader from './components/Header.vue'
-import TheCenter from './components/Center.vue'
-import TheFooter from './components/Footer.vue'
+import TheHeader from "@/components/Header/Header";
+import TheCenter from "@/components/Center/Center";
+import TheFooter from "@/components/Footer/Footer";
+
+
 
 export default {
-  name: 'App',
   components: {
+    TheFooter,
     TheHeader,
-    TheCenter,
-    TheFooter
-  }
+    TheCenter
+  },
 }
+
 </script>
 
 <style>
-* {
-  margin: 0;
-}
-a {
-  text-decoration: none;
-}
+
 </style>
+<!--
+Гайды на анимацию
+https://www.youtube.com/watch?v=f3-PZAt6VmE&ab_channel=WebForMySelf
+
+
+
+-->
