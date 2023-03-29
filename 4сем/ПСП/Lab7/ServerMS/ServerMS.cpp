@@ -93,7 +93,7 @@ int main()
 		HANDLE sH;
 		if ((sH = CreateMailslot(
 			MAILSLOT_NAME, // символическое имя почтового ящика
-			300,
+			500,
 			MAILSLOT_WAIT_FOREVER,
 			NULL)) == INVALID_HANDLE_VALUE)
 		{
@@ -102,7 +102,7 @@ int main()
 		
 		cout << "Привет, я почтовый ящик (MailSlot) под именем " << MAILSLOT_NAME << endl;
 
-		char readBuf[50]; // для блока 2
+		char readBuf[400]; // для блока 2
 		DWORD readMsg;
 
 		// 2 блок -  считывание данных из почтового ящика

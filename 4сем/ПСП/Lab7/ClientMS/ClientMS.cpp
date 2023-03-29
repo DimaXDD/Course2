@@ -7,10 +7,10 @@
 #pragma comment (lib, "WS2_32.lib")
 #pragma warning(disable:4996)
 
-#define MAILSLOT_NAME L"\\\\.\\mailslot\\Box"			// где: точка (.) - обозначает локальный компьютер;
+#define MAILSLOT_NAME L"\\\\DESKTOP-DDFE5SO\\mailslot\\Box"			// где: точка (.) - обозначает локальный компьютер;
 														// mailslot - фиксированное слово;
 														// Box - имя почтового ящика
-// DESKTOP - DDFE5SO
+// DESKTOP-DDFE5SO
 
 using namespace std;
 
