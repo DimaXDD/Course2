@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test>
+        <input>a</input>
+        <output>10</output>
+    </test>
+    <test>
+        <input>b</input>
+        <output>20</output>
+    </test>
+</tests>
