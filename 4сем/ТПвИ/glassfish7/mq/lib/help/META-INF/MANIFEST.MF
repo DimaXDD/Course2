@@ -1,0 +1,65 @@
+Manifest-Version: 1.0
+Created-By: Apache Maven Bundle Plugin 5.1.8
+Build-Jdk-Spec: 17
+Bundle-Description: Eclipse Open Message Queue is a complete message-ori
+ ented middleware platform,       offering high quality, enterprise-read
+ y messaging.
+Bundle-DocURL: https://www.eclipse.org/org/foundation/
+Bundle-License: https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.tx
+ t, https://www.gnu.org/software/classpath/license.html
+Bundle-ManifestVersion: 2
+Bundle-Name: MQ Help Files
+Bundle-SymbolicName: org.glassfish.mq.helpfiles
+Bundle-Vendor: Eclipse Foundation
+Bundle-Version: 6.4.0
+Include-Resource: Master.hs=src/main/resources/Master.hs,en/Master.jhm=s
+ rc/main/resources/en/Master.jhm,en/MasterTOC.xml=src/main/resources/en/
+ MasterTOC.xml,en/add_broker.htm=src/main/resources/en/add_broker.htm,en
+ /add_broker_destination.htm=src/main/resources/en/add_broker_destinatio
+ n.htm,en/add_connection_fact.htm=src/main/resources/en/add_connection_f
+ act.htm,en/add_connfact_clientid.htm=src/main/resources/en/add_connfact
+ _clientid.htm,en/add_connfact_handling.htm=src/main/resources/en/add_co
+ nnfact_handling.htm,en/add_connfact_handling_old.htm=src/main/resources
+ /en/add_connfact_handling_old.htm,en/add_connfact_jmsx.htm=src/main/res
+ ources/en/add_connfact_jmsx.htm,en/add_connfact_message_header_override
+ s.htm=src/main/resources/en/add_connfact_message_header_overrides.htm,e
+ n/add_connfact_queue.htm=src/main/resources/en/add_connfact_queue.htm,e
+ n/add_connfact_rel.htm=src/main/resources/en/add_connfact_rel.htm,en/ad
+ d_destination_obj.htm=src/main/resources/en/add_destination_obj.htm,en/
+ add_object_store.htm=src/main/resources/en/add_object_store.htm,en/brok
+ er_config_basic.htm=src/main/resources/en/broker_config_basic.htm,en/br
+ oker_config_logging.htm=src/main/resources/en/broker_config_logging.htm
+ ,en/broker_config_messaging.htm=src/main/resources/en/broker_config_mes
+ saging.htm,en/broker_configuration.htm=src/main/resources/en/broker_con
+ figuration.htm,en/broker_dest_basic.htm=src/main/resources/en/broker_de
+ st_basic.htm,en/broker_dest_durable.htm=src/main/resources/en/broker_de
+ st_durable.htm,en/broker_destination_properties.htm=src/main/resources/
+ en/broker_destination_properties.htm,en/broker_index.htm=src/main/resou
+ rces/en/broker_index.htm,en/broker_information.htm=src/main/resources/e
+ n/broker_information.htm,en/conndis_broker.htm=src/main/resources/en/co
+ nndis_broker.htm,en/conndis_object_store.htm=src/main/resources/en/conn
+ dis_object_store.htm,en/connection_factory_prop.htm=src/main/resources/
+ en/connection_factory_prop.htm,en/connfact_clientid.htm=src/main/resour
+ ces/en/connfact_clientid.htm,en/connfact_handling.htm=src/main/resource
+ s/en/connfact_handling.htm,en/connfact_handling_old.htm=src/main/resour
+ ces/en/connfact_handling_old.htm,en/connfact_jmsx.htm=src/main/resource
+ s/en/connfact_jmsx.htm,en/connfact_message_header_overrides.htm=src/mai
+ n/resources/en/connfact_message_header_overrides.htm,en/connfact_queue.
+ htm=src/main/resources/en/connfact_queue.htm,en/connfact_rel.htm=src/ma
+ in/resources/en/connfact_rel.htm,en/destination_obj_properties.htm=src/
+ main/resources/en/destination_obj_properties.htm,en/ide.css=src/main/re
+ sources/en/ide.css,en/imq_index.htm=src/main/resources/en/imq_index.htm
+ ,en/message_server_syntax.htm=src/main/resources/en/message_server_synt
+ ax.htm,en/object_store_properties.htm=src/main/resources/en/object_stor
+ e_properties.htm,en/os_index.htm=src/main/resources/en/os_index.htm,en/
+ overview.htm=src/main/resources/en/overview.htm,en/service_properties.h
+ tm=src/main/resources/en/service_properties.htm,images/AppIcon16xCDE.gi
+ f=src/main/resources/images/AppIcon16xCDE.gif,images/Broker16X.gif=src/
+ main/resources/images/Broker16X.gif,images/BrokerX16X.gif=src/main/reso
+ urces/images/BrokerX16X.gif,images/ObjectStore16x.gif=src/main/resource
+ s/images/ObjectStore16x.gif,images/ObjectStoreX16X.gif=src/main/resourc
+ es/images/ObjectStoreX16X.gif,images/console.gif=src/main/resources/ima
+ ges/console.gif
+Private-Package: en,images
+Tool: Bnd-6.3.1.202206071316
+

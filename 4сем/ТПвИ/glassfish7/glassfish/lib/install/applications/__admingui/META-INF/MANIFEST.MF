@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Created-By: Maven WAR Plugin 3.3.2
+Build-Jdk-Spec: 17
+Glassfish-require-services: org.glassfish.api.admingui.ConsoleProvider
+HK2-Import-Bundles: org.glassfish.main.admingui.console-common,
+        
+                         org.glassfish.hk2.hk2,
+                        
+         org.glassfish.main.admingui.console-plugin-service,
+           
+                      jakarta.servlet-api,
+                             
+    jakarta.servlet.jsp-api,
+                                jakarta.el-
+ api,
+                                org.glassfish.expressly,
+         
+                        org.glassfish.jsftemplating,
+                   
+              org.glassfish.main.admingui.dataprovider
+

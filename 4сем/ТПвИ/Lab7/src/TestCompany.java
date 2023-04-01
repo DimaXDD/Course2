@@ -7,14 +7,14 @@ public class TestCompany {
     private Employee testEmployee1;
     private Employee testEmployee2;
 
-    @BeforeMethod // BeforeMethod используется для выполнения кода перед каждым тестовым методом
+    @BeforeMethod
     public void setUp() {
         testCompany = new Company();
         testEmployee1 = new Employee("Dima", 10, true);
         testEmployee2 = new Employee("Ilya", 2, false);
     }
 
-    @AfterSuite // AfterSuite используется для выполнения кода после всех тестов
+    @AfterSuite
     public void End() {
         testCompany = null;
         testEmployee1 = null;
