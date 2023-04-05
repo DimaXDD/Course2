@@ -1,16 +1,8 @@
-﻿#include <iostream>
-#include <Winsock2.h>
-#include <string>
-#include <Windows.h>
-#include <ctime>
+﻿#include "iostream"
+#include "Winsock2.h"
 
-#pragma comment (lib, "WS2_32.lib")
-#pragma warning(disable:4996)
-
-#define MAILSLOT_NAME L"\\\\DESKTOP-DDFE5SO\\mailslot\\Box"			// где: точка (.) - обозначает локальный компьютер;
-														// mailslot - фиксированное слово;
-														// Box - имя почтового ящика
-// DESKTOP-DDFE5SO
+#pragma comment(lib,"WS2_32.lib")
+#pragma warning(disable:4996) 
 
 using namespace std;
 
@@ -80,57 +72,36 @@ string SetMailError(string msgText, int code)
 	return msgText + GetErrorMsgText(code) + "\n\n";
 }
 
-int main()
+
+void main()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	DWORD wb;
+	HANDLE mailClient;
 
-	HANDLE cH;
-	double t1, t2;
-
-	try
+	if ((mailClient = CreateFile(L"\\\\.\\mailslot\\Box", GENERIC_WRITE, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL)) == INVALID_HANDLE_VALUE)
 	{
-		// 1 блок - подсоединение клиента к почтовому ящику с помощью функции CreateFile
-		if ((cH = CreateFile(
-			MAILSLOT_NAME,
-			GENERIC_WRITE,
-			FILE_SHARE_READ | FILE_SHARE_WRITE,
-			NULL,
-			OPEN_EXISTING,
-			NULL,
-			NULL)) == INVALID_HANDLE_VALUE)
-		{
-			throw SetMailError("CreateFile: ", GetLastError());
-		}
-
-		cout << "Я клиент :)" << endl;
-
-		char writeBuf[50] = "Hello from Client-Mailslot"; // для блока 2
-		DWORD writeMsg;
-
-		t1 = clock();
-
-		for (int i = 1; i <= 1000; i++) 
-		{
-			if (!WriteFile(cH, writeBuf, sizeof(writeBuf), &writeMsg, NULL))
-			{
-				throw SetMailError("WriteFile: ", GetLastError());
-			}
-
-			cout << "Сообщение " << i << " было отправлено!" << endl;
-		}
-
-		t2 = clock();
-
-		if (!CloseHandle(cH))
-		{
-			throw "Error: CloseHandle";
-		}
-
-		cout << endl << "Время передачи: " << (t2 - t1) / 1000 << " сек." << endl << endl;
+		throw SetMailError("Error: ", GetLastError());
 	}
-	catch (string e)
+
+	char count[10];
+	for (size_t i = 0; i <= 1000; i++)
 	{
-		cout << e << endl;
+		char wbuf[400] = "Hello from Maislot-client ";
+		itoa(i, count, 10);
+		strcat(wbuf, count);
+
+		if (!WriteFile(mailClient, wbuf, strlen(wbuf) + 1, &wb, NULL))
+		{
+			throw SetMailError("Error: ", GetLastError());
+		}
+		if (i == 1000)
+		{
+			strcpy(wbuf, "");
+		}
+	}
+
+	if (!CloseHandle(mailClient))
+	{
+		throw SetMailError("Error: ", GetLastError());
 	}
 }

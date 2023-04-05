@@ -1,15 +1,8 @@
-﻿#include <iostream>
-#include <Winsock2.h>
-#include <string>
-#include <Windows.h>
-#include <ctime>
+﻿#include "iostream"
+#include "Winsock2.h"
 
-#pragma comment (lib, "WS2_32.lib")
-#pragma warning(disable:4996)
-
-#define MAILSLOT_NAME L"\\\\.\\mailslot\\Box"			// где: точка (.) - обозначает локальный компьютер;
-														// mailslot - фиксированное слово;
-														// Box - имя почтового ящика
+#pragma comment(lib,"WS2_32.lib")
+#pragma warning(disable:4996) 
 
 using namespace std;
 
@@ -79,69 +72,31 @@ string SetMailError(string msgText, int code)
 	return msgText + GetErrorMsgText(code) + "\n\n";
 }
 
-int main()
+void main()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-
-	int i = 0;
-	double t1, t2;
-
-	try
+	DWORD rb;
+	HANDLE mailslot;
+	if ((mailslot = CreateMailslot(L"\\\\.\\mailslot\\Box", 500, MAILSLOT_WAIT_FOREVER, NULL)) == INVALID_HANDLE_VALUE)
 	{
-		// 1 блок - создаем почтовый ящик MailSlot
-		HANDLE sH;
-		if ((sH = CreateMailslot(
-			MAILSLOT_NAME, // символическое имя почтового ящика
-			500,
-			MAILSLOT_WAIT_FOREVER,
-			NULL)) == INVALID_HANDLE_VALUE)
-		{
-			throw SetMailError("CreateMailslot: ", GetLastError());
-		}
-		
-		cout << "Привет, я почтовый ящик (MailSlot) под именем " << MAILSLOT_NAME << endl;
-
-		char readBuf[400]; // для блока 2
-		DWORD readMsg;
-
-		// 2 блок -  считывание данных из почтового ящика
-		do {
-			i++;
-
-			if (!ReadFile(sH, readBuf, sizeof(readBuf), &readMsg, NULL))
-			{
-				throw SetMailError("ReadFile: ", GetLastError());
-			}
-
-			SetMailslotInfo(sH, 5000); // изменяем время ожидания сообщения
-
-			if (i == 1)
-			{
-				t1 = clock();
-			}
-			cout << readBuf << " " << i << endl;
-
-		} while (strcmp(readBuf, " ") != 0);
-
-		t2 = clock();
-
-		cout << "Время передачи: " << (t2 - t1) / 1000 << " сек." << endl;
-		cout << "Количество сообщений: " << i - 1 << endl << endl;
-
-		if (!CloseHandle(sH))
-		{
-			throw SetMailError("CloseHandle: ", GetLastError());
-		}
-
+		throw SetMailError("Error: ", GetLastError());
 	}
-	catch (string exp)
+
+	char rbuf[500] = "ad";
+	int i = 0;
+	while (strcmp(rbuf, "") != 0)
 	{
-		if (exp == "ReadFileError") 
+		i++;
+		if (!ReadFile(mailslot, rbuf, sizeof(rbuf), &rb, NULL))
 		{
-			cout << exp << " Timeout";
-			return 0;
+			throw SetMailError("Error: ", GetLastError());
 		}
-		cout << exp << endl;
+
+		cout << rbuf << i << endl;
+	}
+	cout << "end";
+
+	if (!CloseHandle(mailslot))
+	{
+		throw SetMailError("Error: ", GetLastError());
 	}
 }
