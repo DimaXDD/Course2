@@ -105,3 +105,4 @@ void main()
 		throw SetMailError("Error: ", GetLastError());
 	}
 }
+
