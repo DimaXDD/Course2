@@ -1,0 +1,3 @@
+﻿  ServerB.cpp
+E:\2_курс\4сем\ПСП\Lab5\ServerS\ServerB.cpp(79,7): warning C4101: nameServer: неиспользованная локальная переменная
+  ServerS.vcxproj -> E:\2_курс\4сем\ПСП\Lab5\Debug\ServerB.exe
