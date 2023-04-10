@@ -5,7 +5,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 
-// udp - ебанутый протокол для хуесосов, именно поэтому мы им и пользуемся
+// udp
 public class SendUDP {
     // точно так же юзаем сокеты для подключения, но щас юзаем класс DatagramSocket
     private DatagramSocket socket;
@@ -26,7 +26,7 @@ public class SendUDP {
 
     public static void main(String[] args) throws IOException {
         SendUDP udp = new SendUDP(1234);
-        // попытаемся отправить это сообщение. будет очень жаль если дейтаграмма не дойдет и никто не узнает что я люблю джаву
+        // попытаемся отправить это сообщение. будет очень жаль если дейтаграмма не дойдет
         udp.sendMessages("всем привет я люблю джаву", 4321);
     }
 }

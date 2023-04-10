@@ -1,4 +1,4 @@
-package com.example.lab8_glassfish;
+package com.example.lab8glassfish;
 
 import java.io.*;
 

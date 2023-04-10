@@ -21,7 +21,6 @@ public class GetUDP {
         socket.receive(new DatagramPacket(messageUDP, 21));
         // здесь кстати никакой коннекшен не устанавливается мы тупа молимся что наше сообщение кто то услышит
         // а если нас никто не будет слушать то никто и не услышит что логично
-        // то есть если порт никто не прослушивает вручную то хуй докуда наше сообщение дойдет
         var message = new String(messageUDP);
         System.out.println(message);
     }

@@ -11,7 +11,7 @@ public class Server {
 
     public static void main(String[] args) {
         // с помощью класса серверсокет можно установить соединение на стороне сервака
-        try (ServerSocket server = new ServerSocket(7068)) {
+        try (ServerSocket server = new ServerSocket(7069)) {
             System.out.println("Server started");
             while (true) {
                 // accept значит что сервак приостанавливает работу и ожидает запроса от клиента; и возвращает его сокет
