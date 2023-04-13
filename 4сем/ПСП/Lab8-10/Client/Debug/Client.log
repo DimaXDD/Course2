@@ -1,0 +1,3 @@
+﻿  Client.cpp
+C:\Users\dimat\Desktop\Lab8\Client\Client.cpp(101,17): warning C4101: obuf: неиспользованная локальная переменная
+  Client.vcxproj -> C:\Users\dimat\Desktop\Lab8\SH_Laba_8_10\Debug\Client.exe
