@@ -17,10 +17,10 @@ SET @t = '12:21:45';
 SELECT @si = min(NOTE), @num = avg(NOTE) from PROGRESS;
 set @ti = @i + @si; 
 
-print 'Переменная c = ' + @c;
-print 'Переменная vc = ' + @vc;
-print 'Переменная dt = ' + cast(@dt as varchar(13));
-print 'Переменная t = ' + cast(@t as varchar(13));
+print 'Переменная c: ' + @c;
+print 'Переменная vc: ' + @vc;
+print 'Переменная dt: ' + cast(@dt as varchar(13));
+print 'Переменная t: ' + cast(@t as varchar(13));
 
 select @i, @si, @ti, @num
 
@@ -36,11 +36,11 @@ DECLARE	@percent float = cast(cast(@lessavg as float) / cast(@q as float) * 100 
 if @capacity > 200
 begin
 	SELECT @q 'Количество аудиторий', @avg 'Среднее количество мест',
-	@lessavg 'Количество аудиторий < среднего',cast(@percent as varchar) + '%' 'Процент аудиторий, которые < среднего'
+	@lessavg 'Количество аудиторий < среднего', cast(@percent as varchar) + '%' 'Процент аудиторий, которые < среднего'
 end
-ELSE IF @capacity < 200
+else if @capacity < 200
 begin
-	PRINT @capacity
+	print @capacity
 end;
 
 
@@ -81,19 +81,10 @@ end
 
 -- part 2
 DECLARE @full_name varchar(100) = 'Трубач Дмитрий Сергеевич';
--- CHARINDEX, чтобы найти позицию первого пробела в строке @full_name, что соответствует концу фамилии и началу имени
-
--- SUBSTRING, чтобы извлечь подстроку из начала строки @full_name до позиции первого пробела
-
--- SUBSTRING, чтобы извлечь подстроку из строки @full_name, начиная с позиции после первого пробела плюс один символ, 
--- чтобы пропустить пробел и извлечь первую букву имени
-
---SUBSTRING снова, чтобы извлечь подстроку из строки @full_name, начиная с позиции после второго пробела плюс один символ, 
--- чтобы пропустить пробел и извлечь первую букву отчества
 
 set @full_name = (select substring(@full_name, 1, charindex(' ', @full_name)) +
 substring(@full_name, charindex(' ', @full_name) + 1, 1) + '.' +
-substring(@full_name, charindex(' ', @full_name, charindex(' ', @full_name)+1)+ 1, 1) + '.');
+substring(@full_name, charindex(' ', @full_name, charindex(' ', @full_name) + 1)+ 1, 1) + '.');
 
 print @full_name;
 
@@ -121,13 +112,13 @@ set @coun = (select count(NOTE) from PROGRESS);
 
 print 'Средняя оценка: ' + cast(@averageMark as varchar);
 
-if @averageMark < 5
+if @averageMark < 7
 begin
-	print 'Средние оценки меньше 5'
+	print 'Средние оценки меньше 7'
 end
-else if @averageMark > 5
+else if @averageMark > 7
 begin
-	print 'Средние оценки больше 5'
+	print 'Средние оценки больше 7'
 end
 
 print 'Количество оценок: '+ cast(@coun as varchar);
@@ -154,14 +145,15 @@ DROP TABLE #TEMP1;
 CREATE TABLE #TEMP1
 (
 	ID int identity(1,1),
-	RANDOM_NUMBER int,
+	RANDOM_NUMBER_1 int,
+	RANDOM_NUMBER_2 int,
 );
 
 DECLARE  @iter int = 0;
 WHILE @iter < 10
 	begin
-	INSERT #TEMP1(RANDOM_NUMBER)
-			values(rand() * 1000);
+	INSERT #TEMP1(RANDOM_NUMBER_1, RANDOM_NUMBER_2)
+			values(rand() * 1000, rand() * 1000);
 	SET @iter = @iter + 1;
 	end
 SELECT * from #TEMP1;
@@ -174,17 +166,15 @@ RETURN
 print @parm + 3
 
 --ex.9
-declare @dat date = '1994-07-12';
 begin try
-	select * from STUDENT where STUDENT.BDAY = @dat
-	--UPDATE STUDENT SET IDGROUP = 'string' WHERE IDGROUP = 18
+	UPDATE STUDENT SET IDGROUP = 'string' WHERE IDGROUP = 18
 end try
 begin catch
-	print 'Код последней ошибки: ' + ERROR_NUMBER()
-	print 'Сообщение об ошибке: ' + ERROR_MESSAGE()
-	print 'Номер строки с ошибкой: ' + ERROR_LINE()
-	print 'Имя процедуры или NULL: ' + ERROR_PROCEDURE()
-	print 'Уровень серьезности ошибки: ' + ERROR_SEVERITY()
-	print 'Метка ошибки: ' + ERROR_STATE()
+	print  ERROR_NUMBER()
+	print  ERROR_MESSAGE()
+	print  ERROR_LINE()
+	print  ERROR_PROCEDURE()
+	print  ERROR_SEVERITY()
+	print  ERROR_STATE()
 end catch
 select * from STUDENT

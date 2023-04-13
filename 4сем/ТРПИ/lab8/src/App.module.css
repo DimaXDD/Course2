@@ -1,0 +1,10 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: azure;
+}
+ProdList{
+    border: black 1px solid;
+    box-sizing: content-box;
+    background: darkgrey;
+}
