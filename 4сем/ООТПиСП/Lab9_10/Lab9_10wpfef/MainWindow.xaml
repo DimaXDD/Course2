@@ -1,0 +1,158 @@
+﻿<Window x:Class="Lab9_10wpfef.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab9_10wpfef"
+        mc:Ignorable="d"
+         Title="Entity_Bank" Height="750" Width="800">
+    <Grid>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5 0 0" Background="DarkGreen" Visibility="Visible" Padding="5" CornerRadius="5">
+            <TabControl Height="250" Width="700" Foreground="Black" FontSize="14">
+
+                <TabItem Header="Добавить запись">
+                    <Grid Background="LightYellow">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                            <TextBlock Text="ФИО" Margin="3" Foreground="Black" FontWeight="Bold"></TextBlock>
+                            <TextBox x:Name="FIO_Container" Margin="3" MaxLength="40" PreviewTextInput="FIO_Container_PreviewTextInput"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="Дата рождения" Margin="3" Foreground="Black" FontWeight="Bold"></TextBlock>
+                            <DatePicker x:Name="BirthD_Picker" Padding="2" SelectedDateChanged="BirthD_Picker_SelectedDateChanged"></DatePicker>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Center">
+                            <TextBlock Text="Серия паспорта" Margin="3" Foreground="Black" FontWeight="Bold"></TextBlock>
+                            <TextBox x:Name="Pasport_Container" Margin="3" MaxLength="9" PreviewTextInput="Pasport_Container_PreviewTextInput"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25 0 0 0">
+                            <TextBlock Text="Валюта" FontWeight="Bold"></TextBlock>
+                            <RadioButton x:Name="USD" Content="USD" GroupName="Wallet" Checked="USD_Checked" ></RadioButton>
+                            <RadioButton x:Name="BYN" Content="BYN" GroupName="Wallet" Checked="USD_Checked"></RadioButton>
+                            <RadioButton x:Name="RUB" Content="RUB" GroupName="Wallet" Checked="USD_Checked"></RadioButton>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 35 0">
+                            <TextBlock Text="Сервисы" FontWeight="Bold"></TextBlock>
+                            <CheckBox x:Name="Banking" Content="Банкинг"  Checked="Cashback_Checked"></CheckBox>
+                            <CheckBox x:Name="SMS" Content="СМС"  Checked="Cashback_Checked"></CheckBox>
+                            <CheckBox x:Name="Cashback" Content="Кешбек" Checked="Cashback_Checked" ></CheckBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="Начальный баланс" FontWeight="Bold"></TextBlock>
+                            <Slider x:Name="StartB_Slider" Margin="3" Minimum="0" Maximum="500" ValueChanged="StartB_Slider_ValueChanged"></Slider>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
+                            <TextBlock Text="Город" FontWeight="Bold" Margin="5"></TextBlock>
+                            <ComboBox x:Name="Town_Box" SelectionChanged="Town_Box_SelectionChanged">
+                                <ComboBoxItem Content="Барановичи"></ComboBoxItem>
+                                <ComboBoxItem Content="Брест"></ComboBoxItem>
+                                <ComboBoxItem Content="Витебск"></ComboBoxItem>
+                                <ComboBoxItem Content="Гомель"></ComboBoxItem>
+                                <ComboBoxItem Content="Гродно"></ComboBoxItem>
+                                <ComboBoxItem Content="Минск"></ComboBoxItem>
+                                <ComboBoxItem Content="Могилев"></ComboBoxItem>
+                                <ComboBoxItem Content="Москва"></ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="0" Margin="0 10 0 0">
+                            <TextBlock Text="Номер телеофна" FontWeight="Bold"></TextBlock>
+                            <TextBox x:Name="PhoneNum" MaxLength="12" TextChanged="PhoneNum_TextChanged" PreviewTextInput="PhoneNum_PreviewTextInput"></TextBox>
+                        </StackPanel>
+
+                        <TextBlock x:Name="DateOfG" FontWeight="Bold" Foreground="DarkRed" Grid.Row="2" Grid.Column="1" 
+                                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" TextAlignment="Center"></TextBlock>
+                        <StackPanel Grid.Row="2" Grid.Column="2">
+                            <Button x:Name="Create" Height="35" Margin="0 10 0 0" Content="Создать запись" 
+                                   Background="LawnGreen" FontWeight="Bold" Click="Create_Click" ></Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Удаление счёта">
+                    <Grid Background="AntiqueWhite">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Введите ID счёта для удаления" FontSize="24" FontWeight="SemiBold"></TextBlock>
+                            <TextBox x:Name="NumToDelete" Margin="0 15 0 0" Width="300" FontSize="24" MaxLength="5"
+                                     ></TextBox>
+                            <Button x:Name="Delete" Margin="0 15 0 0" Height="40" Width="250" Background="DarkCyan"
+                                    Content="Удалить" FontSize="24" FontWeight="Bold" Click="Delete_Click" ></Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Сортировка">
+                    <Grid Background="LightBlue">
+                        <TextBlock Text="Сортировать по:" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 30 0 0"></TextBlock>
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
+                            <Button x:Name="SortByNum" Height="40" Width="210" Margin="0 0 45 0"  Background="DarkGoldenrod" Foreground="WhiteSmoke"
+                                    Content="По номеру" FontSize="20" FontWeight="Bold" Click="SortByNum_Click"></Button>
+                            <Button x:Name="SortByFIO" Height="40" Width="210" Margin="45 0 0 0" Background="DarkGoldenrod" Foreground="WhiteSmoke"
+                                    Content="По ФИО" FontSize="20" FontWeight="Bold" Click="SortByFIO_Click"></Button>
+                        </StackPanel>
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Вывод">
+                    <Grid Background="LightPink">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button x:Name="Show_all_bills" Height="50" Width="240" Content="Вывести счета" Background="Azure" FontWeight="SemiBold"
+                                    FontSize="24"  Margin="25" BorderBrush="DarkOliveGreen" BorderThickness="3" Click="Show_all_bills_Click"></Button>
+                            <Button x:Name="Show_all_owners" Height="50" Width="240" Content="Вывести клиентов" Background="Azure" FontWeight="SemiBold"
+                                    FontSize="24" Margin="25"  BorderBrush="DarkOliveGreen" BorderThickness="3" Click="Show_all_owners_Click"></Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Поиск">
+                    <Grid Background="LightCoral">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="По типу валюты" FontSize="20" FontWeight="Bold"></TextBlock>
+                            <TextBox x:Name="Wallet_Search_tb" FontSize="24"
+                                     Width="110" Margin="15" MaxLength="3" ></TextBox>
+                            <Button Height="40" x:Name="Wallet_Search"
+                                    Width="150" Content="Выполнить" FontWeight="Bold" FontSize="18" 
+                                    Click="Wallet_Search_Click"></Button>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="По фамилии" FontSize="20" FontWeight="Bold" TextAlignment="Center"></TextBlock>
+                            <TextBox x:Name="FIO_SEARCH_TB" FontSize="24" 
+                                     Width="180" Margin="15" MaxLength="15"></TextBox>
+                            <Button Height="40" x:Name="FIO_Search"
+                                    Width="150" Content="Выполнить" FontWeight="Bold" FontSize="18" Click="FIO_Search_Click"/>
+                        </StackPanel>
+
+
+
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+        </Border>
+        <StackPanel Margin="0 290 0 0">
+            <TextBlock Text="Результаты" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+            <DataGrid x:Name="dgResults" 
+                      HorizontalAlignment="Center" FontSize="14" IsReadOnly="True" Margin="0 10 0 0"
+                  AutoGenerateColumns="True" Height="380" Width="760" CanUserSortColumns="False">
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+    <System:String x:Key="Choosepars">Choose settings of your race</System:String>
+    <System:String x:Key="Departure">Departure</System:String>
+    <System:String x:Key="Destination">Destination</System:String>
+    <System:String x:Key="Search">Search</System:String>
+
+    <System:String x:Key="Number">Number</System:String>
+    <System:String x:Key="Time">Time</System:String>
+    <System:String x:Key="Price">Price</System:String>
+    <System:String x:Key="Results">Results</System:String>
+    <System:String x:Key="Create">Create</System:String>
+    <System:String x:Key="Range">Range</System:String>
+    <System:String x:Key="Filter">Filter</System:String>
+    <System:String x:Key="Show all">Show all</System:String>
+    <System:String x:Key="Delete">Delete</System:String>
+    <System:String x:Key="NumToDelete">Type number of the race to delete</System:String>
+    <System:String x:Key="DelRecord">Delete record</System:String>
+    <System:String x:Key="Duration">Duration</System:String>
+    <System:String x:Key="Date">Date</System:String>
+    <System:String x:Key="AddRecord">Add record</System:String>
+    <System:String x:Key="NotSupp">Is not supported</System:String>
+</ResourceDictionary>

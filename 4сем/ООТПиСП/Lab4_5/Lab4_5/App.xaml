@@ -1,0 +1,18 @@
+﻿<Application x:Class="Lab4_5.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Lab4_5"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary-en.xaml"/>
+                <ResourceDictionary Source="Dictionary-ru.xaml"/>
+                <ResourceDictionary Source="Styles.xaml"/>
+                <ResourceDictionary Source="Lab6t1Dictionary.xaml"/>
+                <ResourceDictionary Source="NightMode.xaml"/>
+                <ResourceDictionary Source="DayMode.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

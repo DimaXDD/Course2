@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib">
+    
+    <System:String x:Key="Choosepars">Выберите параметры вашего полёта</System:String>
+    <System:String x:Key="Departure">Место отправления</System:String>
+    <System:String x:Key="Destination">Место прибытия</System:String>
+    <System:String x:Key="Search">Поиск</System:String>
+    <System:String x:Key="Number">Номер</System:String>
+    <System:String x:Key="Time">Время</System:String>
+    <System:String x:Key="Price">Стоимость</System:String>
+    <System:String x:Key="Results">Результаты</System:String>
+    <System:String x:Key="Create">Создать</System:String>
+    <System:String x:Key="Range">Диапазон дат</System:String>
+    <System:String x:Key="Filter">Фильтрация</System:String>
+    <System:String x:Key="Show all">Вывести всё</System:String>
+    <System:String x:Key="Delete">Удалить</System:String>
+    <System:String x:Key="NumToDelete">Введите номер рейса для удаления</System:String>
+    <System:String x:Key="DelRecord">Удаление записи</System:String>
+    <System:String x:Key="Duration">В пути</System:String>
+    <System:String x:Key="Date">Дата</System:String>
+    <System:String x:Key="AddRecord">Добавить запись</System:String>
+    <System:String x:Key="NotSupp">Не поддерживается</System:String>
+</ResourceDictionary>
