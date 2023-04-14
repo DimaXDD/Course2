@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include "Global.h"
 #include <WS2tcpip.h>
@@ -7,7 +7,7 @@ using std::iterator;
 DWORD WINAPI GarbageCleaner(LPVOID pPrm) {
 	DWORD rc = 0;
 
-	cout << "GarbageCleaner работает\n";
+	cout << "GarbageCleaner СЂР°Р±РѕС‚Р°РµС‚\n";
 	try {
 		while (*((TalkersCommand*)pPrm) != EXIT && &ClientServiceNumber > (volatile LONG*)0) {
 			EnterCriticalSection(&scListContact);
@@ -17,10 +17,10 @@ DWORD WINAPI GarbageCleaner(LPVOID pPrm) {
 					char dst[16] = "";
 					inet_ntop(AF_INET, &(contact->prms.sin_addr), dst, sizeof dst);
 
-					printf_s("IP удаленного клиента: %s", dst);
-					cout << " с кодом " << contact->sthread << ";" << endl;
-					if (contact->type == Contact::EMPTY) InterlockedIncrement(&Fail);	//состояние сервера подключения
-					else { 	// состояние обслуживающего сервера
+					printf_s("IP СѓРґР°Р»РµРЅРЅРѕРіРѕ РєР»РёРµРЅС‚Р°: %s", dst);
+					cout << " СЃ РєРѕРґРѕРј " << contact->sthread << ";" << endl;
+					if (contact->type == Contact::EMPTY) InterlockedIncrement(&Fail);	//СЃРѕСЃС‚РѕСЏРЅРёРµ СЃРµСЂРІРµСЂР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+					else { 	// СЃРѕСЃС‚РѕСЏРЅРёРµ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ СЃРµСЂРІРµСЂР°
 						if (contact->sthread == Contact::FINISH)	{ InterlockedIncrement(&Finished); InterlockedDecrement(&Accept); }
 						if (contact->sthread == Contact::TIMEOUT) { InterlockedIncrement(&Fail); InterlockedDecrement(&Accept); }
 						if (contact->sthread == Contact::ABORT)	{ InterlockedIncrement(&Fail); InterlockedDecrement(&Accept); }
@@ -44,6 +44,6 @@ DWORD WINAPI GarbageCleaner(LPVOID pPrm) {
 	catch (...) {
 		cout << "Error GarbageCleaner" << endl;
 	}
-	cout << "GarbageCleaner остановлен\n" << endl;
+	cout << "GarbageCleaner РѕСЃС‚Р°РЅРѕРІР»РµРЅ\n" << endl;
 	ExitThread(rc);
 }

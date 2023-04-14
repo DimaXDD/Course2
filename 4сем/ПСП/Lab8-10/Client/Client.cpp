@@ -1,4 +1,4 @@
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
+п»ї#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -32,55 +32,55 @@ bool SystemMessage(char* ch) {
 string  GetErrorMsgText(int code) {
 	string msgText;
 	switch (code) {
-	case WSAEINTR:                  msgText = "WSAEINTR";               break;    //Работа функции прервана
-	case WSAEACCES:                 msgText = "WSAEACCES";              break;    //Разрешение отвергнуто
-	case WSAEFAULT:                 msgText = "WSAEFAULT";              break;    //Ошибочный адрес
-	case WSAEINVAL:                 msgText = "WSAEINVAL";              break;    //Ошибка в аргументе
-	case WSAEMFILE:                 msgText = "WSAEMFILE";              break;    //Слишком много файлов открыто
-	case WSAEWOULDBLOCK:            msgText = "WSAEWOULDBLOCK";         break;    //Ресурс временно недоступен
-	case WSAEINPROGRESS:            msgText = "WSAEINPROGRESS";         break;    //Операция в процессе развития
-	case WSAEALREADY:               msgText = "WSAEALREADY";            break;    //Операция уже выполняется
-	case WSAENOTSOCK:               msgText = "WSAENOTSOCK";            break;    //Сокет задан неправильно
-	case WSAEDESTADDRREQ:           msgText = "WSAEDESTADDRREQ";        break;    //Требуется адрес расположения
-	case WSAEMSGSIZE:               msgText = "WSAEMSGSIZE";            break;    //Сообщение слишком длинное
-	case WSAEPROTOTYPE:             msgText = "WSAEPROTOTYPE";          break;    //Неправильный тип протокола для сокета
-	case WSAENOPROTOOPT:            msgText = "WSAENOPROTOOPT";         break;    //Ошибка в опции протокола
-	case WSAEPROTONOSUPPORT:        msgText = "WSAEPROTONOSUPPORT";     break;    //Протокол не поддерживается
-	case WSAESOCKTNOSUPPORT:        msgText = "WSAESOCKTNOSUPPORT";     break;    //Тип сокета не поддерживается
-	case WSAEOPNOTSUPP:             msgText = "WSAEOPNOTSUPP";          break;    //Операция не поддерживается
-	case WSAEPFNOSUPPORT:           msgText = "WSAEPFNOSUPPORT";        break;    //Тип протоколов не поддерживается
-	case WSAEAFNOSUPPORT:           msgText = "WSAEAFNOSUPPORT";        break;    //Тип адресов не поддерживается протоколом
-	case WSAEADDRINUSE:             msgText = "WSAEADDRINUSE";          break;    //Адрес уже используется
-	case WSAEADDRNOTAVAIL:          msgText = "WSAEADDRNOTAVAIL";       break;    //Запрошенный адрес не может быть использован
-	case WSAENETDOWN:               msgText = "WSAENETDOWN";            break;    //Сеть отключена
-	case WSAENETUNREACH:            msgText = "WSAENETUNREACH";         break;    //Сеть не достижима
-	case WSAENETRESET:              msgText = "WSAENETRESET";           break;    //Сеть разорвала соединение
-	case WSAECONNABORTED:           msgText = "WSAECONNABORTED";        break;    //Программный отказ связи
-	case WSAECONNRESET:             msgText = "WSAECONNRESET";          break;    //Связь восстановлена
-	case WSAENOBUFS:                msgText = "WSAENOBUFS";             break;    //Не хватает памяти для буферов
-	case WSAEISCONN:                msgText = "WSAEISCONN";             break;    //Сокет уже подключен
-	case WSAENOTCONN:               msgText = "WSAENOTCONN";            break;    //Сокет не подключен
-	case WSAESHUTDOWN:              msgText = "WSAESHUTDOWN";           break;    //Нельзя выполнить send: сокет завершил работу
-	case WSAETIMEDOUT:              msgText = "WSAETIMEDOUT";           break;    //Закончился отведенный интервал  времени
-	case WSAECONNREFUSED:           msgText = "WSAECONNREFUSED";        break;    //Соединение отклонено
-	case WSAEHOSTDOWN:              msgText = "WSAEHOSTDOWN";           break;    //Хост в неработоспособном состоянии
-	case WSAEHOSTUNREACH:           msgText = "WSAEHOSTUNREACH";        break;    //Нет маршрута для хоста
-	case WSAEPROCLIM:               msgText = "WSAEPROCLIM";            break;    //Слишком много процессов
-	case WSASYSNOTREADY:            msgText = "WSASYSNOTREADY";         break;    //Сеть не доступна
-	case WSAVERNOTSUPPORTED:        msgText = "WSAVERNOTSUPPORTED";     break;    //Данная версия недоступна
-	case WSANOTINITIALISED:         msgText = "WSANOTINITIALISED";      break;    //Не выполнена инициализация WS2_32.DLL
-	case WSAEDISCON:                msgText = "WSAEDISCON";             break;    //Выполняется отключение
-	case WSATYPE_NOT_FOUND:         msgText = "WSATYPE_NOT_FOUND";      break;    //Класс не найден
-	case WSAHOST_NOT_FOUND:         msgText = "WSAHOST_NOT_FOUND";      break;    //Хост не найден
-	case WSATRY_AGAIN:              msgText = "WSATRY_AGAIN";           break;    //Неавторизированный хост не найден
-	case WSANO_RECOVERY:            msgText = "WSANO_RECOVERY";         break;    //Неопределенная  ошибка
-	case WSANO_DATA:                msgText = "WSANO_DATA";             break;    //Нет записи запрошенного типа
-	case WSA_INVALID_HANDLE:      msgText = "WSA_INVALID_HANDLE";     break;    //Указанный дескриптор события  с ошибкой
-	case WSA_INVALID_PARAMETER:   msgText = "WSA_INVALID_PARAMETER";  break;    //Один или более параметров с ошибкой
-	case WSA_IO_INCOMPLETE:       msgText = "WSA_IO_INCOMPLETE";      break;    //Объект ввода-вывода не в сигнальном состоянии
-	case WSA_IO_PENDING:          msgText = "WSA_IO_PENDING";         break;    //Операция завершится позже
-	case WSA_NOT_ENOUGH_MEMORY:   msgText = "WSA_NOT_ENOUGH_MEMORY";  break;    //Не достаточно памяти
-	case WSA_OPERATION_ABORTED:   msgText = "WSA_OPERATION_ABORTED";  break;    //Операция отвергнута
+	case WSAEINTR:                  msgText = "WSAEINTR";               break;    //Р Р°Р±РѕС‚Р° С„СѓРЅРєС†РёРё РїСЂРµСЂРІР°РЅР°
+	case WSAEACCES:                 msgText = "WSAEACCES";              break;    //Р Р°Р·СЂРµС€РµРЅРёРµ РѕС‚РІРµСЂРіРЅСѓС‚Рѕ
+	case WSAEFAULT:                 msgText = "WSAEFAULT";              break;    //РћС€РёР±РѕС‡РЅС‹Р№ Р°РґСЂРµСЃ
+	case WSAEINVAL:                 msgText = "WSAEINVAL";              break;    //РћС€РёР±РєР° РІ Р°СЂРіСѓРјРµРЅС‚Рµ
+	case WSAEMFILE:                 msgText = "WSAEMFILE";              break;    //РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ С„Р°Р№Р»РѕРІ РѕС‚РєСЂС‹С‚Рѕ
+	case WSAEWOULDBLOCK:            msgText = "WSAEWOULDBLOCK";         break;    //Р РµСЃСѓСЂСЃ РІСЂРµРјРµРЅРЅРѕ РЅРµРґРѕСЃС‚СѓРїРµРЅ
+	case WSAEINPROGRESS:            msgText = "WSAEINPROGRESS";         break;    //РћРїРµСЂР°С†РёСЏ РІ РїСЂРѕС†РµСЃСЃРµ СЂР°Р·РІРёС‚РёСЏ
+	case WSAEALREADY:               msgText = "WSAEALREADY";            break;    //РћРїРµСЂР°С†РёСЏ СѓР¶Рµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ
+	case WSAENOTSOCK:               msgText = "WSAENOTSOCK";            break;    //РЎРѕРєРµС‚ Р·Р°РґР°РЅ РЅРµРїСЂР°РІРёР»СЊРЅРѕ
+	case WSAEDESTADDRREQ:           msgText = "WSAEDESTADDRREQ";        break;    //РўСЂРµР±СѓРµС‚СЃСЏ Р°РґСЂРµСЃ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ
+	case WSAEMSGSIZE:               msgText = "WSAEMSGSIZE";            break;    //РЎРѕРѕР±С‰РµРЅРёРµ СЃР»РёС€РєРѕРј РґР»РёРЅРЅРѕРµ
+	case WSAEPROTOTYPE:             msgText = "WSAEPROTOTYPE";          break;    //РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ С‚РёРї РїСЂРѕС‚РѕРєРѕР»Р° РґР»СЏ СЃРѕРєРµС‚Р°
+	case WSAENOPROTOOPT:            msgText = "WSAENOPROTOOPT";         break;    //РћС€РёР±РєР° РІ РѕРїС†РёРё РїСЂРѕС‚РѕРєРѕР»Р°
+	case WSAEPROTONOSUPPORT:        msgText = "WSAEPROTONOSUPPORT";     break;    //РџСЂРѕС‚РѕРєРѕР» РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAESOCKTNOSUPPORT:        msgText = "WSAESOCKTNOSUPPORT";     break;    //РўРёРї СЃРѕРєРµС‚Р° РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAEOPNOTSUPP:             msgText = "WSAEOPNOTSUPP";          break;    //РћРїРµСЂР°С†РёСЏ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAEPFNOSUPPORT:           msgText = "WSAEPFNOSUPPORT";        break;    //РўРёРї РїСЂРѕС‚РѕРєРѕР»РѕРІ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAEAFNOSUPPORT:           msgText = "WSAEAFNOSUPPORT";        break;    //РўРёРї Р°РґСЂРµСЃРѕРІ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ РїСЂРѕС‚РѕРєРѕР»РѕРј
+	case WSAEADDRINUSE:             msgText = "WSAEADDRINUSE";          break;    //РђРґСЂРµСЃ СѓР¶Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
+	case WSAEADDRNOTAVAIL:          msgText = "WSAEADDRNOTAVAIL";       break;    //Р—Р°РїСЂРѕС€РµРЅРЅС‹Р№ Р°РґСЂРµСЃ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ
+	case WSAENETDOWN:               msgText = "WSAENETDOWN";            break;    //РЎРµС‚СЊ РѕС‚РєР»СЋС‡РµРЅР°
+	case WSAENETUNREACH:            msgText = "WSAENETUNREACH";         break;    //РЎРµС‚СЊ РЅРµ РґРѕСЃС‚РёР¶РёРјР°
+	case WSAENETRESET:              msgText = "WSAENETRESET";           break;    //РЎРµС‚СЊ СЂР°Р·РѕСЂРІР°Р»Р° СЃРѕРµРґРёРЅРµРЅРёРµ
+	case WSAECONNABORTED:           msgText = "WSAECONNABORTED";        break;    //РџСЂРѕРіСЂР°РјРјРЅС‹Р№ РѕС‚РєР°Р· СЃРІСЏР·Рё
+	case WSAECONNRESET:             msgText = "WSAECONNRESET";          break;    //РЎРІСЏР·СЊ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅР°
+	case WSAENOBUFS:                msgText = "WSAENOBUFS";             break;    //РќРµ С…РІР°С‚Р°РµС‚ РїР°РјСЏС‚Рё РґР»СЏ Р±СѓС„РµСЂРѕРІ
+	case WSAEISCONN:                msgText = "WSAEISCONN";             break;    //РЎРѕРєРµС‚ СѓР¶Рµ РїРѕРґРєР»СЋС‡РµРЅ
+	case WSAENOTCONN:               msgText = "WSAENOTCONN";            break;    //РЎРѕРєРµС‚ РЅРµ РїРѕРґРєР»СЋС‡РµРЅ
+	case WSAESHUTDOWN:              msgText = "WSAESHUTDOWN";           break;    //РќРµР»СЊР·СЏ РІС‹РїРѕР»РЅРёС‚СЊ send: СЃРѕРєРµС‚ Р·Р°РІРµСЂС€РёР» СЂР°Р±РѕС‚Сѓ
+	case WSAETIMEDOUT:              msgText = "WSAETIMEDOUT";           break;    //Р—Р°РєРѕРЅС‡РёР»СЃСЏ РѕС‚РІРµРґРµРЅРЅС‹Р№ РёРЅС‚РµСЂРІР°Р»  РІСЂРµРјРµРЅРё
+	case WSAECONNREFUSED:           msgText = "WSAECONNREFUSED";        break;    //РЎРѕРµРґРёРЅРµРЅРёРµ РѕС‚РєР»РѕРЅРµРЅРѕ
+	case WSAEHOSTDOWN:              msgText = "WSAEHOSTDOWN";           break;    //РҐРѕСЃС‚ РІ РЅРµСЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё
+	case WSAEHOSTUNREACH:           msgText = "WSAEHOSTUNREACH";        break;    //РќРµС‚ РјР°СЂС€СЂСѓС‚Р° РґР»СЏ С…РѕСЃС‚Р°
+	case WSAEPROCLIM:               msgText = "WSAEPROCLIM";            break;    //РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ РїСЂРѕС†РµСЃСЃРѕРІ
+	case WSASYSNOTREADY:            msgText = "WSASYSNOTREADY";         break;    //РЎРµС‚СЊ РЅРµ РґРѕСЃС‚СѓРїРЅР°
+	case WSAVERNOTSUPPORTED:        msgText = "WSAVERNOTSUPPORTED";     break;    //Р”Р°РЅРЅР°СЏ РІРµСЂСЃРёСЏ РЅРµРґРѕСЃС‚СѓРїРЅР°
+	case WSANOTINITIALISED:         msgText = "WSANOTINITIALISED";      break;    //РќРµ РІС‹РїРѕР»РЅРµРЅР° РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ WS2_32.DLL
+	case WSAEDISCON:                msgText = "WSAEDISCON";             break;    //Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ РѕС‚РєР»СЋС‡РµРЅРёРµ
+	case WSATYPE_NOT_FOUND:         msgText = "WSATYPE_NOT_FOUND";      break;    //РљР»Р°СЃСЃ РЅРµ РЅР°Р№РґРµРЅ
+	case WSAHOST_NOT_FOUND:         msgText = "WSAHOST_NOT_FOUND";      break;    //РҐРѕСЃС‚ РЅРµ РЅР°Р№РґРµРЅ
+	case WSATRY_AGAIN:              msgText = "WSATRY_AGAIN";           break;    //РќРµР°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅРЅС‹Р№ С…РѕСЃС‚ РЅРµ РЅР°Р№РґРµРЅ
+	case WSANO_RECOVERY:            msgText = "WSANO_RECOVERY";         break;    //РќРµРѕРїСЂРµРґРµР»РµРЅРЅР°СЏ  РѕС€РёР±РєР°
+	case WSANO_DATA:                msgText = "WSANO_DATA";             break;    //РќРµС‚ Р·Р°РїРёСЃРё Р·Р°РїСЂРѕС€РµРЅРЅРѕРіРѕ С‚РёРїР°
+	case WSA_INVALID_HANDLE:      msgText = "WSA_INVALID_HANDLE";     break;    //РЈРєР°Р·Р°РЅРЅС‹Р№ РґРµСЃРєСЂРёРїС‚РѕСЂ СЃРѕР±С‹С‚РёСЏ  СЃ РѕС€РёР±РєРѕР№
+	case WSA_INVALID_PARAMETER:   msgText = "WSA_INVALID_PARAMETER";  break;    //РћРґРёРЅ РёР»Рё Р±РѕР»РµРµ РїР°СЂР°РјРµС‚СЂРѕРІ СЃ РѕС€РёР±РєРѕР№
+	case WSA_IO_INCOMPLETE:       msgText = "WSA_IO_INCOMPLETE";      break;    //РћР±СЉРµРєС‚ РІРІРѕРґР°-РІС‹РІРѕРґР° РЅРµ РІ СЃРёРіРЅР°Р»СЊРЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё
+	case WSA_IO_PENDING:          msgText = "WSA_IO_PENDING";         break;    //РћРїРµСЂР°С†РёСЏ Р·Р°РІРµСЂС€РёС‚СЃСЏ РїРѕР·Р¶Рµ
+	case WSA_NOT_ENOUGH_MEMORY:   msgText = "WSA_NOT_ENOUGH_MEMORY";  break;    //РќРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°РјСЏС‚Рё
+	case WSA_OPERATION_ABORTED:   msgText = "WSA_OPERATION_ABORTED";  break;    //РћРїРµСЂР°С†РёСЏ РѕС‚РІРµСЂРіРЅСѓС‚Р°
 	case WSASYSCALLFAILURE:         msgText = "WSASYSCALLFAILURE";      break;
 	default:                msgText = "***ERROR***";      break;
 	};
@@ -132,19 +132,19 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 		SOCKADDR_IN Server_IN;
 		int Flen = sizeof(Server), connectionType = 0;
-		cout << "1 - Подключение по имени сервера" << endl << "2 - Подключение по позывному" << endl;
+		cout << "1 - РџРѕРґРєР»СЋС‡РµРЅРёРµ РїРѕ РёРјРµРЅРё СЃРµСЂРІРµСЂР°" << endl << "2 - РџРѕРґРєР»СЋС‡РµРЅРёРµ РїРѕ РїРѕР·С‹РІРЅРѕРјСѓ" << endl;
 		cin >> connectionType;
 		if (connectionType == 1) {
-			cout << "Введите имя сервера: ";
+			cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ СЃРµСЂРІРµСЂР°: ";
 			cin >> Name;
 			hostent* s = gethostbyname(Name);
-			if (s == NULL) throw "Сервер не найден;";
-			cout << "Порт сервера: ";
+			if (s == NULL) throw "РЎРµСЂРІРµСЂ РЅРµ РЅР°Р№РґРµРЅ;";
+			cout << "РџРѕСЂС‚ СЃРµСЂРІРµСЂР°: ";
 			cin >> port;
 			Server_IN.sin_addr = *(struct in_addr*)s->h_addr_list[0];
 		}
 		else if (connectionType == 2) {
-			cout << "Введите позывной сервера: ";
+			cout << "Р’РІРµРґРёС‚Рµ РїРѕР·С‹РІРЅРѕР№ СЃРµСЂРІРµСЂР°: ";
 			cin >> call;
 
 			SOCKET SocketUDP;
@@ -170,7 +170,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 			else {
 				Server_IN.sin_addr.s_addr = from.sin_addr.s_addr;
 				if (closesocket(SocketUDP) == SOCKET_ERROR) throw SetErrorMsgText("Closesocket:", WSAGetLastError());
-				cout << "Порт сервера: ";
+				cout << "РџРѕСЂС‚ СЃРµСЂРІРµСЂР°: ";
 				cin >> port;
 			}
 		}
@@ -181,7 +181,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		Server_IN.sin_family = AF_INET;
 		Server_IN.sin_port = htons(port);
 
-		if ((connect(SocketTCP, (sockaddr*)&Server_IN, sizeof(Server_IN))) == SOCKET_ERROR) throw "Ошибка соединения;";
+		if ((connect(SocketTCP, (sockaddr*)&Server_IN, sizeof(Server_IN))) == SOCKET_ERROR) throw "РћС€РёР±РєР° СЃРѕРµРґРёРЅРµРЅРёСЏ;";
 
 		printf_s("\n ---------- ---------- ---------- ---------- \n");
 		cout << endl << "1 - Rand" << endl << "2 - Time" << endl << "3 - Echo" << endl;
@@ -197,7 +197,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 			strcpy_s(Call, "Echo");
 			break;
 		default:
-			if (closesocket(SocketTCP) == SOCKET_ERROR) throw SetErrorMsgText("Closesocket:", WSAGetLastError()); throw "Введен неверный код;";
+			if (closesocket(SocketTCP) == SOCKET_ERROR) throw SetErrorMsgText("Closesocket:", WSAGetLastError()); throw "Р’РІРµРґРµРЅ РЅРµРІРµСЂРЅС‹Р№ РєРѕРґ;";
 		}
 		printf_s("\n ---------- ---------- ---------- ---------- \n");
 
@@ -207,7 +207,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		if ((lobuf = recv(SocketTCP, rCall, sizeof(rCall), NULL)) == SOCKET_ERROR) throw SetErrorMsgText("Recv:", WSAGetLastError());
 
 		if (strcmp(Call, rCall) != 0) {
-			throw "Сервис не доступен";
+			throw "РЎРµСЂРІРёСЃ РЅРµ РґРѕСЃС‚СѓРїРµРЅ";
 		}
 		else {
 			u_long nonblk = 1;
@@ -235,11 +235,11 @@ int _tmain(int argc, _TCHAR* argv[]) {
 					}
 					else {
 						if (SystemMessage(obuf)) {
-							printf("Сервер завершил соединение: %s\n", obuf);
+							printf("РЎРµСЂРІРµСЂ Р·Р°РІРµСЂС€РёР» СЃРѕРµРґРёРЅРµРЅРёРµ: %s\n", obuf);
 							break;
 						}
 						else
-							printf("Полученное сообщение:[%s]\n", obuf);		
+							printf("РџРѕР»СѓС‡РµРЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ:[%s]\n", obuf);		
 						rcv = true;
 					}
 				}
@@ -248,7 +248,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 				cout << error << endl;
 			}
 			clock_t FinishTime = clock();
-			printf("Время: %lf сек.\n", (double)(FinishTime - StartTime) / CLOCKS_PER_SEC);
+			printf("Р’СЂРµРјСЏ: %lf СЃРµРє.\n", (double)(FinishTime - StartTime) / CLOCKS_PER_SEC);
 
 		}
 		if (closesocket(SocketTCP) == SOCKET_ERROR) throw SetErrorMsgText("Closesocket:", WSAGetLastError());

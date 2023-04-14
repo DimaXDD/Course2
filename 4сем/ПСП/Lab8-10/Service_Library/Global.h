@@ -1,4 +1,4 @@
-//Global DLL
+п»ї//Global DLL
 #pragma once
 #include "locale.h"
 #include <iostream>
@@ -14,15 +14,15 @@
 using std::string;
 using std::list;
 
-// Команды получаемые от RConsole
+// РљРѕРјР°РЅРґС‹ РїРѕР»СѓС‡Р°РµРјС‹Рµ РѕС‚ RConsole
 enum TalkersCommand { START, STOP, EXIT, STATISTICS, WAIT, SHUTDOWN, GETCOMMAND };
 
-// Статистика подключений
-//todo общее за все время работы сервера (no decrement)
-volatile LONG Accept = 0;  // Количество подключений
-volatile LONG Fail = 0;    // Неудачные подключения
-volatile LONG Finished = 0;// Завершенные удачно
-volatile LONG ClientServiceNumber = 0;    // Подключения в текущий момент
+// РЎС‚Р°С‚РёСЃС‚РёРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№
+//todo РѕР±С‰РµРµ Р·Р° РІСЃРµ РІСЂРµРјСЏ СЂР°Р±РѕС‚С‹ СЃРµСЂРІРµСЂР° (no decrement)
+volatile LONG Accept = 0;  // РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРґРєР»СЋС‡РµРЅРёР№
+volatile LONG Fail = 0;    // РќРµСѓРґР°С‡РЅС‹Рµ РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+volatile LONG Finished = 0;// Р—Р°РІРµСЂС€РµРЅРЅС‹Рµ СѓРґР°С‡РЅРѕ
+volatile LONG ClientServiceNumber = 0;    // РџРѕРґРєР»СЋС‡РµРЅРёСЏ РІ С‚РµРєСѓС‰РёР№ РјРѕРјРµРЅС‚
 
 HANDLE(*ts2)(char*, LPVOID);
 HANDLE(*ts3)(char*, LPVOID);
@@ -32,45 +32,45 @@ HMODULE st3;
 
 
 #pragma region ListContact
-CRITICAL_SECTION scListContact;// Критическая секция
+CRITICAL_SECTION scListContact;// РљСЂРёС‚РёС‡РµСЃРєР°СЏ СЃРµРєС†РёСЏ
 
 struct Param {
 	TalkersCommand cmd;
 	int port;
 };
 
-struct Contact         // элемент списка подключений       
+struct Contact         // СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№       
 {
-	enum TE {               // состояние  сервера подключения  
-		EMPTY,              // пустой элемент списка подключений 
-		ACCEPT,             // подключен (accept), но не обслуживается
-		CONTACT             // передан обслуживающему серверу  
-	}    type;     // тип элемента списка подключений 
+	enum TE {               // СЃРѕСЃС‚РѕСЏРЅРёРµ  СЃРµСЂРІРµСЂР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ  
+		EMPTY,              // РїСѓСЃС‚РѕР№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№ 
+		ACCEPT,             // РїРѕРґРєР»СЋС‡РµРЅ (accept), РЅРѕ РЅРµ РѕР±СЃР»СѓР¶РёРІР°РµС‚СЃСЏ
+		CONTACT             // РїРµСЂРµРґР°РЅ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРјСѓ СЃРµСЂРІРµСЂСѓ  
+	}    type;     // С‚РёРї СЌР»РµРјРµРЅС‚Р° СЃРїРёСЃРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№ 
 
-	enum ST {               // состояние обслуживающего сервера  
-		WORK,               // идет обмен данными с клиентом
-		ABORT,              // обслуживающий сервер завершился ненормально 
-		TIMEOUT,            // обслуживающий сервер завершился по времени 
-		FINISH              // обслуживающий сервер завершился  нормально 
-	}      sthread; // состояние  обслуживающего сервера (потока)
+	enum ST {               // СЃРѕСЃС‚РѕСЏРЅРёРµ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ СЃРµСЂРІРµСЂР°  
+		WORK,               // РёРґРµС‚ РѕР±РјРµРЅ РґР°РЅРЅС‹РјРё СЃ РєР»РёРµРЅС‚РѕРј
+		ABORT,              // РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ СЃРµСЂРІРµСЂ Р·Р°РІРµСЂС€РёР»СЃСЏ РЅРµРЅРѕСЂРјР°Р»СЊРЅРѕ 
+		TIMEOUT,            // РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ СЃРµСЂРІРµСЂ Р·Р°РІРµСЂС€РёР»СЃСЏ РїРѕ РІСЂРµРјРµРЅРё 
+		FINISH              // РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ СЃРµСЂРІРµСЂ Р·Р°РІРµСЂС€РёР»СЃСЏ  РЅРѕСЂРјР°Р»СЊРЅРѕ 
+	}      sthread; // СЃРѕСЃС‚РѕСЏРЅРёРµ  РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ СЃРµСЂРІРµСЂР° (РїРѕС‚РѕРєР°)
 
-	SOCKET      s;         // сокет для обмена данными с клиентом
-	SOCKADDR_IN prms;      // параметры  сокета 
-	int         lprms;     // длина prms 
-	HANDLE      hthread;   // handle потока (или процесса) 
-	HANDLE      htimer;    // handle таймера
-	bool        TimerOff;  // Метка срабатывания таймера
-	bool        CloseConn; // Метка завершения обслуживания
+	SOCKET      s;         // СЃРѕРєРµС‚ РґР»СЏ РѕР±РјРµРЅР° РґР°РЅРЅС‹РјРё СЃ РєР»РёРµРЅС‚РѕРј
+	SOCKADDR_IN prms;      // РїР°СЂР°РјРµС‚СЂС‹  СЃРѕРєРµС‚Р° 
+	int         lprms;     // РґР»РёРЅР° prms 
+	HANDLE      hthread;   // handle РїРѕС‚РѕРєР° (РёР»Рё РїСЂРѕС†РµСЃСЃР°) 
+	HANDLE      htimer;    // handle С‚Р°Р№РјРµСЂР°
+	bool        TimerOff;  // РњРµС‚РєР° СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
+	bool        CloseConn; // РњРµС‚РєР° Р·Р°РІРµСЂС€РµРЅРёСЏ РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ
 
-	char msg[50];           // сообщение 
-	char srvname[15];       //  наименование обслуживающего сервера 
+	char msg[50];           // СЃРѕРѕР±С‰РµРЅРёРµ 
+	char srvname[15];       //  РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ СЃРµСЂРІРµСЂР° 
 
-	HANDLE hAcceptServer;// Handle обслуживающего потока
+	HANDLE hAcceptServer;// Handle РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїРѕС‚РѕРєР°
 
-	Contact(TE t = EMPTY, const char* namesrv = "") // конструктор 
+	Contact(TE t = EMPTY, const char* namesrv = "") // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 
 	{
 		memset(&prms, 0, sizeof(SOCKADDR_IN));
-		lprms = sizeof(SOCKADDR_IN);// Размер сокета
+		lprms = sizeof(SOCKADDR_IN);// Р Р°Р·РјРµСЂ СЃРѕРєРµС‚Р°
 		type = t;
 		strcpy_s(srvname, namesrv);
 		msg[0] = 0;
@@ -84,109 +84,109 @@ struct Contact         // элемент списка подключений
 	}
 };
 typedef list<Contact> ListContact;
-// список подключений  
+// СЃРїРёСЃРѕРє РїРѕРґРєР»СЋС‡РµРЅРёР№  
 ListContact Contacts;
 #pragma endregion
 
-// Асинхронная функция срабатывания таймера
+// РђСЃРёРЅС…СЂРѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 void CALLBACK ASWTimer(LPVOID Lprm, DWORD, DWORD) {
-	Contact* client = (Contact*)Lprm; //преобразуем переданный параметр
-	//EnterCriticalSection(&scListContact); //входим в критическую секцию
-	client->TimerOff = true; 	//ставим метку срабатывания таймера
+	Contact* client = (Contact*)Lprm; //РїСЂРµРѕР±СЂР°Р·СѓРµРј РїРµСЂРµРґР°РЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ
+	//EnterCriticalSection(&scListContact); //РІС…РѕРґРёРј РІ РєСЂРёС‚РёС‡РµСЃРєСѓСЋ СЃРµРєС†РёСЋ
+	client->TimerOff = true; 	//СЃС‚Р°РІРёРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 	client->sthread = Contact::TIMEOUT;
-	//LeaveCriticalSection(&scListContact); 	//выходим из критической секции
+	//LeaveCriticalSection(&scListContact); 	//РІС‹С…РѕРґРёРј РёР· РєСЂРёС‚РёС‡РµСЃРєРѕР№ СЃРµРєС†РёРё
 	SYSTEMTIME stt;
-	// Получаем текущее время и дату
+	// РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ Рё РґР°С‚Сѓ
 	GetLocalTime(&stt);
-	// Выводим сообщение
+	// Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
 	printf("%d.%d.%d %d:%02d Timeout ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);
 	std::cout << std::endl << client->srvname << ";" << std::endl;
 }
-// Асинхронная функция запуска обслуживающего потока
+// РђСЃРёРЅС…СЂРѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ Р·Р°РїСѓСЃРєР° РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїРѕС‚РѕРєР°
 void CALLBACK ASStartMessage(DWORD Lprm) {
 	Contact* client = (Contact*)Lprm;
 	/*EnterCriticalSection(&scListContact);*/
-	// Ставим метку срабатывания таймера
+	// РЎС‚Р°РІРёРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 	char* sn = client->srvname;
-	// Покидаем критическую секцию
+	// РџРѕРєРёРґР°РµРј РєСЂРёС‚РёС‡РµСЃРєСѓСЋ СЃРµРєС†РёСЋ
 	//LeaveCriticalSection(&scListContact);
-	// Структура времени
+	// РЎС‚СЂСѓРєС‚СѓСЂР° РІСЂРµРјРµРЅРё
 	SYSTEMTIME stt;
-	// Получаем текущее время и дату
+	// РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ Рё РґР°С‚Сѓ
 	GetLocalTime(&stt);
-	// Выводим сообщение
+	// Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
 	printf("%d.%d.%d %d:%02d ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);
 	std::cout << std::endl << sn << " started;" << std::endl;
 }
-// Асинхронная функция завершения обслуживающего потока
+// РђСЃРёРЅС…СЂРѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ Р·Р°РІРµСЂС€РµРЅРёСЏ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїРѕС‚РѕРєР°
 void CALLBACK ASFinishMessage(DWORD Lprm) {
 	Contact* client = (Contact*)Lprm;
 	/*EnterCriticalSection(&scListContact);*/
-	// Ставим метку срабатывания таймера
+	// РЎС‚Р°РІРёРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 	char* sn = client->srvname;
-	// Покидаем критическую секцию
+	// РџРѕРєРёРґР°РµРј РєСЂРёС‚РёС‡РµСЃРєСѓСЋ СЃРµРєС†РёСЋ
 	/*LeaveCriticalSection(&scListContact);*/
 	
-	SYSTEMTIME stt;// Структура времени
-	GetLocalTime(&stt);// Получаем текущее время и дату
-	printf("%d.%d.%d %d:%02d ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);// Выводим сообщение
+	SYSTEMTIME stt;// РЎС‚СЂСѓРєС‚СѓСЂР° РІСЂРµРјРµРЅРё
+	GetLocalTime(&stt);// РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ Рё РґР°С‚Сѓ
+	printf("%d.%d.%d %d:%02d ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);// Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
 	std::cout << std::endl << sn << " stoped;" << std::endl;
 }
 
 #pragma region Error
 string  GetErrorMsgText(int code) {
 	string msgText;
-	switch (code)                      // проверка кода возврата  
+	switch (code)                      // РїСЂРѕРІРµСЂРєР° РєРѕРґР° РІРѕР·РІСЂР°С‚Р°  
 	{
-	case WSAEINTR:                  msgText = "WSAEINTR";               break;    //Работа функции прервана
-	case WSAEACCES:                 msgText = "WSAEACCES";              break;    //Разрешение отвергнуто
-	case WSAEFAULT:                 msgText = "WSAEFAULT";              break;    //Ошибочный адрес
-	case WSAEINVAL:                 msgText = "WSAEINVAL";              break;    //Ошибка в аргументе
-	case WSAEMFILE:                 msgText = "WSAEMFILE";              break;    //Слишком много файлов открыто
-	case WSAEWOULDBLOCK:            msgText = "WSAEWOULDBLOCK";         break;    //Ресурс временно недоступен
-	case WSAEINPROGRESS:            msgText = "WSAEINPROGRESS";         break;    //Операция в процессе развития
-	case WSAEALREADY:               msgText = "WSAEALREADY";            break;    //Операция уже выполняется
-	case WSAENOTSOCK:               msgText = "WSAENOTSOCK";            break;    //Сокет задан неправильно
-	case WSAEDESTADDRREQ:           msgText = "WSAEDESTADDRREQ";        break;    //Требуется адрес расположения
-	case WSAEMSGSIZE:               msgText = "WSAEMSGSIZE";            break;    //Сообщение слишком длинное
-	case WSAEPROTOTYPE:             msgText = "WSAEPROTOTYPE";          break;    //Неправильный тип протокола для сокета
-	case WSAENOPROTOOPT:            msgText = "WSAENOPROTOOPT";         break;    //Ошибка в опции протокола
-	case WSAEPROTONOSUPPORT:        msgText = "WSAEPROTONOSUPPORT";     break;    //Протокол не поддерживается
-	case WSAESOCKTNOSUPPORT:        msgText = "WSAESOCKTNOSUPPORT";     break;    //Тип сокета не поддерживается
-	case WSAEOPNOTSUPP:             msgText = "WSAEOPNOTSUPP";          break;    //Операция не поддерживается
-	case WSAEPFNOSUPPORT:           msgText = "WSAEPFNOSUPPORT";        break;    //Тип протоколов не поддерживается
-	case WSAEAFNOSUPPORT:           msgText = "WSAEAFNOSUPPORT";        break;    //Тип адресов не поддерживается протоколом
-	case WSAEADDRINUSE:             msgText = "WSAEADDRINUSE";          break;    //Адрес уже используется
-	case WSAEADDRNOTAVAIL:          msgText = "WSAEADDRNOTAVAIL";       break;    //Запрошенный адрес не может быть использован
-	case WSAENETDOWN:               msgText = "WSAENETDOWN";            break;    //Сеть отключена
-	case WSAENETUNREACH:            msgText = "WSAENETUNREACH";         break;    //Сеть не достижима
-	case WSAENETRESET:              msgText = "WSAENETRESET";           break;    //Сеть разорвала соединение
-	case WSAECONNABORTED:           msgText = "WSAECONNABORTED";        break;    //Программный отказ связи
-	case WSAECONNRESET:             msgText = "WSAECONNRESET";          break;    //Связь восстановлена
-	case WSAENOBUFS:                msgText = "WSAENOBUFS";             break;    //Не хватает памяти для буферов
-	case WSAEISCONN:                msgText = "WSAEISCONN";             break;    //Сокет уже подключен
-	case WSAENOTCONN:               msgText = "WSAENOTCONN";            break;    //Сокет не подключен
-	case WSAESHUTDOWN:              msgText = "WSAESHUTDOWN";           break;    //Нельзя выполнить send: сокет завершил работу
-	case WSAETIMEDOUT:              msgText = "WSAETIMEDOUT";           break;    //Закончился отведенный интервал  времени
-	case WSAECONNREFUSED:           msgText = "WSAECONNREFUSED";        break;    //Соединение отклонено
-	case WSAEHOSTDOWN:              msgText = "WSAEHOSTDOWN";           break;    //Хост в неработоспособном состоянии
-	case WSAEHOSTUNREACH:           msgText = "WSAEHOSTUNREACH";        break;    //Нет маршрута для хоста
-	case WSAEPROCLIM:               msgText = "WSAEPROCLIM";            break;    //Слишком много процессов
-	case WSASYSNOTREADY:            msgText = "WSASYSNOTREADY";         break;    //Сеть не доступна
-	case WSAVERNOTSUPPORTED:        msgText = "WSAVERNOTSUPPORTED";     break;    //Данная версия недоступна
-	case WSANOTINITIALISED:         msgText = "WSANOTINITIALISED";      break;    //Не выполнена инициализация WS2_32.DLL
-	case WSAEDISCON:                msgText = "WSAEDISCON";             break;    //Выполняется отключение
-	case WSATYPE_NOT_FOUND:         msgText = "WSATYPE_NOT_FOUND";      break;    //Класс не найден
-	case WSAHOST_NOT_FOUND:         msgText = "WSAHOST_NOT_FOUND";      break;    //Хост не найден
-	case WSATRY_AGAIN:              msgText = "WSATRY_AGAIN";           break;    //Неавторизированный хост не найден
-	case WSANO_RECOVERY:            msgText = "WSANO_RECOVERY";         break;    //Неопределенная  ошибка
-	case WSANO_DATA:                msgText = "WSANO_DATA";             break;    //Нет записи запрошенного типа
-	case WSA_INVALID_HANDLE:		 msgText = "WSA_INVALID_HANDLE";    break;    //Указанный дескриптор события  с ошибкой
-	case WSA_INVALID_PARAMETER:		msgText = "WSA_INVALID_PARAMETER";  break;    //Один или более параметров с ошибкой
-	case WSA_IO_INCOMPLETE:			msgText = "WSA_IO_INCOMPLETE";      break;    //Объект ввода-вывода не в сигнальном состоянии
-	case WSA_IO_PENDING:			msgText = "WSA_IO_PENDING";         break;    //Операция завершится позже
-	case WSA_NOT_ENOUGH_MEMORY:		msgText = "WSA_NOT_ENOUGH_MEMORY";  break;    //Не достаточно памяти
-	case WSA_OPERATION_ABORTED:		msgText = "WSA_OPERATION_ABORTED";  break;    //Операция отвергнута
+	case WSAEINTR:                  msgText = "WSAEINTR";               break;    //Р Р°Р±РѕС‚Р° С„СѓРЅРєС†РёРё РїСЂРµСЂРІР°РЅР°
+	case WSAEACCES:                 msgText = "WSAEACCES";              break;    //Р Р°Р·СЂРµС€РµРЅРёРµ РѕС‚РІРµСЂРіРЅСѓС‚Рѕ
+	case WSAEFAULT:                 msgText = "WSAEFAULT";              break;    //РћС€РёР±РѕС‡РЅС‹Р№ Р°РґСЂРµСЃ
+	case WSAEINVAL:                 msgText = "WSAEINVAL";              break;    //РћС€РёР±РєР° РІ Р°СЂРіСѓРјРµРЅС‚Рµ
+	case WSAEMFILE:                 msgText = "WSAEMFILE";              break;    //РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ С„Р°Р№Р»РѕРІ РѕС‚РєСЂС‹С‚Рѕ
+	case WSAEWOULDBLOCK:            msgText = "WSAEWOULDBLOCK";         break;    //Р РµСЃСѓСЂСЃ РІСЂРµРјРµРЅРЅРѕ РЅРµРґРѕСЃС‚СѓРїРµРЅ
+	case WSAEINPROGRESS:            msgText = "WSAEINPROGRESS";         break;    //РћРїРµСЂР°С†РёСЏ РІ РїСЂРѕС†РµСЃСЃРµ СЂР°Р·РІРёС‚РёСЏ
+	case WSAEALREADY:               msgText = "WSAEALREADY";            break;    //РћРїРµСЂР°С†РёСЏ СѓР¶Рµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ
+	case WSAENOTSOCK:               msgText = "WSAENOTSOCK";            break;    //РЎРѕРєРµС‚ Р·Р°РґР°РЅ РЅРµРїСЂР°РІРёР»СЊРЅРѕ
+	case WSAEDESTADDRREQ:           msgText = "WSAEDESTADDRREQ";        break;    //РўСЂРµР±СѓРµС‚СЃСЏ Р°РґСЂРµСЃ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ
+	case WSAEMSGSIZE:               msgText = "WSAEMSGSIZE";            break;    //РЎРѕРѕР±С‰РµРЅРёРµ СЃР»РёС€РєРѕРј РґР»РёРЅРЅРѕРµ
+	case WSAEPROTOTYPE:             msgText = "WSAEPROTOTYPE";          break;    //РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ С‚РёРї РїСЂРѕС‚РѕРєРѕР»Р° РґР»СЏ СЃРѕРєРµС‚Р°
+	case WSAENOPROTOOPT:            msgText = "WSAENOPROTOOPT";         break;    //РћС€РёР±РєР° РІ РѕРїС†РёРё РїСЂРѕС‚РѕРєРѕР»Р°
+	case WSAEPROTONOSUPPORT:        msgText = "WSAEPROTONOSUPPORT";     break;    //РџСЂРѕС‚РѕРєРѕР» РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAESOCKTNOSUPPORT:        msgText = "WSAESOCKTNOSUPPORT";     break;    //РўРёРї СЃРѕРєРµС‚Р° РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAEOPNOTSUPP:             msgText = "WSAEOPNOTSUPP";          break;    //РћРїРµСЂР°С†РёСЏ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAEPFNOSUPPORT:           msgText = "WSAEPFNOSUPPORT";        break;    //РўРёРї РїСЂРѕС‚РѕРєРѕР»РѕРІ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ
+	case WSAEAFNOSUPPORT:           msgText = "WSAEAFNOSUPPORT";        break;    //РўРёРї Р°РґСЂРµСЃРѕРІ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ РїСЂРѕС‚РѕРєРѕР»РѕРј
+	case WSAEADDRINUSE:             msgText = "WSAEADDRINUSE";          break;    //РђРґСЂРµСЃ СѓР¶Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
+	case WSAEADDRNOTAVAIL:          msgText = "WSAEADDRNOTAVAIL";       break;    //Р—Р°РїСЂРѕС€РµРЅРЅС‹Р№ Р°РґСЂРµСЃ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ
+	case WSAENETDOWN:               msgText = "WSAENETDOWN";            break;    //РЎРµС‚СЊ РѕС‚РєР»СЋС‡РµРЅР°
+	case WSAENETUNREACH:            msgText = "WSAENETUNREACH";         break;    //РЎРµС‚СЊ РЅРµ РґРѕСЃС‚РёР¶РёРјР°
+	case WSAENETRESET:              msgText = "WSAENETRESET";           break;    //РЎРµС‚СЊ СЂР°Р·РѕСЂРІР°Р»Р° СЃРѕРµРґРёРЅРµРЅРёРµ
+	case WSAECONNABORTED:           msgText = "WSAECONNABORTED";        break;    //РџСЂРѕРіСЂР°РјРјРЅС‹Р№ РѕС‚РєР°Р· СЃРІСЏР·Рё
+	case WSAECONNRESET:             msgText = "WSAECONNRESET";          break;    //РЎРІСЏР·СЊ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅР°
+	case WSAENOBUFS:                msgText = "WSAENOBUFS";             break;    //РќРµ С…РІР°С‚Р°РµС‚ РїР°РјСЏС‚Рё РґР»СЏ Р±СѓС„РµСЂРѕРІ
+	case WSAEISCONN:                msgText = "WSAEISCONN";             break;    //РЎРѕРєРµС‚ СѓР¶Рµ РїРѕРґРєР»СЋС‡РµРЅ
+	case WSAENOTCONN:               msgText = "WSAENOTCONN";            break;    //РЎРѕРєРµС‚ РЅРµ РїРѕРґРєР»СЋС‡РµРЅ
+	case WSAESHUTDOWN:              msgText = "WSAESHUTDOWN";           break;    //РќРµР»СЊР·СЏ РІС‹РїРѕР»РЅРёС‚СЊ send: СЃРѕРєРµС‚ Р·Р°РІРµСЂС€РёР» СЂР°Р±РѕС‚Сѓ
+	case WSAETIMEDOUT:              msgText = "WSAETIMEDOUT";           break;    //Р—Р°РєРѕРЅС‡РёР»СЃСЏ РѕС‚РІРµРґРµРЅРЅС‹Р№ РёРЅС‚РµСЂРІР°Р»  РІСЂРµРјРµРЅРё
+	case WSAECONNREFUSED:           msgText = "WSAECONNREFUSED";        break;    //РЎРѕРµРґРёРЅРµРЅРёРµ РѕС‚РєР»РѕРЅРµРЅРѕ
+	case WSAEHOSTDOWN:              msgText = "WSAEHOSTDOWN";           break;    //РҐРѕСЃС‚ РІ РЅРµСЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё
+	case WSAEHOSTUNREACH:           msgText = "WSAEHOSTUNREACH";        break;    //РќРµС‚ РјР°СЂС€СЂСѓС‚Р° РґР»СЏ С…РѕСЃС‚Р°
+	case WSAEPROCLIM:               msgText = "WSAEPROCLIM";            break;    //РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ РїСЂРѕС†РµСЃСЃРѕРІ
+	case WSASYSNOTREADY:            msgText = "WSASYSNOTREADY";         break;    //РЎРµС‚СЊ РЅРµ РґРѕСЃС‚СѓРїРЅР°
+	case WSAVERNOTSUPPORTED:        msgText = "WSAVERNOTSUPPORTED";     break;    //Р”Р°РЅРЅР°СЏ РІРµСЂСЃРёСЏ РЅРµРґРѕСЃС‚СѓРїРЅР°
+	case WSANOTINITIALISED:         msgText = "WSANOTINITIALISED";      break;    //РќРµ РІС‹РїРѕР»РЅРµРЅР° РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ WS2_32.DLL
+	case WSAEDISCON:                msgText = "WSAEDISCON";             break;    //Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ РѕС‚РєР»СЋС‡РµРЅРёРµ
+	case WSATYPE_NOT_FOUND:         msgText = "WSATYPE_NOT_FOUND";      break;    //РљР»Р°СЃСЃ РЅРµ РЅР°Р№РґРµРЅ
+	case WSAHOST_NOT_FOUND:         msgText = "WSAHOST_NOT_FOUND";      break;    //РҐРѕСЃС‚ РЅРµ РЅР°Р№РґРµРЅ
+	case WSATRY_AGAIN:              msgText = "WSATRY_AGAIN";           break;    //РќРµР°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅРЅС‹Р№ С…РѕСЃС‚ РЅРµ РЅР°Р№РґРµРЅ
+	case WSANO_RECOVERY:            msgText = "WSANO_RECOVERY";         break;    //РќРµРѕРїСЂРµРґРµР»РµРЅРЅР°СЏ  РѕС€РёР±РєР°
+	case WSANO_DATA:                msgText = "WSANO_DATA";             break;    //РќРµС‚ Р·Р°РїРёСЃРё Р·Р°РїСЂРѕС€РµРЅРЅРѕРіРѕ С‚РёРїР°
+	case WSA_INVALID_HANDLE:		 msgText = "WSA_INVALID_HANDLE";    break;    //РЈРєР°Р·Р°РЅРЅС‹Р№ РґРµСЃРєСЂРёРїС‚РѕСЂ СЃРѕР±С‹С‚РёСЏ  СЃ РѕС€РёР±РєРѕР№
+	case WSA_INVALID_PARAMETER:		msgText = "WSA_INVALID_PARAMETER";  break;    //РћРґРёРЅ РёР»Рё Р±РѕР»РµРµ РїР°СЂР°РјРµС‚СЂРѕРІ СЃ РѕС€РёР±РєРѕР№
+	case WSA_IO_INCOMPLETE:			msgText = "WSA_IO_INCOMPLETE";      break;    //РћР±СЉРµРєС‚ РІРІРѕРґР°-РІС‹РІРѕРґР° РЅРµ РІ СЃРёРіРЅР°Р»СЊРЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё
+	case WSA_IO_PENDING:			msgText = "WSA_IO_PENDING";         break;    //РћРїРµСЂР°С†РёСЏ Р·Р°РІРµСЂС€РёС‚СЃСЏ РїРѕР·Р¶Рµ
+	case WSA_NOT_ENOUGH_MEMORY:		msgText = "WSA_NOT_ENOUGH_MEMORY";  break;    //РќРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°РјСЏС‚Рё
+	case WSA_OPERATION_ABORTED:		msgText = "WSA_OPERATION_ABORTED";  break;    //РћРїРµСЂР°С†РёСЏ РѕС‚РІРµСЂРіРЅСѓС‚Р°
 	case WSASYSCALLFAILURE:         msgText = "WSASYSCALLFAILURE";      break;
 	default:						msgText = "***ERROR***";			break;
 	};

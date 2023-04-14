@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <tchar.h>
 #include "iostream"
 #include "Windows.h"                
@@ -7,7 +7,7 @@
 using std::string;
 using namespace std;
 
-string GetErrorMsgText(int code) // cформировать текст ошибки
+string GetErrorMsgText(int code) // cС„РѕСЂРјРёСЂРѕРІР°С‚СЊ С‚РµРєСЃС‚ РѕС€РёР±РєРё
 {
 	char buff[50];
 	DWORD bufflen = sizeof(buff);
@@ -49,17 +49,17 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 	try 
 	{
-		printf_s("\n ---------- Доступные команды ---------- \n");
-		printf_s("1 - start  \t (разрешить подключение клиентов к серверу)\n");
-		printf_s("2 - stop  \t (запретить подключение клиентов к серверу)\n");
-		printf_s("3 - exit  \t (завершить работу сервера)\n");
-		printf_s("4 - statistics\t (вывод статистики)\n");
-		printf_s("5 - wait  \t (приостанавливает подключение клиентов)\n");
+		printf_s("\n ---------- Р”РѕСЃС‚СѓРїРЅС‹Рµ РєРѕРјР°РЅРґС‹ ---------- \n");
+		printf_s("1 - start  \t (СЂР°Р·СЂРµС€РёС‚СЊ РїРѕРґРєР»СЋС‡РµРЅРёРµ РєР»РёРµРЅС‚РѕРІ Рє СЃРµСЂРІРµСЂСѓ)\n");
+		printf_s("2 - stop  \t (Р·Р°РїСЂРµС‚РёС‚СЊ РїРѕРґРєР»СЋС‡РµРЅРёРµ РєР»РёРµРЅС‚РѕРІ Рє СЃРµСЂРІРµСЂСѓ)\n");
+		printf_s("3 - exit  \t (Р·Р°РІРµСЂС€РёС‚СЊ СЂР°Р±РѕС‚Сѓ СЃРµСЂРІРµСЂР°)\n");
+		printf_s("4 - statistics\t (РІС‹РІРѕРґ СЃС‚Р°С‚РёСЃС‚РёРєРё)\n");
+		printf_s("5 - wait  \t (РїСЂРёРѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕРґРєР»СЋС‡РµРЅРёРµ РєР»РёРµРЅС‚РѕРІ)\n");
 		printf_s("6 - shutdown  \t (wait + exit)\n");
-		printf_s("0 - закрыть\n");
+		printf_s("0 - Р·Р°РєСЂС‹С‚СЊ\n");
 		printf_s("\n ---------- ---------- ---------- ---------- \n");
 
-		cout << "Введите имя севера: ";
+		cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ СЃРµРІРµСЂР°: ";
 		cin >> serverName;
 		result = sprintf_s(PipeName, "\\\\%s\\pipe\\cpipe", serverName);
 
@@ -67,12 +67,12 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		HANDLE hNamedPipe = CreateFile(PipeName, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, &m_pSecAttrib);
 
 		do {
-			printf_s("Команда: ");
+			printf_s("РљРѕРјР°РЅРґР°: ");
 			scanf_s("%d", &Code);
 			if (Code > 0 && Code < 7) {
 				sprintf_s(WriteBuf, "%d", Code - 1);
-				if (!WriteFile(hNamedPipe, WriteBuf, strlen(WriteBuf) + 1, &nBytesWrite, NULL)) throw "WriteFile: Ошибка ";
-				if (!ReadFile(hNamedPipe, ReadBuf, sizeof(ReadBuf), &nBytesRead, NULL)) throw "ReadFile: Ошибка ";
+				if (!WriteFile(hNamedPipe, WriteBuf, strlen(WriteBuf) + 1, &nBytesWrite, NULL)) throw "WriteFile: РћС€РёР±РєР° ";
+				if (!ReadFile(hNamedPipe, ReadBuf, sizeof(ReadBuf), &nBytesRead, NULL)) throw "ReadFile: РћС€РёР±РєР° ";
 				cout << ReadBuf << endl;
 			}
 			if (Code == 0) break;
@@ -85,6 +85,6 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	{
 		cout << endl << ErrorPipeText;
 	}
-	cout << "RConsole остановлена\n\n";
+	cout << "RConsole РѕСЃС‚Р°РЅРѕРІР»РµРЅР°\n\n";
 	return 0;
 }

@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 
 #include "Global.h"
 #include "AcceptServer.h"
@@ -18,45 +18,45 @@ int _tmain(int argc, _TCHAR* argv[]) {
 			int tmp = atoi(argv[1]);
 			if (tmp >= 0 && tmp <= 65535) {
 				port = atoi(argv[1]);
-				cout << "Задан TCP-порт: " << port << endl;
+				cout << "Р—Р°РґР°РЅ TCP-РїРѕСЂС‚: " << port << endl;
 			}
 			else {
-				cout << "Задан неверный TCP-порт" << endl;
+				cout << "Р—Р°РґР°РЅ РЅРµРІРµСЂРЅС‹Р№ TCP-РїРѕСЂС‚" << endl;
 			}
 		}
 		else {
-			cout << "Используется TCP порт по умолчанию: " << port << endl;
+			cout << "РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ TCP РїРѕСЂС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: " << port << endl;
 		}
 
 		if (argc > 2) {
 			int tmp = atoi(argv[2]);
 			if (tmp >= 0 && tmp <= 65535) {
 				uport = atoi(argv[2]);
-				cout << "Задан UDP-порт: " << uport << endl;
+				cout << "Р—Р°РґР°РЅ UDP-РїРѕСЂС‚: " << uport << endl;
 			}
 			else {
-				cout << "Задан неверный UDP-порт" << endl;
+				cout << "Р—Р°РґР°РЅ РЅРµРІРµСЂРЅС‹Р№ UDP-РїРѕСЂС‚" << endl;
 			}
 		}
 		else {
-			cout << "Используется UDP порт по умолчанию: " << uport << endl;
+			cout << "РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ UDP РїРѕСЂС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: " << uport << endl;
 		}
 
-		if (argc > 3) { //3 параметр - имя библиотеки
+		if (argc > 3) { //3 РїР°СЂР°РјРµС‚СЂ - РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 			dllname = argv[3];
 		}
 
 		if (argc > 4) {
 			npname = argv[4];
-			cout << "Задано имя именованного канала: " << npname << endl;
+			cout << "Р—Р°РґР°РЅРѕ РёРјСЏ РёРјРµРЅРѕРІР°РЅРЅРѕРіРѕ РєР°РЅР°Р»Р°: " << npname << endl;
 		}
-		else cout << "Используется имя именованного канала по умолчанию: " << npname << endl;
+		else cout << "РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РёРјСЏ РёРјРµРЅРѕРІР°РЅРЅРѕРіРѕ РєР°РЅР°Р»Р° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: " << npname << endl;
 
 		if (argc > 5) {
 			ucall = argv[5];
-			cout << "Задан позывной:   " << ucall << endl;
+			cout << "Р—Р°РґР°РЅ РїРѕР·С‹РІРЅРѕР№:   " << ucall << endl;
 		}
-			cout << "Используется позывной по умолчанию: " << ucall << endl;
+			cout << "РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕР·С‹РІРЅРѕР№ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: " << ucall << endl;
 		srand((unsigned)time(NULL));
 
 		volatile TalkersCommand  cmd = START;
@@ -66,21 +66,21 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 		st1 = LoadLibrary(dllname);
 		sss = (HANDLE(*)(char*, LPVOID))GetProcAddress(st1, "SSS");
-		if (st1 == NULL) cout << "Ошибка при загрузке DLL" << endl;
-		else cout << "Загружена DLL " << dllname << endl << endl;
+		if (st1 == NULL) cout << "РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ DLL" << endl;
+		else cout << "Р—Р°РіСЂСѓР¶РµРЅР° DLL " << dllname << endl << endl;
 
 
 		hAcceptServer = CreateThread(NULL, NULL, AcceptServer, (LPVOID)&cmd, NULL, NULL);            //main
 		HANDLE hDispathServer = CreateThread(NULL, NULL, DispathServer, (LPVOID)&cmd, NULL, NULL);
 
-		HANDLE hConsolePipe = CreateThread(NULL, NULL, ConsolePipe, (LPVOID)&cmd, NULL, NULL);       //main - Сервер именованного канала
+		HANDLE hConsolePipe = CreateThread(NULL, NULL, ConsolePipe, (LPVOID)&cmd, NULL, NULL);       //main - РЎРµСЂРІРµСЂ РёРјРµРЅРѕРІР°РЅРЅРѕРіРѕ РєР°РЅР°Р»Р°
 		HANDLE hGarbageCleaner = CreateThread(NULL, NULL, GarbageCleaner, (LPVOID)&cmd, NULL, NULL); //main
 
 
 		HANDLE hResponseServer = CreateThread(NULL, NULL, ResponseServer, (LPVOID)&cmd, NULL, NULL);
 			
-		SetThreadPriority(hAcceptServer, THREAD_PRIORITY_HIGHEST);			//более активным станет подключение клиентов
-		SetThreadPriority(hGarbageCleaner, THREAD_PRIORITY_BELOW_NORMAL);	//пониженный (в фоновом режиме)
+		SetThreadPriority(hAcceptServer, THREAD_PRIORITY_HIGHEST);			//Р±РѕР»РµРµ Р°РєС‚РёРІРЅС‹Рј СЃС‚Р°РЅРµС‚ РїРѕРґРєР»СЋС‡РµРЅРёРµ РєР»РёРµРЅС‚РѕРІ
+		SetThreadPriority(hGarbageCleaner, THREAD_PRIORITY_BELOW_NORMAL);	//РїРѕРЅРёР¶РµРЅРЅС‹Р№ (РІ С„РѕРЅРѕРІРѕРј СЂРµР¶РёРјРµ)
 		SetThreadPriority(hConsolePipe, THREAD_PRIORITY_NORMAL);
 
 		SetThreadPriority(hResponseServer, THREAD_PRIORITY_ABOVE_NORMAL);

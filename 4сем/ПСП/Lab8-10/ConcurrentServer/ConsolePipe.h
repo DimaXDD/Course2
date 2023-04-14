@@ -1,8 +1,8 @@
-#pragma once
+ï»¿#pragma once
 #include "Global.h"
 
 DWORD WINAPI ConsolePipe(LPVOID pPrm) {
-	cout << "ConsolePipe ðàáîòàåò\n";
+	cout << "ConsolePipe Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚\n";
 	DWORD rc = 0;
 	HANDLE hPipe;
 	try 
@@ -19,9 +19,9 @@ DWORD WINAPI ConsolePipe(LPVOID pPrm) {
 			TalkersCommand SetCommand;
 			bool serverCommand;
 
-			//öèêëè÷åñêè  ïðîâåðÿåò îáùóþ îáëàñòü ïàìÿòè ïîòîêîâ
+			//Ñ†Ð¸ÐºÐ»Ð¸Ñ‡ÐµÑÐºÐ¸  Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÑ‚ Ð¾Ð±Ñ‰ÑƒÑŽ Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð²
 			while (*((TalkersCommand*)pPrm) != EXIT) {
-				//ïîñëå ïîëó÷åíèÿ êîìàíäû  getcommand çàïðàøèâàåò ñëåäóþùóþ êîìàíäó óïðàâëåíèÿ ñåðâåðîì
+				//Ð¿Ð¾ÑÐ»Ðµ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹  getcommand Ð·Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°ÐµÑ‚ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÑƒÑŽ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼
 				if (*((TalkersCommand*)pPrm) == GETCOMMAND) {
 
 					if (!ReadFile(hPipe, ReadBuf, sizeof(ReadBuf), &nBytesRead, NULL)) break;
@@ -42,7 +42,7 @@ DWORD WINAPI ConsolePipe(LPVOID pPrm) {
 								SetCommand = TalkersCommand::EXIT;
 								break;
 							case 3:
-								sprintf_s(WriteBuf, "\nÀêòèâíûõ: \t%i\nÎòêàçîâ: \t%i\nÇàêðûòûõ: \t%i\n", Accept, Fail, Finished);
+								sprintf_s(WriteBuf, "\nÐÐºÑ‚Ð¸Ð²Ð½Ñ‹Ñ…: \t%i\nÐžÑ‚ÐºÐ°Ð·Ð¾Ð²: \t%i\nÐ—Ð°ÐºÑ€Ñ‹Ñ‚Ñ‹Ñ…: \t%i\n", Accept, Fail, Finished);
 								serverCommand = false;
 								break;
 							case 4:
@@ -60,7 +60,7 @@ DWORD WINAPI ConsolePipe(LPVOID pPrm) {
 						}
 						if (serverCommand == true) {
 							*((TalkersCommand*)pPrm) = SetCommand;
-							printf_s("ConsolePipe: êîìàíäà %s\n", WriteBuf);
+							printf_s("ConsolePipe: ÐºÐ¾Ð¼Ð°Ð½Ð´Ð° %s\n", WriteBuf);
 						}
 						if (!WriteFile(hPipe, WriteBuf, sizeof(WriteBuf), &nBytesRead, NULL)) throw new string("CP WRITE ERROR");
 					}
@@ -71,7 +71,7 @@ DWORD WINAPI ConsolePipe(LPVOID pPrm) {
 		}
 		DisconnectNamedPipe(hPipe);
 		CloseHandle(hPipe);
-		cout << "ConsolePipe îñòàíîâëåí" << endl;
+		cout << "ConsolePipe Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½" << endl;
 	}
 	catch (string ErrorPipeText) {
 		cout << ErrorPipeText << endl;

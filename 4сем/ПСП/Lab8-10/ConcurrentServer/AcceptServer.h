@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 #pragma warning(disable : 4996)
 #include "Global.h"
@@ -14,19 +14,19 @@ static void WaitClients() {
 	}
 }
 
-//squirt явл максимальным количеством 
-//итераций выполнения функции accept(в режиме без блокировки) для
-//подключения клиента за один вызов функции AcceptCylcle.
+//squirt СЏРІР» РјР°РєСЃРёРјР°Р»СЊРЅС‹Рј РєРѕР»РёС‡РµСЃС‚РІРѕРј 
+//РёС‚РµСЂР°С†РёР№ РІС‹РїРѕР»РЅРµРЅРёСЏ С„СѓРЅРєС†РёРё accept(РІ СЂРµР¶РёРјРµ Р±РµР· Р±Р»РѕРєРёСЂРѕРІРєРё) РґР»СЏ
+//РїРѕРґРєР»СЋС‡РµРЅРёСЏ РєР»РёРµРЅС‚Р° Р·Р° РѕРґРёРЅ РІС‹Р·РѕРІ С„СѓРЅРєС†РёРё AcceptCylcle.
 bool AcceptCycle(int squirt, SOCKET* s) {
 	bool rc = false;
 	Contact c(Contact::ACCEPT, "EchoServer");
 	c.hAcceptServer = hAcceptServer;
 
-	// цикл проверки очереди подключений, повторяется squirt раз
+	// С†РёРєР» РїСЂРѕРІРµСЂРєРё РѕС‡РµСЂРµРґРё РїРѕРґРєР»СЋС‡РµРЅРёР№, РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ squirt СЂР°Р·
 	//while(squirt-- > 0 && rc == false)
 	//{
 	if ((c.s = accept(*s, (sockaddr*)&c.prms, &c.lprms)) == INVALID_SOCKET) {
-		if (WSAGetLastError() != WSAEWOULDBLOCK) throw  SetErrorMsgText("Accept:", WSAGetLastError()); //если очередь подключений пуста.
+		if (WSAGetLastError() != WSAEWOULDBLOCK) throw  SetErrorMsgText("Accept:", WSAGetLastError()); //РµСЃР»Рё РѕС‡РµСЂРµРґСЊ РїРѕРґРєР»СЋС‡РµРЅРёР№ РїСѓСЃС‚Р°.
 	}
 	else {
 		rc = true;
@@ -45,14 +45,14 @@ bool AcceptCycle(int squirt, SOCKET* s) {
 void CommandsCycle(TalkersCommand& cmd, SOCKET* s)
 {
 	int squirt = 0; 
-	while (cmd != EXIT) // цикл обработки команд консоли и подключений
+	while (cmd != EXIT) // С†РёРєР» РѕР±СЂР°Р±РѕС‚РєРё РєРѕРјР°РЅРґ РєРѕРЅСЃРѕР»Рё Рё РїРѕРґРєР»СЋС‡РµРЅРёР№
 	{
-		switch (cmd) {	//GETCOMMAND Если команда принята функцией на обработку (готова к приему новой команды управления)
-		case START:		cmd = GETCOMMAND;	// возобновить подключение клиентов
+		switch (cmd) {	//GETCOMMAND Р•СЃР»Рё РєРѕРјР°РЅРґР° РїСЂРёРЅСЏС‚Р° С„СѓРЅРєС†РёРµР№ РЅР° РѕР±СЂР°Р±РѕС‚РєСѓ (РіРѕС‚РѕРІР° Рє РїСЂРёРµРјСѓ РЅРѕРІРѕР№ РєРѕРјР°РЅРґС‹ СѓРїСЂР°РІР»РµРЅРёСЏ)
+		case START:		cmd = GETCOMMAND;	// РІРѕР·РѕР±РЅРѕРІРёС‚СЊ РїРѕРґРєР»СЋС‡РµРЅРёРµ РєР»РёРµРЅС‚РѕРІ
 						squirt = AS_SQUIRT;
 						break;
 
-		case STOP:		cmd = GETCOMMAND;	// остановить подключение клиентов
+		case STOP:		cmd = GETCOMMAND;	// РѕСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕРґРєР»СЋС‡РµРЅРёРµ РєР»РёРµРЅС‚РѕРІ
 						squirt = 0;
 						break;
 
@@ -67,16 +67,16 @@ void CommandsCycle(TalkersCommand& cmd, SOCKET* s)
 						break;
 		};
 		if (cmd != EXIT && squirt > ClientServiceNumber) {
-			if (AcceptCycle(squirt, s)) { //цикл запрос/подключение (accept)
+			if (AcceptCycle(squirt, s)) { //С†РёРєР» Р·Р°РїСЂРѕСЃ/РїРѕРґРєР»СЋС‡РµРЅРёРµ (accept)
 				cmd = GETCOMMAND;
 			}
-			SleepEx(0, TRUE); // выполнить асинхронные процедуры
+			SleepEx(0, TRUE); // РІС‹РїРѕР»РЅРёС‚СЊ Р°СЃРёРЅС…СЂРѕРЅРЅС‹Рµ РїСЂРѕС†РµРґСѓСЂС‹
 		}
 	}
 };
 
 DWORD WINAPI AcceptServer(LPVOID pPrm) {
-	cout << "AcceptServer работает\n";
+	cout << "AcceptServer СЂР°Р±РѕС‚Р°РµС‚\n";
 	DWORD rc = 0;
 	SOCKET  ServerSocket;
 	WSADATA wsaData;
@@ -94,19 +94,19 @@ DWORD WINAPI AcceptServer(LPVOID pPrm) {
 		if (bind(ServerSocket, (LPSOCKADDR)&Server_IN, sizeof(Server_IN)) == SOCKET_ERROR) throw  SetErrorMsgText("Bind:", WSAGetLastError());
 		if (listen(ServerSocket, SOMAXCONN) == SOCKET_ERROR) throw  SetErrorMsgText("Listen:", WSAGetLastError());
 
-		//позволяет избежать приостановки программы
-		//выполнение accept, не приостанавливает выполнение потока, 
-		//как это было прежде, а возвращает значение нового сокета, если обнаружен
-		//запрос на создание канала(функция connect, выполненная клиентом), или
-		//значение INVALID_SOCKET, если запроса на создание канала нет в очереди
-		//запросов или возникла ошибка.
+		//РїРѕР·РІРѕР»СЏРµС‚ РёР·Р±РµР¶Р°С‚СЊ РїСЂРёРѕСЃС‚Р°РЅРѕРІРєРё РїСЂРѕРіСЂР°РјРјС‹
+		//РІС‹РїРѕР»РЅРµРЅРёРµ accept, РЅРµ РїСЂРёРѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РІС‹РїРѕР»РЅРµРЅРёРµ РїРѕС‚РѕРєР°, 
+		//РєР°Рє СЌС‚Рѕ Р±С‹Р»Рѕ РїСЂРµР¶РґРµ, Р° РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЃРѕРєРµС‚Р°, РµСЃР»Рё РѕР±РЅР°СЂСѓР¶РµРЅ
+		//Р·Р°РїСЂРѕСЃ РЅР° СЃРѕР·РґР°РЅРёРµ РєР°РЅР°Р»Р°(С„СѓРЅРєС†РёСЏ connect, РІС‹РїРѕР»РЅРµРЅРЅР°СЏ РєР»РёРµРЅС‚РѕРј), РёР»Рё
+		//Р·РЅР°С‡РµРЅРёРµ INVALID_SOCKET, РµСЃР»Рё Р·Р°РїСЂРѕСЃР° РЅР° СЃРѕР·РґР°РЅРёРµ РєР°РЅР°Р»Р° РЅРµС‚ РІ РѕС‡РµСЂРµРґРё
+		//Р·Р°РїСЂРѕСЃРѕРІ РёР»Рё РІРѕР·РЅРёРєР»Р° РѕС€РёР±РєР°.
 		u_long nonblk;
 		if (ioctlsocket(ServerSocket, FIONBIO, &(nonblk = 1)) == SOCKET_ERROR) throw SetErrorMsgText("Ioctlsocket:", WSAGetLastError());
 
 		TalkersCommand* command = (TalkersCommand*)pPrm;
 		CommandsCycle(*((TalkersCommand*)command), &ServerSocket);
 
-		if (closesocket(ServerSocket) == SOCKET_ERROR) throw  SetErrorMsgText("Сlosesocket:", WSAGetLastError());
+		if (closesocket(ServerSocket) == SOCKET_ERROR) throw  SetErrorMsgText("РЎlosesocket:", WSAGetLastError());
 		if (WSACleanup() == SOCKET_ERROR) throw  SetErrorMsgText("Cleanup:", WSAGetLastError());
 	}
 	catch (string errorMsgText) {
@@ -115,7 +115,7 @@ DWORD WINAPI AcceptServer(LPVOID pPrm) {
 	catch (...) {
 		cout << "AcceptServer error" << endl;
 	}
-	cout << "AcceptServer остановлен\n" << endl;
+	cout << "AcceptServer РѕСЃС‚Р°РЅРѕРІР»РµРЅ\n" << endl;
 	ExitThread(rc);
 }
 

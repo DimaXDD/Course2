@@ -1,18 +1,18 @@
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
+п»ї#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #pragma warning(disable : 4996)
 #include "Global.h"
 
-//для  приема  позывного  на широковещательные запросы клиента, предназначенные для поиска сервера в локальной сети.
-//должен сформировать ответ: приглашение для подключения. 
+//РґР»СЏ  РїСЂРёРµРјР°  РїРѕР·С‹РІРЅРѕРіРѕ  РЅР° С€РёСЂРѕРєРѕРІРµС‰Р°С‚РµР»СЊРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹ РєР»РёРµРЅС‚Р°, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ РґР»СЏ РїРѕРёСЃРєР° СЃРµСЂРІРµСЂР° РІ Р»РѕРєР°Р»СЊРЅРѕР№ СЃРµС‚Рё.
+//РґРѕР»Р¶РµРЅ СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РѕС‚РІРµС‚: РїСЂРёРіР»Р°С€РµРЅРёРµ РґР»СЏ РїРѕРґРєР»СЋС‡РµРЅРёСЏ. 
 DWORD WINAPI ResponseServer(LPVOID pPrm) {
 	DWORD rc = 0;
 	SOCKET  ServerSocket;
 	WSADATA wsaData;
-	cout << "ResponseServer работает\n";
+	cout << "ResponseServer СЂР°Р±РѕС‚Р°РµС‚\n";
 
-	SOCKADDR_IN From = { 0 };   //параметры клиента
+	SOCKADDR_IN From = { 0 };   //РїР°СЂР°РјРµС‚СЂС‹ РєР»РёРµРЅС‚Р°
 	int Flen = sizeof(From);
-	SOCKADDR_IN serv; 		//параметры сокета сервера                 
+	SOCKADDR_IN serv; 		//РїР°СЂР°РјРµС‚СЂС‹ СЃРѕРєРµС‚Р° СЃРµСЂРІРµСЂР°                 
 	serv.sin_family = AF_INET;
 	serv.sin_port = htons(uport);
 	// 172.20.10.2
@@ -24,14 +24,14 @@ DWORD WINAPI ResponseServer(LPVOID pPrm) {
 		if (WSAStartup(MAKEWORD(2, 0), &wsaData) != 0)	throw  SetErrorMsgText("Startup:", WSAGetLastError());
 		if ((ServerSocket = socket(AF_INET, SOCK_DGRAM, NULL)) == INVALID_SOCKET)throw  SetErrorMsgText("Socket:", WSAGetLastError());
 
-		u_long nonblk = 1; // неблокирующий
+		u_long nonblk = 1; // РЅРµР±Р»РѕРєРёСЂСѓСЋС‰РёР№
 		if (ioctlsocket(ServerSocket, FIONBIO, &(nonblk = 1)) == SOCKET_ERROR) throw SetErrorMsgText("Ioctlsocket:", WSAGetLastError());
 		if (bind(ServerSocket, (LPSOCKADDR)&serv, sizeof(serv)) == SOCKET_ERROR) throw  SetErrorMsgText("Bind:", WSAGetLastError());
 
-		//цикл работы
+		//С†РёРєР» СЂР°Р±РѕС‚С‹
 		while (*((TalkersCommand*)pPrm) != EXIT) {
-			char ibuf[50]; //буфер приема сообщений
-			int  libuf = 0;	//принятых байт
+			char ibuf[50]; //Р±СѓС„РµСЂ РїСЂРёРµРјР° СЃРѕРѕР±С‰РµРЅРёР№
+			int  libuf = 0;	//РїСЂРёРЅСЏС‚С‹С… Р±Р°Р№С‚
 
 			bool result = false;
 
@@ -57,6 +57,6 @@ DWORD WINAPI ResponseServer(LPVOID pPrm) {
 	catch (...) {
 		cout << "Error ResponseServer" << endl;
 	}
-	cout << "ResponseServer остановлен\n" << endl;
+	cout << "ResponseServer РѕСЃС‚Р°РЅРѕРІР»РµРЅ\n" << endl;
 	ExitThread(rc);
 }

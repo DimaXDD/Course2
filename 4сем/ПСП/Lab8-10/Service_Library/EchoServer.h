@@ -1,36 +1,36 @@
-#pragma once
+п»ї#pragma once
 #include "Global.h"
 
 //ServerT
-//потоковая функция, обеспечивающая прием данных от подключившегося клиента, и пересылку  этих же  данных обратно без изменения. 
+//РїРѕС‚РѕРєРѕРІР°СЏ С„СѓРЅРєС†РёСЏ, РѕР±РµСЃРїРµС‡РёРІР°СЋС‰Р°СЏ РїСЂРёРµРј РґР°РЅРЅС‹С… РѕС‚ РїРѕРґРєР»СЋС‡РёРІС€РµРіРѕСЃСЏ РєР»РёРµРЅС‚Р°, Рё РїРµСЂРµСЃС‹Р»РєСѓ  СЌС‚РёС… Р¶Рµ  РґР°РЅРЅС‹С… РѕР±СЂР°С‚РЅРѕ Р±РµР· РёР·РјРµРЅРµРЅРёСЏ. 
 DWORD WINAPI EchoServer(LPVOID lParam) {
-	DWORD rc = 0; // Код возврата
+	DWORD rc = 0; // РљРѕРґ РІРѕР·РІСЂР°С‚Р°
 	Contact* client = (Contact*)lParam;
 	char ibuf[50], obuf[50] = "Close: finish;";
 
 	try 
 	{
-		QueueUserAPC(ASStartMessage, client->hAcceptServer, (DWORD)client);	// Ставим в очередь асинхронную процедуру сообщение о старте обслуживания
+		QueueUserAPC(ASStartMessage, client->hAcceptServer, (DWORD)client);	// РЎС‚Р°РІРёРј РІ РѕС‡РµСЂРµРґСЊ Р°СЃРёРЅС…СЂРѕРЅРЅСѓСЋ РїСЂРѕС†РµРґСѓСЂСѓ СЃРѕРѕР±С‰РµРЅРёРµ Рѕ СЃС‚Р°СЂС‚Рµ РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ
 	
 		client->sthread = Contact::WORK;
-		while (client->TimerOff == false) {	// Принимаем данные из сокета
-			if (recv(client->s, ibuf, sizeof(ibuf), NULL) == SOCKET_ERROR) {// Принимаем данные
+		while (client->TimerOff == false) {	// РџСЂРёРЅРёРјР°РµРј РґР°РЅРЅС‹Рµ РёР· СЃРѕРєРµС‚Р°
+			if (recv(client->s, ibuf, sizeof(ibuf), NULL) == SOCKET_ERROR) {// РџСЂРёРЅРёРјР°РµРј РґР°РЅРЅС‹Рµ
 				if (WSAGetLastError() == WSAEWOULDBLOCK) Sleep(100);
 				else throw  SetErrorMsgText("Recv:", WSAGetLastError());
 			}
 			else {
 				if (strcmp(ibuf, "exit") != 0) {
-					if (client->TimerOff != false) break;	// Проверяем метку срабатывания таймера
-					if ((send(client->s, ibuf, sizeof(ibuf), NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());// Отправляем обратно
+					if (client->TimerOff != false) break;	// РџСЂРѕРІРµСЂСЏРµРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
+					if ((send(client->s, ibuf, sizeof(ibuf), NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());// РћС‚РїСЂР°РІР»СЏРµРј РѕР±СЂР°С‚РЅРѕ
 				}
 				else break;
 			}
 		}
 		if (client->TimerOff == false) {
-			CancelWaitableTimer(client->htimer);	// Отключаем таймер
+			CancelWaitableTimer(client->htimer);	// РћС‚РєР»СЋС‡Р°РµРј С‚Р°Р№РјРµСЂ
 			if ((send(client->s, obuf, sizeof(obuf) + 1, NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());
 			client->sthread = Contact::FINISH;
-			QueueUserAPC(ASFinishMessage, client->hAcceptServer, (DWORD)client);	// Ставим в очередь асинхронную процедуру сообщение о завершении обслуживания
+			QueueUserAPC(ASFinishMessage, client->hAcceptServer, (DWORD)client);	// РЎС‚Р°РІРёРј РІ РѕС‡РµСЂРµРґСЊ Р°СЃРёРЅС…СЂРѕРЅРЅСѓСЋ РїСЂРѕС†РµРґСѓСЂСѓ СЃРѕРѕР±С‰РµРЅРёРµ Рѕ Р·Р°РІРµСЂС€РµРЅРёРё РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ
 		}
 	}
 	catch (string errorMsgText) {

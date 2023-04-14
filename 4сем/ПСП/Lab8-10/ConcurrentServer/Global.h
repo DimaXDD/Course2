@@ -1,4 +1,4 @@
-//Global
+п»ї//Global
 #pragma once
 #include "locale.h"
 #include <iostream>
@@ -13,72 +13,72 @@
 using std::string;
 using std::list;
 
-int port = 2000; //используемый порт (значение по умолчанию 2000)
-int uport = 2000; //udp-порт, используемый ResponseServer
-const char* dllname = "Service_Library"; //название загружаемой библиотеки 
-const char* npname = "cpipe"; //имя именованного канала, используемое ConsolePipe
-const char* ucall = "HELLO";				//позывной сервера, используемый ResponseServer
-//int squirt = AS_SQUIRT; //текущее максимальное количество клиентов одновременно
-HANDLE(*sss)(char*, LPVOID); //дескриптор, используемый для импорта функции из dll
-HANDLE hAcceptServer; //дескриптор AcceptServer
-HMODULE st1; //дескриптор dll
+int port = 2000; //РёСЃРїРѕР»СЊР·СѓРµРјС‹Р№ РїРѕСЂС‚ (Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 2000)
+int uport = 2000; //udp-РїРѕСЂС‚, РёСЃРїРѕР»СЊР·СѓРµРјС‹Р№ ResponseServer
+const char* dllname = "Service_Library"; //РЅР°Р·РІР°РЅРёРµ Р·Р°РіСЂСѓР¶Р°РµРјРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё 
+const char* npname = "cpipe"; //РёРјСЏ РёРјРµРЅРѕРІР°РЅРЅРѕРіРѕ РєР°РЅР°Р»Р°, РёСЃРїРѕР»СЊР·СѓРµРјРѕРµ ConsolePipe
+const char* ucall = "HELLO";				//РїРѕР·С‹РІРЅРѕР№ СЃРµСЂРІРµСЂР°, РёСЃРїРѕР»СЊР·СѓРµРјС‹Р№ ResponseServer
+//int squirt = AS_SQUIRT; //С‚РµРєСѓС‰РµРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚РѕРІ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ
+HANDLE(*sss)(char*, LPVOID); //РґРµСЃРєСЂРёРїС‚РѕСЂ, РёСЃРїРѕР»СЊР·СѓРµРјС‹Р№ РґР»СЏ РёРјРїРѕСЂС‚Р° С„СѓРЅРєС†РёРё РёР· dll
+HANDLE hAcceptServer; //РґРµСЃРєСЂРёРїС‚РѕСЂ AcceptServer
+HMODULE st1; //РґРµСЃРєСЂРёРїС‚РѕСЂ dll
 
-HANDLE Event = CreateEvent(NULL, FALSE, FALSE, NULL); //дескриптор события
+HANDLE Event = CreateEvent(NULL, FALSE, FALSE, NULL); //РґРµСЃРєСЂРёРїС‚РѕСЂ СЃРѕР±С‹С‚РёСЏ
 
 
-int AS_SQUIRT = 10; //максимальное количество клиентов одновременно define
-enum TalkersCommand { START, STOP, EXIT, STATISTICS, WAIT, SHUTDOWN, GETCOMMAND }; //допустимые команды RConsole
+int AS_SQUIRT = 10; //РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚РѕРІ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ define
+enum TalkersCommand { START, STOP, EXIT, STATISTICS, WAIT, SHUTDOWN, GETCOMMAND }; //РґРѕРїСѓСЃС‚РёРјС‹Рµ РєРѕРјР°РЅРґС‹ RConsole
 
-//статистика подключений
-volatile LONG Accept = 0;  //количество подключений
-volatile LONG Fail = 0;    //неудачные подключения
-volatile LONG Finished = 0;//завершенные удачно
-volatile LONG ClientServiceNumber = 0;    //подключены в текущий момент
+//СЃС‚Р°С‚РёСЃС‚РёРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№
+volatile LONG Accept = 0;  //РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРґРєР»СЋС‡РµРЅРёР№
+volatile LONG Fail = 0;    //РЅРµСѓРґР°С‡РЅС‹Рµ РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+volatile LONG Finished = 0;//Р·Р°РІРµСЂС€РµРЅРЅС‹Рµ СѓРґР°С‡РЅРѕ
+volatile LONG ClientServiceNumber = 0;    //РїРѕРґРєР»СЋС‡РµРЅС‹ РІ С‚РµРєСѓС‰РёР№ РјРѕРјРµРЅС‚
 
 
 #pragma region  ListContact
 
-CRITICAL_SECTION scListContact; //критическая секция
+CRITICAL_SECTION scListContact; //РєСЂРёС‚РёС‡РµСЃРєР°СЏ СЃРµРєС†РёСЏ
 
-struct Contact         // элемент списка подключений       
+struct Contact         // СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№       
 {
-	//состояние сервера подключения
+	//СЃРѕСЃС‚РѕСЏРЅРёРµ СЃРµСЂРІРµСЂР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ
 	enum TE {
-		EMPTY,              //пустой элемент списка подключений 
-		ACCEPT,             //подключен, но не обслуживается
-		CONTACT             //передан обслуживающему серверу  
+		EMPTY,              //РїСѓСЃС‚РѕР№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№ 
+		ACCEPT,             //РїРѕРґРєР»СЋС‡РµРЅ, РЅРѕ РЅРµ РѕР±СЃР»СѓР¶РёРІР°РµС‚СЃСЏ
+		CONTACT             //РїРµСЂРµРґР°РЅ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРјСѓ СЃРµСЂРІРµСЂСѓ  
 	}    type;
 
-	// состояние обслуживающего сервера
+	// СЃРѕСЃС‚РѕСЏРЅРёРµ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ СЃРµСЂРІРµСЂР°
 	enum ST {
-		WORK,               //идет обмен данными с клиентом
-		ABORT,              //обслуживающий сервер завершился ненормально 
-		TIMEOUT,            //обслуживающий сервер завершился по таймеру 
-		FINISH              //обслуживающий сервер завершился  нормально 
+		WORK,               //РёРґРµС‚ РѕР±РјРµРЅ РґР°РЅРЅС‹РјРё СЃ РєР»РёРµРЅС‚РѕРј
+		ABORT,              //РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ СЃРµСЂРІРµСЂ Р·Р°РІРµСЂС€РёР»СЃСЏ РЅРµРЅРѕСЂРјР°Р»СЊРЅРѕ 
+		TIMEOUT,            //РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ СЃРµСЂРІРµСЂ Р·Р°РІРµСЂС€РёР»СЃСЏ РїРѕ С‚Р°Р№РјРµСЂСѓ 
+		FINISH              //РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ СЃРµСЂРІРµСЂ Р·Р°РІРµСЂС€РёР»СЃСЏ  РЅРѕСЂРјР°Р»СЊРЅРѕ 
 	}      sthread;
 
-	// для хранения параметров соединения
-	SOCKET      s;         //сокет для обмена данными с клиентом
-	SOCKADDR_IN prms;      //параметры  сокета 
-	int         lprms;     //длина prms 
+	// РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ СЃРѕРµРґРёРЅРµРЅРёСЏ
+	SOCKET      s;         //СЃРѕРєРµС‚ РґР»СЏ РѕР±РјРµРЅР° РґР°РЅРЅС‹РјРё СЃ РєР»РёРµРЅС‚РѕРј
+	SOCKADDR_IN prms;      //РїР°СЂР°РјРµС‚СЂС‹  СЃРѕРєРµС‚Р° 
+	int         lprms;     //РґР»РёРЅР° prms 
 
 
-	HANDLE      hthread;   //дескриптор потока  EchoServer
-	HANDLE      htimer;    //дескриптор ожидающего таймера, позволяющего ограничить время работы обслуживающего процесса
+	HANDLE      hthread;   //РґРµСЃРєСЂРёРїС‚РѕСЂ РїРѕС‚РѕРєР°  EchoServer
+	HANDLE      htimer;    //РґРµСЃРєСЂРёРїС‚РѕСЂ РѕР¶РёРґР°СЋС‰РµРіРѕ С‚Р°Р№РјРµСЂР°, РїРѕР·РІРѕР»СЏСЋС‰РµРіРѕ РѕРіСЂР°РЅРёС‡РёС‚СЊ РІСЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїСЂРѕС†РµСЃСЃР°
 
-	bool        TimerOff;  //метка срабатывания таймера
-	bool        CloseConn;  //метка завершения обслуживания
+	bool        TimerOff;  //РјРµС‚РєР° СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
+	bool        CloseConn;  //РјРµС‚РєР° Р·Р°РІРµСЂС€РµРЅРёСЏ РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ
 
-	//диагностирующего сообщения и символических имен обрабатывающих потоков.
-	char msg[50];           //сообщение 
-	char srvname[15];       //имя обслуживающего потока 
+	//РґРёР°РіРЅРѕСЃС‚РёСЂСѓСЋС‰РµРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ Рё СЃРёРјРІРѕР»РёС‡РµСЃРєРёС… РёРјРµРЅ РѕР±СЂР°Р±Р°С‚С‹РІР°СЋС‰РёС… РїРѕС‚РѕРєРѕРІ.
+	char msg[50];           //СЃРѕРѕР±С‰РµРЅРёРµ 
+	char srvname[15];       //РёРјСЏ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїРѕС‚РѕРєР° 
 
-	HANDLE hAcceptServer;// Handle обслуживающего потока
+	HANDLE hAcceptServer;// Handle РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїРѕС‚РѕРєР°
 
-	Contact(TE t = EMPTY, const char* namesrv = "") //конструктор 
+	Contact(TE t = EMPTY, const char* namesrv = "") //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 
 	{
 		memset(&prms, 0, sizeof(SOCKADDR_IN));
-		lprms = sizeof(SOCKADDR_IN); //размер сокета
+		lprms = sizeof(SOCKADDR_IN); //СЂР°Р·РјРµСЂ СЃРѕРєРµС‚Р°
 		type = t;
 		strcpy_s(srvname, namesrv);
 		msg[0] = 0;
@@ -92,27 +92,27 @@ struct Contact         // элемент списка подключений
 	}
 };
 typedef list<Contact> ListContact;
-ListContact Contacts; // список подключений  
+ListContact Contacts; // СЃРїРёСЃРѕРє РїРѕРґРєР»СЋС‡РµРЅРёР№  
 
 #pragma endregion
 
-//асинхронная функция при срабатывании таймера
+//Р°СЃРёРЅС…СЂРѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РїСЂРё СЃСЂР°Р±Р°С‚С‹РІР°РЅРёРё С‚Р°Р№РјРµСЂР°
 void CALLBACK ASWTimer(LPVOID Lprm, DWORD, DWORD) {
 
 	char obuf[50] = "Close: timeout;";
-	Contact* client = (Contact*)Lprm; //преобразуем переданный параметр
+	Contact* client = (Contact*)Lprm; //РїСЂРµРѕР±СЂР°Р·СѓРµРј РїРµСЂРµРґР°РЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ
 
-	EnterCriticalSection(&scListContact); //входим в критическую секцию
-	client->TimerOff = true; 	//ставим метку срабатывания таймера
+	EnterCriticalSection(&scListContact); //РІС…РѕРґРёРј РІ РєСЂРёС‚РёС‡РµСЃРєСѓСЋ СЃРµРєС†РёСЋ
+	client->TimerOff = true; 	//СЃС‚Р°РІРёРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 	client->sthread = Contact::TIMEOUT;
-	LeaveCriticalSection(&scListContact); 	//выходим из критической секции
+	LeaveCriticalSection(&scListContact); 	//РІС‹С…РѕРґРёРј РёР· РєСЂРёС‚РёС‡РµСЃРєРѕР№ СЃРµРєС†РёРё
 
 	if ((send(client->s, obuf, sizeof(obuf) + 1, NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());
 
 	SYSTEMTIME stt;
-	// Получаем текущее время и дату
+	// РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ Рё РґР°С‚Сѓ
 	GetLocalTime(&stt);
-	// Выводим сообщение
+	// Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
 	printf("%d.%d.%d %d:%02d Timeout ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);
 	cout << client->srvname << ";" << endl;
 }
@@ -121,52 +121,52 @@ void CALLBACK ASWTimer(LPVOID Lprm, DWORD, DWORD) {
 void CALLBACK Test(LPVOID Lprm, DWORD, DWORD) {
 
 	char obuf[50] = "Close: Service unavailable;";
-	Contact* client = (Contact*)Lprm; //преобразуем переданный параметр
+	Contact* client = (Contact*)Lprm; //РїСЂРµРѕР±СЂР°Р·СѓРµРј РїРµСЂРµРґР°РЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ
 
-	EnterCriticalSection(&scListContact); //входим в критическую секцию
-	client->TimerOff = true; 	//ставим метку срабатывания таймера
+	EnterCriticalSection(&scListContact); //РІС…РѕРґРёРј РІ РєСЂРёС‚РёС‡РµСЃРєСѓСЋ СЃРµРєС†РёСЋ
+	client->TimerOff = true; 	//СЃС‚Р°РІРёРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 	client->sthread = Contact::FINISH;
-	LeaveCriticalSection(&scListContact); 	//выходим из критической секции
+	LeaveCriticalSection(&scListContact); 	//РІС‹С…РѕРґРёРј РёР· РєСЂРёС‚РёС‡РµСЃРєРѕР№ СЃРµРєС†РёРё
 
 	if ((send(client->s, obuf, sizeof(obuf) + 1, NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());
 
 	SYSTEMTIME stt;
-	// Получаем текущее время и дату
+	// РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ Рё РґР°С‚Сѓ
 	GetLocalTime(&stt);
-	// Выводим сообщение
+	// Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
 	printf("%d.%d.%d %d:%02d Service unavailable ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);
 	cout << client->srvname << ";" << endl;
 }
 
-// Асинхронная функция запуска обслуживающего потока
+// РђСЃРёРЅС…СЂРѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ Р·Р°РїСѓСЃРєР° РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїРѕС‚РѕРєР°
 void CALLBACK ASStartMessage(DWORD Lprm) {
 	Contact* client = (Contact*)Lprm;
 	/*EnterCriticalSection(&scListContact);*/
-	// Ставим метку срабатывания таймера
+	// РЎС‚Р°РІРёРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 	char* sn = client->srvname;
-	// Покидаем критическую секцию
+	// РџРѕРєРёРґР°РµРј РєСЂРёС‚РёС‡РµСЃРєСѓСЋ СЃРµРєС†РёСЋ
 	//LeaveCriticalSection(&scListContact);
-	// Структура времени
+	// РЎС‚СЂСѓРєС‚СѓСЂР° РІСЂРµРјРµРЅРё
 	SYSTEMTIME stt;
-	// Получаем текущее время и дату
+	// РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ Рё РґР°С‚Сѓ
 	GetLocalTime(&stt);
-	// Выводим сообщение
+	// Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
 	printf("%d.%d.%d %d:%02d ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);
 	std::cout << sn << " started;" << std::endl;
 }
-// Асинхронная функция завершения обслуживающего потока
+// РђСЃРёРЅС…СЂРѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ Р·Р°РІРµСЂС€РµРЅРёСЏ РѕР±СЃР»СѓР¶РёРІР°СЋС‰РµРіРѕ РїРѕС‚РѕРєР°
 void CALLBACK ASFinishMessage(DWORD Lprm) {
 	Contact* client = (Contact*)Lprm;
 	/*EnterCriticalSection(&scListContact);*/
-	// Ставим метку срабатывания таймера
+	// РЎС‚Р°РІРёРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 	char* sn = client->srvname;
-	// Покидаем критическую секцию
+	// РџРѕРєРёРґР°РµРј РєСЂРёС‚РёС‡РµСЃРєСѓСЋ СЃРµРєС†РёСЋ
 	/*LeaveCriticalSection(&scListContact);*/
-	// Структура времени
+	// РЎС‚СЂСѓРєС‚СѓСЂР° РІСЂРµРјРµРЅРё
 	SYSTEMTIME stt;
-	// Получаем текущее время и дату
+	// РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ Рё РґР°С‚Сѓ
 	GetLocalTime(&stt);
-	// Выводим сообщение
+	// Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
 	printf("%d.%d.%d %d:%02d ", stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute);
 	std::cout << sn << " stoped;" << std::endl;
 }

@@ -1,21 +1,21 @@
-#pragma once
+п»ї#pragma once
 #include "Global.h"
 
-//Принимающая только символьную последовательность  time и отвечающая  системным значением даты и времени серверного компьютера в формате: dd.mm.yyyy/hh:mm:ss.
-//Условие завершение работы: прием любой последовательности символов, отличной от   time.     
+//РџСЂРёРЅРёРјР°СЋС‰Р°СЏ С‚РѕР»СЊРєРѕ СЃРёРјРІРѕР»СЊРЅСѓСЋ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ  time Рё РѕС‚РІРµС‡Р°СЋС‰Р°СЏ  СЃРёСЃС‚РµРјРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј РґР°С‚С‹ Рё РІСЂРµРјРµРЅРё СЃРµСЂРІРµСЂРЅРѕРіРѕ РєРѕРјРїСЊСЋС‚РµСЂР° РІ С„РѕСЂРјР°С‚Рµ: dd.mm.yyyy/hh:mm:ss.
+//РЈСЃР»РѕРІРёРµ Р·Р°РІРµСЂС€РµРЅРёРµ СЂР°Р±РѕС‚С‹: РїСЂРёРµРј Р»СЋР±РѕР№ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё СЃРёРјРІРѕР»РѕРІ, РѕС‚Р»РёС‡РЅРѕР№ РѕС‚   time.     
 DWORD WINAPI TimeServer(LPVOID lParam) {
 	
-	DWORD rc = 0;		// Код возврата
+	DWORD rc = 0;		// РљРѕРґ РІРѕР·РІСЂР°С‚Р°
 	Contact* client = (Contact*)lParam;
 	
-	QueueUserAPC(ASStartMessage, client->hAcceptServer, (DWORD)client);	// Ставим в очередь сообщение о старте обслуживания
+	QueueUserAPC(ASStartMessage, client->hAcceptServer, (DWORD)client);	// РЎС‚Р°РІРёРј РІ РѕС‡РµСЂРµРґСЊ СЃРѕРѕР±С‰РµРЅРёРµ Рѕ СЃС‚Р°СЂС‚Рµ РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ
 	try {
 		client->sthread = Contact::WORK;
 		int  bytes = 1;
 		char ibuf[50], obuf[50] = "Close: finish;", Time[50] = "Time";
-		// Принимаем данные из сокета
+		// РџСЂРёРЅРёРјР°РµРј РґР°РЅРЅС‹Рµ РёР· СЃРѕРєРµС‚Р°
 		while (client->TimerOff == false) {
-			if ((bytes = recv(client->s, ibuf, sizeof(ibuf), NULL)) == SOCKET_ERROR) {	// Принимаем данные
+			if ((bytes = recv(client->s, ibuf, sizeof(ibuf), NULL)) == SOCKET_ERROR) {	// РџСЂРёРЅРёРјР°РµРј РґР°РЅРЅС‹Рµ
 				switch (WSAGetLastError()) {
 				case WSAEWOULDBLOCK: Sleep(100); break;
 				default: throw  SetErrorMsgText("Recv:", WSAGetLastError());
@@ -23,13 +23,13 @@ DWORD WINAPI TimeServer(LPVOID lParam) {
 			}
 			else {
 				if (strcmp(ibuf, "Time") == 0) {
-					if (client->TimerOff != false) {// Проверяем метку срабатывания таймера
+					if (client->TimerOff != false) {// РџСЂРѕРІРµСЂСЏРµРј РјРµС‚РєСѓ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР°
 						break;
 					}
 					SYSTEMTIME stt;
 					GetLocalTime(&stt);
 					sprintf_s(ibuf, "%s %d.%d.%d/%d:%02d:%d", Time, stt.wDay, stt.wMonth, stt.wYear, stt.wHour, stt.wMinute, stt.wSecond);
-					if ((send(client->s, ibuf, sizeof(ibuf), NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());// Отправляем обратно
+					if ((send(client->s, ibuf, sizeof(ibuf), NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());// РћС‚РїСЂР°РІР»СЏРµРј РѕР±СЂР°С‚РЅРѕ
 				}
 				else break;
 			}
@@ -38,10 +38,10 @@ DWORD WINAPI TimeServer(LPVOID lParam) {
 
 		if (client->TimerOff == false) {
 			
-			CancelWaitableTimer(client->htimer);// Отключаем таймер
+			CancelWaitableTimer(client->htimer);// РћС‚РєР»СЋС‡Р°РµРј С‚Р°Р№РјРµСЂ
 			if ((send(client->s, obuf, sizeof(obuf) + 1, NULL)) == SOCKET_ERROR) throw  SetErrorMsgText("Send:", WSAGetLastError());
 			
-			client->sthread = Contact::FINISH;// Ставим метку удачного завершения
+			client->sthread = Contact::FINISH;// РЎС‚Р°РІРёРј РјРµС‚РєСѓ СѓРґР°С‡РЅРѕРіРѕ Р·Р°РІРµСЂС€РµРЅРёСЏ
 			QueueUserAPC(ASFinishMessage, client->hAcceptServer, (DWORD)client);
 		}
 	}
@@ -50,5 +50,5 @@ DWORD WINAPI TimeServer(LPVOID lParam) {
 		CancelWaitableTimer(client->htimer);
 		client->sthread = Contact::ABORT;
 	}
-	ExitThread(rc);	// Завершаем поток
+	ExitThread(rc);	// Р—Р°РІРµСЂС€Р°РµРј РїРѕС‚РѕРє
 }
