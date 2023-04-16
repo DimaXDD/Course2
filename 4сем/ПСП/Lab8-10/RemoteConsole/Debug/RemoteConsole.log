@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(519,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (RemoteConsole.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  RemoteConsole.vcxproj -> T:\Uni\5_sem\ConcurrentServer\SH_Laba_8_10\Debug\RConsole.exe
