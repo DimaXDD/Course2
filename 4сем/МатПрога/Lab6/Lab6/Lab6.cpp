@@ -1,9 +1,26 @@
 ﻿// --- main  
 //     алгоритмы BFS и DFS 
 #include <iostream>
+#include <stack>
 #include "Graph.h"
 #include "BFS.h"
 #include "DFS.h"
+
+// Функция для топологической сортировки
+void topologicalSort(int v, bool visited[], std::stack<int>& Stack, graph::AList& g)
+{
+	// Помечаем текущую вершину как посещенную
+	visited[v] = true;
+
+	// Рекурсивно вызываем функцию для всех смежных вершин
+	// Если смежная вершина не была посещена, то рекурсивно вызываем функцию
+	for (int i = 0; i < g.size(v); i++)
+		if (!visited[g.get(v, i)])
+			topologicalSort(g.get(v, i), visited, Stack, g);
+
+	// Помещаем текущую вершину в стек
+	Stack.push(v);
+}
 
 int main()
 {
@@ -90,9 +107,22 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << std::endl << "Топологическая сортировка" << std::endl;
-	for (std::vector <int>::iterator i(b3.topological_sort.begin()); i != b3.topological_sort.end(); ++i) std::cout << *i << ' ';
+	// Создаем стек для хранения топологической сортировки
+	std::stack<int> Stack;
+	// Массив для хранения информации о посещении вершин
+	bool *visited = new bool[g5.n_vertex];
+	for (int i = 0; i < g5.n_vertex; i++) visited[i] = false;
+	// Вызываем функцию для топологической сортировки
+	for (int i = 0; i < g5.n_vertex; i++)
+		if (visited[i] == false)
+			topologicalSort(i, visited, Stack, g5);
+	// Выводим топологически отсортированный граф
+	while (Stack.empty() == false)
+	{
+		std::cout << Stack.top() << " ";
+		Stack.pop();
+	}
 	std::cout << std::endl;
-
 	system("pause");
 	return 0;
 }
