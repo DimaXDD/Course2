@@ -16,6 +16,9 @@ end
 -- без индекса 0,199
 select ID, TKEY from #EX3 where TKEY > 15000
 
+checkpoint;  --фиксация БД
+DBCC DROPCLEANBUFFERS;  --очистить буферный кэш
+
 -- c индексом 0,03
 create index #EX3_TKEY_ID on #EX3(TKEY) include (ID)
 

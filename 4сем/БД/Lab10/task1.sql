@@ -17,9 +17,6 @@ CREATE TABLE #EX1
 	STRING varchar(13)
 )
 
-checkpoint;  --фиксация БД
-DBCC DROPCLEANBUFFERS;  --очистить буферный кэш
-
 set nocount on
 declare @I int = 0
 while @I < 1000
@@ -32,8 +29,11 @@ end
 --select count(*)[Количество строк] from #EX1;
 --select * from #EX1
 
---0.018
-SELECT * FROM #EX1 WHERE ID BETWEEN 20 AND 60 order by ID;
+--0.006
+SELECT * FROM #EX1 WHERE ID BETWEEN 20 AND 60;
+
+checkpoint;  --фиксация БД
+DBCC DROPCLEANBUFFERS;  --очистить буферный кэш
 
 create clustered index #EX1_CL on #EX1(ID asc)
 

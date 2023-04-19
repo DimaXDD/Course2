@@ -16,8 +16,11 @@ end
 -- некластеризированный фильтруемный индекс используется
 -- при фильтрации в секции where (без индекса везде 0,1)
 select TKEY from #EX4 where TKEY between 5000 and 19999 
-select TKEY from #EX4 where TKEY > 15000 and  TKEY < 20000  
+select TKEY from #EX4 where TKEY > 14000 and  TKEY < 20000  
 select TKEY from #EX4 where TKEY = 17000
+
+checkpoint;  --фиксация БД
+DBCC DROPCLEANBUFFERS;  --очистить буферный кэш
 
 -- фильтруемый индекс (стало 0.005):
 create index #EX4_WHERE on #EX4 (TKEY) where (TKEY > 15000 and TKEY < 20000)
