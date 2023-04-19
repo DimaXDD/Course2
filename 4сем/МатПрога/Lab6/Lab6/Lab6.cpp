@@ -106,7 +106,7 @@ int main()
 	for (int i = 0; i < g5.n_vertex; i++) std::cout << b3.get(i) << " ";
 	std::cout << std::endl;
 
-	std::cout << std::endl << "Топологическая сортировка" << std::endl;
+	std::cout << std::endl << "-- топологическая сортировка" << std::endl;
 	// Создаем стек для хранения топологической сортировки
 	std::stack<int> Stack;
 	// Массив для хранения информации о посещении вершин
