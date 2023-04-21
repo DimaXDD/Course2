@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yVnoVdRtOIlE/wA+QrfX0HNYYG7Cig/4tIuWiVTy5/sFLspJi8baq/qUUIRUl41g/D7vcSpvzPCvODPftVKtpA==",
+  "dgSpecHash": "Cvft4SudUc+4MhxsD4k2dWzIIfdOKRSdNYZbZDSEWFxe2c2gCvlEKVdi/s152/ZzUaMcmAn5RV+oCL4Ebgj3+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dimat\\Desktop\\Lab9_10wpfef\\Lab9_10wpfef\\Lab9_10wpfef.csproj",
+  "projectFilePath": "E:\\2_курс\\4сем\\ООТПиСП\\Lab9_10\\Lab9_10wpfef\\Lab9_10wpfef.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimat\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\dimat\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

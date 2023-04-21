@@ -3468,11 +3468,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dimat\\Desktop\\Lab9_10wpfef\\Lab9_10wpfef\\Lab9_10wpfef.csproj",
+      "projectUniqueName": "E:\\2_курс\\4сем\\ООТПиСП\\Lab9_10\\Lab9_10wpfef\\Lab9_10wpfef.csproj",
       "projectName": "Lab9_10wpfef",
-      "projectPath": "C:\\Users\\dimat\\Desktop\\Lab9_10wpfef\\Lab9_10wpfef\\Lab9_10wpfef.csproj",
+      "projectPath": "E:\\2_курс\\4сем\\ООТПиСП\\Lab9_10\\Lab9_10wpfef\\Lab9_10wpfef.csproj",
       "packagesPath": "C:\\Users\\dimat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dimat\\Desktop\\Lab9_10wpfef\\Lab9_10wpfef\\obj\\",
+      "outputPath": "E:\\2_курс\\4сем\\ООТПиСП\\Lab9_10\\Lab9_10wpfef\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dimat\\AppData\\Roaming\\NuGet\\NuGet.Config",
