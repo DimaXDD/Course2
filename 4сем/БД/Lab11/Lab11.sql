@@ -59,6 +59,7 @@ while @@fetch_status = 0
          fetch progStatic into @tid, @tnm, @tgn; 
       end;          
 CLOSE progStatic;
+select * from PROGRESS
 ------------------- Курсор динамический -------------------------------
 go
 declare progDynamic cursor local dynamic for SELECT SUBJECT, PDATE, NOTE FROM PROGRESS where SUBJECT = 'КГ';
@@ -77,6 +78,7 @@ while @@fetch_status = 0
          fetch progDynamic into @tid, @tnm, @tgn; 
       end;          
 CLOSE progDynamic;
+select * from PROGRESS
 
 --ex.4
 declare progScroll cursor local dynamic scroll
@@ -141,7 +143,7 @@ CREATE TABLE #EXAMPLE
 	ID int identity(1,1),
 	WORD varchar(100)
 );
-INSERT INTO #EXAMPLE values ('Яблоко'),('Груша'),('Апельсин'),('Мандарин'),('Вишня'),('Клубника'),('Клюква');
+INSERT INTO #EXAMPLE values ('Слово1'),('Слово2'),('Слово3'),('Слово4'),('Слово5'),('Слово6'),('Слово7');
 
 select * from #EXAMPLE
 
@@ -195,13 +197,13 @@ select * from PROGRESS
 declare Prog CURSOR LOCAL DYNAMIC FOR
 	SELECT p.IDSTUDENT, s.NAME, p.NOTE FROM PROGRESS p
 	JOIN STUDENT s ON s.IDSTUDENT = p.IDSTUDENT
-	WHERE p.IDSTUDENT = 1021
+	WHERE p.IDSTUDENT = 1001
 		FOR UPDATE
 declare @id varchar(5), @nm varchar(50), @nt int
 
 OPEN Prog
 FETCH Prog INTO @id, @nm, @nt
-UPDATE PROGRESS SET NOTE = NOTE - 1 WHERE CURRENT OF Prog
+UPDATE PROGRESS SET NOTE = NOTE + 1 WHERE CURRENT OF Prog
 print @id + ': ' + @nm + ' (была оценка ' + cast(@nt as varchar) + ')'
 CLOSE Prog
 select * from PROGRESS
