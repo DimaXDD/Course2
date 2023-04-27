@@ -34,6 +34,14 @@
         <br/><br/><br/><br/>
     </div>
 
+
+        <%--  10 ЛАБА  --%>
+        <div id="lab10">
+            <br/>
+            <h1><%= "Lab10_Java" %></h1>
+            <br/><br/>
+            <a href="signInForm_10.jsp" style="font-size: 25px">Sign in form</a>
+        </div>
 </div>
 
 </body>

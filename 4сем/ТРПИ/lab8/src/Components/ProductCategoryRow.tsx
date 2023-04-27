@@ -6,7 +6,7 @@ type ProductCategoryRowType = {
 }
 
 const ProductCategoryRow = (props : ProductCategoryRowType) => {
-    const {category} = props;
+    const {category} = props; // свойство
     return (
         <tr>
             <th>

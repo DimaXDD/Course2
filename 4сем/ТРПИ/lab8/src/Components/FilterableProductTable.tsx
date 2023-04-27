@@ -7,11 +7,11 @@ import ProductTable from "./ProductTable";
 const FilterableProductTable  = (props: FilterableProductTablePropsType) => {
    const {products} = props;
 
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState(true); // состояния наличия и ввода текста
     const [text, setText] = useState("");
 
 
-    let state : StateType = {
+    let state : StateType = { // объект состояния для компонентов SearchBar и ProductTable
        filterText: text,
        inStockOnly: checked,
        onFilterTextChange: (text:string) => setText(text),

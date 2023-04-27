@@ -42,4 +42,31 @@
         <url-pattern>/param-servlet</url-pattern>
     </servlet-mapping>
 
+
+    <display-name>Welcome to Glassfish</display-name>
+    <description>Welcome to Glassfish</description>
+    <filter>
+        <filter-name>LoggingFilter</filter-name>
+        <filter-class>com.example.lab9.Task5.LoggingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoggingFilter</filter-name>
+        <url-pattern>/logging.jsp</url-pattern>
+    </filter-mapping>
+
+    <display-name>Сервлетный фильтр (лаба 10)</display-name>
+    <filter>
+        <filter-name>NewSignUpFilter</filter-name>
+        <filter-class>com.example.lab9.Lab10_servlets.NewSignUpFilter</filter-class>
+        <init-param>
+            <param-name>active</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>NewSignUpFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
