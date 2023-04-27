@@ -1,0 +1,39 @@
+﻿<Window x:Class="Lab11.LecturersEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab11"
+        mc:Ignorable="d"
+        Title="LecturersEditView" Height="450" Width="800">
+    <Window.DataContext>
+        <local:LecturersEditViewModel></local:LecturersEditViewModel>
+    </Window.DataContext>
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center" Grid.Row="0">
+            <TextBlock Text="Добавление преподавателя" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="Add_Teach_Tb" FontSize="22" Width="250" Text="{Binding SelectedLecturer.Name}"
+                     Margin="0 20 0 0"></TextBox>
+            <Button Content="Добавить" FontSize="24" Margin="0 20 0 0" 
+                   Command="{Binding AddLecturerCommand}" Background="AliceBlue"></Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="Замена преподавателя" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <ComboBox Height="30" Margin="0 22 25 0" ItemsSource="{Binding Courses}" 
+                          DisplayMemberPath="Name" Width="100" SelectedItem="{Binding SelectedCourse}"></ComboBox>
+                <TextBox x:Name="UpdTeach_Tb" FontSize="22" Width="250" Margin="0 20 0 0" Text="{Binding SelectedLecturer.Name}"></TextBox>
+            </StackPanel>
+            <Button Content="Заменить" FontSize="24" Margin="0 20 0 0"
+                   Command="{Binding UpdateLecturerCommand}" Background="AliceBlue" Width="250"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
