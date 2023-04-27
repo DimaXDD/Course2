@@ -10,63 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b0bae3e-8070-49a6-9222-f55c8ac393d7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Lab9_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log4j/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/log4j/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task2/HelloServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task3/UserServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task3/classes/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task3/classes/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task3/classes/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task4/CookieServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task5/LoggingFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task5/RegisterFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task5/RegisterServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task6/forward/FromServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task6/forward/ToServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task6/post/FromServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task6/post/ToServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task6/redirect/FromServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task6/redirect/ToServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task7/Servlet1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task7/Servlet2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Task8/ParamServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/lib/log4j-1.2-api-2.19.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/lib/log4j-api-2.19.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/lib/mssql-jdbc-11.2.3.jre17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/cookie.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/logging.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/registration.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/task6forward.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/task6redirect.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/task8.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ООТПиСП/Lab11/.vs/Lab11/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ООТПиСП/Lab11/.vs/Lab11/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ООТПиСП/Lab11/.vs/ProjectEvaluation/lab11.metadata.v6.1" beforeDir="false" afterPath="$PROJECT_DIR$/../../ООТПиСП/Lab11/.vs/ProjectEvaluation/lab11.metadata.v6.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ООТПиСП/Lab11/.vs/ProjectEvaluation/lab11.projects.v6.1" beforeDir="false" afterPath="$PROJECT_DIR$/../../ООТПиСП/Lab11/.vs/ProjectEvaluation/lab11.projects.v6.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ООТПиСП/Lab11/Lab11/obj/Debug/net7.0-windows/Lab11.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../../ООТПиСП/Lab11/Lab11/obj/Debug/net7.0-windows/Lab11.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ООТПиСП/Lab11/Lab11/obj/Debug/net7.0-windows/Lab11.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../ООТПиСП/Lab11/Lab11/obj/Debug/net7.0-windows/Lab11.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task2/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task3/UserServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task3/classes/Database.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task3/classes/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task3/classes/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task4/CookieServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task5/LoggingFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task5/RegisterFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task5/RegisterServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task6/forward/FromServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task6/forward/ToServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task6/post/FromServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task6/post/ToServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task6/redirect/FromServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task6/redirect/ToServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task7/Servlet1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task7/Servlet2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Task8/ParamServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="CSS File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -111,6 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/dimat/Desktop/testServlet",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -205,6 +158,7 @@
       <updated>1682539764394</updated>
       <workItem from="1682539764397" duration="3477000" />
       <workItem from="1682590368737" duration="983000" />
+      <workItem from="1682635480243" duration="2046000" />
     </task>
     <servers />
   </component>
