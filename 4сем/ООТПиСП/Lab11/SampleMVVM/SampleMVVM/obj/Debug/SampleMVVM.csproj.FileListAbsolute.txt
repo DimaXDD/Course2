@@ -1,0 +1,27 @@
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\bin\Debug\SampleMVVM.exe
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\bin\Debug\SampleMVVM.pdb
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.csprojResolveAssemblyReference.cache
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\Views\MainView.g.cs
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\App.g.cs
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM_MarkupCompile.cache
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM_MarkupCompile.lref
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\Views\MainView.baml
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.g.resources
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.Properties.Resources.resources
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.csproj.GenerateResource.Cache
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.exe
+C:\NATALLIA\Лекции\ООП_2\2016_лекции\Proj14CS\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.pdb
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\bin\Debug\SampleMVVM.exe
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\bin\Debug\SampleMVVM.pdb
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.csproj.AssemblyReference.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\Views\MainView.g.cs
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\App.g.cs
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM_MarkupCompile.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM_MarkupCompile.lref
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\Views\MainView.baml
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.g.resources
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.Properties.Resources.resources
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.csproj.GenerateResource.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.csproj.CoreCompileInputs.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.exe
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\SampleMVVM\SampleMVVM\obj\Debug\SampleMVVM.pdb

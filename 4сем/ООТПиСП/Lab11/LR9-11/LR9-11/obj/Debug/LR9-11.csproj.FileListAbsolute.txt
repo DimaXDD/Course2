@@ -1,0 +1,42 @@
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\LR9-11.exe.config
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\LR9-11.exe
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\LR9-11.pdb
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.AssemblyReference.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.SuggestedBindingRedirects.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\App.g.cs
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11_MarkupCompile.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.g.resources
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9_11.Properties.Resources.resources
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.GenerateResource.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.CoreCompileInputs.cache
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.exe
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.pdb
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\Views\MainView.g.cs
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\Views\MainView.baml
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.dll
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.SqlServer.dll
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.xml
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.SqlServer.xml
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\bin\Debug\ru\EntityFramework.resources.dll
+F:\MyFile\Универ\Univer\sem4\С# ООТПиСП\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.CopyComplete
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\LR9-11.exe.config
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\LR9-11.exe
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\LR9-11.pdb
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.dll
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.xml
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.AssemblyReference.cache
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.SuggestedBindingRedirects.cache
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\Views\MainView.baml
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\Views\MainView.g.cs
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\App.g.cs
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11_MarkupCompile.cache
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.g.resources
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9_11.Properties.Resources.resources
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.GenerateResource.cache
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.CoreCompileInputs.cache
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.csproj.CopyComplete
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.exe
+C:\Users\dimat\Desktop\№ 9-11\LR9-11\LR9-11\obj\Debug\LR9-11.pdb
