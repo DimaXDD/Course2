@@ -28,6 +28,7 @@ DWORD WINAPI ConsolePipe(LPVOID pPrm) {
 					if (nBytesRead > 0) {
 						serverCommand = true;
 						int n = atoi(ReadBuf);
+						
 						switch (n) {
 							case 0:
 								sprintf_s(WriteBuf, "%s", "START");

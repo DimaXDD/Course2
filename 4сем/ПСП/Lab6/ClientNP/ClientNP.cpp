@@ -7,12 +7,12 @@
 #pragma warning(disable:4996)
 
 // Локальный формат имени канала
-#define PIPE_NAME L"\\\\.\\pipe\\Tube"	// где: точка (.) - обозначает локальный компьютер;
+#define PIPE_NAME L"\\\\.\\pipe\\cpipe"	// где: точка (.) - обозначает локальный компьютер;
 										// pipe - фиксированное слово;
 										// xxxxx - имя канала
 
 // Сетевой формат имени канала
-#define PIPE_NAME_LAN L"\\\\DimaDD\\pipe\\Tube"
+#define PIPE_NAME_LAN L"\\\\DimaDD\\pipe\\cpipe"
 
 #define MAX_SIZE_OF_BUFFER 64
 
@@ -91,7 +91,7 @@ int main()
 
 	HANDLE cH; // дескриптор канала
 	DWORD dwWrite;
-	char buffer[50] = { "Hello Server" };
+	char buffer[50] = { "start" };
 
 	try
 	{

@@ -24,7 +24,7 @@ DWORD WINAPI DispathServer(LPVOID pPrm) {
 						//должен последовательно просматривать список ListContact  (в котором хранятся все сведения о подключившихся клиентах)
 						//и считывать запрос, подключившегося клиента
 						for (ListContact::iterator p = Contacts.begin(); p != Contacts.end(); p++) {
-							if (p->type == Contact::ACCEPT)
+							if (p->type == Contact::ACCEPT && p->sthread != Contact::ABORT)
 							{
 								client = &(*p);
 
@@ -42,6 +42,11 @@ DWORD WINAPI DispathServer(LPVOID pPrm) {
 									else flag = true;
 								}
 
+								if (strcmp(CallBuf, "Echo") != 0 && strcmp(CallBuf, "Time") != 0 && strcmp(CallBuf, "Rand") != 0)
+								{
+									flag = false;
+								}
+
 								if (flag == true) {//if Rand, Echo or Time
 									string time_error;
 
@@ -56,9 +61,9 @@ DWORD WINAPI DispathServer(LPVOID pPrm) {
 									// 
 									//переходит в сигнальное состояние через одну  минуту после запуска обслуживающего 
 									//сервера (т.е. одна минута – это максимально допустимое время работы обслуживающего сервера).
-									client->htimer = CreateWaitableTimer(NULL, false, NULL);
-									_int64 time = -600000000;
-									SetWaitableTimer(client->htimer, (LARGE_INTEGER*)&time, 0, ASWTimer, client, false);
+									client->htimer = CreateWaitableTimer(NULL, false, NULL); // true - ручной сброс, false - автоматический
+									_int64 time = -600000000; // в наносекундах
+									SetWaitableTimer(client->htimer, (LARGE_INTEGER*)&time, 0, ASWTimer, client, false); // 0 - не периодическая
 									cout << CallBuf <<  " сервер вызван" << endl;
 									if ((libuf = send(client->s, CallBuf, sizeof(CallBuf), NULL)) == SOCKET_ERROR) throw SetErrorMsgText("Send:", WSAGetLastError());
 									client->hthread = sss(CallBuf, client);
