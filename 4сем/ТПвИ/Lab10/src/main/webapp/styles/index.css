@@ -1,0 +1,68 @@
+form.log-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+form.log-in h4 {
+    margin: 0 0 20px;
+    font-size: 24px;
+}
+
+form.log-in p {
+    margin: 0 0 10px;
+    color: red;
+}
+
+form.log-in div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form.log-in div input {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #eee;
+    font-size: 16px;
+}
+
+form.log-in div label {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+form.log-in button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #008CBA;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form.log-in button:hover {
+    background-color: #005c73;
+}
+
+form.log-in a {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #008CBA;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+form.log-in a:hover {
+    color: #005c73;
+}

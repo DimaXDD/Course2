@@ -1,0 +1,19 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 21px;
+    text-align: center;
+}

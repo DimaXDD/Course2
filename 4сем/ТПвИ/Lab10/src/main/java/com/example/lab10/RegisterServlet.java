@@ -1,44 +1,62 @@
 package com.example.lab10;
 
-
-import jakarta.servlet.Servlet;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import com.example.lab10.classes.DAO;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet("/RegisterServ")
+@WebServlet(name = "RegisterServlet", value = "/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-    public void init()
-    {
+    private final DAO db = new DAO();
 
+    @Override
+    public void init() throws ServletException {
+        db.getConnection();
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
-        String password = request.getParameter("Password");
-        try {
-            String mes = BDWork.getUsers(login,password);
-            if (mes == null ) {
-                out.println("<html><body><h1>Good Register</h1></body></html>");
-                BDWork.Register(login, password);
+        String password = request.getParameter("password");
+        Object pass = password;
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+
+        if (login.length() != 0 && password.length() != 0) {
+            try {
+                if (!db.Registration(login, password)) {
+                    request.setAttribute("ErrorMessage", "Ошибка регистрации");
+                    request.getRequestDispatcher("register.jsp").forward(request, response);
+                    out.close();
+                }
+                else {
+                    ResultSet res = db.ExecuteQuery("INSERT INTO Users (UserName, UserPassword, UserRole) VALUES ('" + login + "', '" + pass + "','user')");
+                    ShowMessage(out, "Регистрация прошла успешно!", "index.jsp");
+                    out.close();
+
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
-            else{
-                out.println("<html><body><h1>Error</h1></body></html>");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        }
+        else {
+            request.setAttribute("ErrorMessage", "Поля не могут быть пустыми");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            out.close();
         }
     }
-
-    public void destroy()
-    {
-
+    private void ShowMessage(PrintWriter out, String message, String location) {
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('" + message + "');");
+        out.println("window.location.href = '" + location + "';");
+        out.println("</script>");
+        out.println("</body></html>");
     }
 }
+

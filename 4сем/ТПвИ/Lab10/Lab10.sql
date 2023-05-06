@@ -1,0 +1,16 @@
+﻿use Lab9_Java
+
+--CREATE TABLE teachers (
+--  id INT IDENTITY(1,1) PRIMARY KEY,
+--  name NVARCHAR(50) NOT NULL,
+--  email NVARCHAR(100) NOT NULL UNIQUE,
+--  subject NVARCHAR(255) NOT NULL
+--);
+
+
+CREATE TABLE telegram (
+  id INT IDENTITY(1,1) PRIMARY KEY,
+  name NVARCHAR(50) NOT NULL,
+  category NVARCHAR(100) NOT NULL,
+  subs int NOT NULL
+);

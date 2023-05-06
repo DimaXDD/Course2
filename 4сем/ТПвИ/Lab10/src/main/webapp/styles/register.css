@@ -1,0 +1,51 @@
+body {
+    background-color: #F5F5F5;
+    font-family: Arial, sans-serif;
+}
+.session {
+    display: flex;
+    flex-direction: column;
+    margin: 70px auto;
+    width: 400px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 40px;
+}
+.session h4 {
+    margin-top: 0;
+}
+.session div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.session label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.session input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.session button[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #1E90FF;
+    cursor: pointer;
+}
+.session button[type="submit"]:hover {
+    background-color: #4169E1;
+}
+.session a {
+    font-size: 14px;
+    text-align: center;
+}
+.session a:hover {
+    text-decoration: underline;
+}
