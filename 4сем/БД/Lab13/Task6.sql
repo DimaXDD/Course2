@@ -1,4 +1,6 @@
 ﻿--ex.6
+use UNIVER
+go
 create proc PAUDITORIUM_INSERTX 
 @AUD char(20), @NAME varchar(50), @CAPACITY int = 0, @AUD_TYPE char(10), @AUD_TYPENAME varchar(70)
 as 
@@ -19,5 +21,13 @@ begin catch
 	return -1
 end catch
 
-
+go
 exec PAUDITORIUM_INSERTX @AUD = '325-1', @NAME = '325-1', @CAPACITY = 50, @AUD_TYPE = 'ЛР-К', @AUD_TYPENAME = 'Лабораторный кабинет'
+
+select * from AUDITORIUM
+select * from AUDITORIUM_TYPE
+
+--delete AUDITORIUM where AUDITORIUM = '325-1'
+--delete AUDITORIUM_TYPE where AUDITORIUM_TYPE = 'ЛР-К'
+
+drop proc PAUDITORIUM_INSERTX 

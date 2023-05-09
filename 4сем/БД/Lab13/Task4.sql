@@ -1,4 +1,6 @@
 ﻿--ex.4
+use UNIVER
+go
 create proc PAUDITORIUM_INSERT @AUD char(20), @NAME varchar(50), @CAPACITY int = 0, @TYPE char(10)
 as
 begin
@@ -15,8 +17,13 @@ begin
 	end catch
 end
 
-delete AUDITORIUM where AUDITORIUM = '500-1'
-
+go
 declare @RETURN int
 exec @RETURN = PAUDITORIUM_INSERT @AUD = '500-1', @NAME = '500-1', @CAPACITY = 20, @TYPE = 'ЛК'
 print 'Процедура завершилась с кодом ' + cast(@RETURN as varchar)
+
+select * from AUDITORIUM
+select * from AUDITORIUM_TYPE
+
+delete AUDITORIUM where AUDITORIUM = '500-1'
+

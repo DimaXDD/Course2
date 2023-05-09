@@ -1,4 +1,5 @@
 ﻿--ex.5
+go
 create proc SUBJECT_REPORT @PULPIT varchar(20)
 as
 begin try
@@ -28,8 +29,9 @@ begin catch
 end catch
 
 
-drop proc SUBJECT_REPORT
-
+go
 declare @COUNT int = 0
 exec @COUNT = SUBJECT_REPORT @PULPIT = 'ИСиТ'
 print 'Количество дисциплин: ' + cast(@COUNT as varchar)
+
+drop proc SUBJECT_REPORT
