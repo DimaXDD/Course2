@@ -10,37 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b0bae3e-8070-49a6-9222-f55c8ac393d7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Lab10_servlets/MainPageAdminServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Lab10_servlets/NewSignUpFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Lab10_servlets/SignInServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Lab10_servlets/SignUpServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/WEB-INF/classes/com/example/lab9/Lab10_servlets/Telegram.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/errorPage_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/footer_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/header_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/mainPageAdmin_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/mainPageTableStyle_10.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/mainPageUser_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/signInForm_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/signInStyle_10.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Lab9_war_exploded/signUpForm_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Lab10_servlets/MainPageAdminServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Lab10_servlets/NewSignUpFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Lab10_servlets/SignInServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Lab10_servlets/SignUpServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/lab9/Lab10_servlets/Telegram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/errorPage_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/footer_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/header_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/mainPageAdmin_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/mainPageTableStyle_10.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/mainPageUser_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/signInForm_10.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/signInStyle_10.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/signUpForm_10.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab10/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab10/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,28 +51,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/dimat/Desktop/Lab-10",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15527344",
-    "project.structure.side.proportion": "0.22106482",
-    "settings.editor.selected.configurable": "preferences.applicationServers",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimat/Desktop/Lab-10&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15527344&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.22106482&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GlassFish 7.0.3" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 7.0.3" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -195,6 +165,7 @@
       <workItem from="1682880057440" duration="256000" />
       <workItem from="1682888033351" duration="139000" />
       <workItem from="1682888367695" duration="777000" />
+      <workItem from="1683926525260" duration="369000" />
     </task>
     <servers />
   </component>
