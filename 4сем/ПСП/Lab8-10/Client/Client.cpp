@@ -157,7 +157,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 			all.sin_port = htons(bport);
 			//all.sin_addr.s_addr = inet_addr("127.0.0.1"); //172.20.10.15
 			//all.sin_addr.s_addr = inet_addr("172.20.10.15"); //172.20.10.15
-			all.sin_addr.s_addr = inet_addr("172.20.10.15"); //172.20.10.15
+			all.sin_addr.s_addr = inet_addr("127.0.0.1"); //172.20.10.15
 			SOCKADDR_IN from;
 
 			memset(&from, 0, sizeof(from));
