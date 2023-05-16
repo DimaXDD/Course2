@@ -12,6 +12,10 @@
 
 chcp 65001 - для русских символов
 mvn package - компиляция всего
+mvn clean install - Maven соберет все модули проекта и установит их в локальный репозиторий
 mvn test -pl Lab11-Module-2 - тест модуля 2
 mvn clean install -Pdev - заход на профиль dev
 java -jar Lab11-Module-1-1.0-SNAPSHOT.jar - просто результат кода модуля
+
+mvn clean install -> дальше можно делать что захотите
+mvn clean install -pl my-module -am - только для сборки одного модуля my-module
