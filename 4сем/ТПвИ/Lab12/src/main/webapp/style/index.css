@@ -1,0 +1,40 @@
+/* Основные стили для ссылок */
+a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Стили для тега body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+/* Стили для заголовка страницы */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* Стили для ссылок внутри тега body */
+body a {
+    font-weight: bold;
+}
+
+/* Стили для контейнера ссылок */
+.links-container {
+    margin-top: 20px;
+}
+
+/* Стили для отступа между ссылками */
+.links-container a:not(:last-child) {
+    margin-right: 10px;
+}

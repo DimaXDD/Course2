@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h4 {
+    margin-top: 30px;
+}
+
+.result {
+    font-weight: bold;
+}
+
+.exception {
+    color: red;
+    font-weight: bold;
+}
+
+.variable {
+    color: blue;
+    font-weight: bold;
+}
+
+.even {
+    color: green;
+    font-weight: bold;
+}
+
+.odd {
+    color: orange;
+    font-weight: bold;
+}
+
+.link {
+    text-decoration: none;
+    color: #337ab7;
+}

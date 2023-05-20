@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products_list>
+    <product>
+        <name>Смартфон</name>
+        <item_number>3940099</item_number>
+        <category>Электроника</category>
+        <brand>Samsung</brand>
+        <price>25000</price>
+        <quantity>10</quantity>
+    </product>
+    <product>
+        <name>Ноутбук</name>
+        <item_number>3940100</item_number>
+        <category>Электроника</category>
+        <brand>HP</brand>
+        <price>50000</price>
+        <quantity>5</quantity>
+    </product>
+    <product>
+        <name>Наушники</name>
+        <item_number>3940101</item_number>
+        <category>Электроника</category>
+        <brand>Sony</brand>
+        <price>5000</price>
+        <quantity>15</quantity>
+    </product>
+    <product>
+        <name>Фотоаппарат</name>
+        <item_number>3940102</item_number>
+        <category>Электроника</category>
+        <brand>Nikon</brand>
+        <price>30000</price>
+        <quantity>5</quantity>
+    </product>
+</products_list>

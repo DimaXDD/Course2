@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+    <tlib-version>1.0</tlib-version>
+    <short-name>TagLib</short-name>
+    <uri>TagLib.tld</uri>
+
+    <tag>
+        <name>submit</name>
+        <tag-class>com.example.lab12.TDSsubmit</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>table</name>
+        <tag-class>com.example.lab12.TDSprintTable</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>nameTable</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>
