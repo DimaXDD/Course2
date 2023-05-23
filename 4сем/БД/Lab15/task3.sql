@@ -1,6 +1,5 @@
 ﻿--ex.3
 use UNIVER
-drop trigger TR_TEACHER_UPD
 go
 create trigger TR_TEACHER_UPD on TEACHER after update
 as 
