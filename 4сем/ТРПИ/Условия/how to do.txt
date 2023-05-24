@@ -1,0 +1,5 @@
+npx create-react-app lab9 --template typescript
+cd lab9
+npm install redux
+npm install react-redux
+npm start

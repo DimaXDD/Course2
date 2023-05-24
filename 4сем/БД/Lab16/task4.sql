@@ -23,9 +23,9 @@ update STUDENT set INFO =
 	<PHONE>442184582</PHONE>
 	<ADRESS>
 		<COUNTRY>Беларусь</COUNTRY>
-		<CITY>Гродно</CITY>
-		<STREET>Малая Троицкая</STREET>
-		<HOUSE>42</HOUSE>
+		<CITY>Минск</CITY>
+		<STREET>Белорусская</STREET>
+		<HOUSE>21</HOUSE>
 		<APPARTEMENT>706</APPARTEMENT>
 	</ADRESS>
 </STUDENT>'
