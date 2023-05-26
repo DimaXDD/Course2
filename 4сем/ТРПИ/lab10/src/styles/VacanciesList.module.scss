@@ -1,0 +1,25 @@
+$mobile: 200px;
+$tablet: 834px;
+$desktop: 1440px;
+
+.list {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    position: absolute;
+    left: 22%;
+    width: 56.5vw;
+  }
+  @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+    position: absolute;
+    left: 10%;
+  }
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    width: 80vw;
+  }
+  width: 40.5%;
+  margin: 0;
+  padding: 0;
+}
+.nothingFound {
+  width: 100vw;
+  text-align: center;
+}

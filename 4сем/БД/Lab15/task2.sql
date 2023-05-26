@@ -1,4 +1,4 @@
-﻿--ex.2
+﻿﻿--ex.2
 use UNIVER
 go
 create trigger TR_TEACHER_DEL on TEACHER after delete

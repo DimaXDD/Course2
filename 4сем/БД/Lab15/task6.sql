@@ -35,7 +35,7 @@ exec SP_SETTRIGGERORDER @triggername = 'TR_TEACHER_DEL3', @order = 'First', @stm
 exec SP_SETTRIGGERORDER @triggername = 'TR_TEACHER_DEL2', @order = 'Last',  @stmttype = 'DELETE'
 
 go
-insert into TEACHER values ('ИВНВ', 'Иванов Иван Иванович', 'м', 'ИСиТ')
-delete from TEACHER where TEACHER = 'ИВНВ'
+insert into TEACHER values ('ТРДС', 'Трубач Дмитрий Сергеевич', 'м', 'ИСиТ')
+delete from TEACHER where TEACHER = 'ТРДС'
 select * from TEACHER
 select * from TR_AUDIT order by ID

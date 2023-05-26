@@ -1,0 +1,92 @@
+.mainContainer {
+  float: right;
+  box-shadow: 0 2px 15px #E1E1E1;
+  z-index: 3;
+  width: 640px;
+  background-color: white;
+  height: max-content;
+  border-radius: 10px;
+  margin-top: 18px; }
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
+    .mainContainer {
+      width: 74.3vw;
+      position: absolute;
+      top: 73px;
+      left: 13%; } }
+  @media screen and (min-width: 200px) and (max-width: 833px) {
+    .mainContainer {
+      width: 80vw;
+      position: absolute;
+      top: 74px;
+      left: 10%; } }
+  .mainContainer .mainDescription {
+    width: 90%;
+    margin: 30px auto 0 auto;
+    font-size: 14px; }
+    @media screen and (min-width: 200px) and (max-width: 833px) {
+      .mainContainer .mainDescription {
+        font-size: 12px; } }
+  .mainContainer .header {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: 700; }
+    .mainContainer .header .title {
+      height: 44px;
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-self: center; }
+      @media screen and (min-width: 200px) and (max-width: 833px) {
+        .mainContainer .header .title {
+          margin: 0 0 15px 30px; } }
+    .mainContainer .header img {
+      width: 130px;
+      height: 84px;
+      border-radius: 20px;
+      margin: 23px 51px 27px 30px; }
+      @media screen and (min-width: 200px) and (max-width: 833px) {
+        .mainContainer .header img {
+          width: 68px;
+          height: 44px;
+          margin: 23px 0 15px 30px; } }
+    .mainContainer .header .close {
+      width: 20px;
+      height: 20px; }
+      @media screen and (min-width: 1440px) {
+        .mainContainer .header .close {
+          display: none; } }
+      @media screen and (min-width: 200px) and (max-width: 1439px) {
+        .mainContainer .header .close {
+          position: absolute;
+          top: 30px;
+          right: 30px; } }
+      @media screen and (min-width: 200px) and (max-width: 833px) {
+        .mainContainer .header .close {
+          position: absolute;
+          top: 30px;
+          right: 20px; } }
+    .mainContainer .header .jobName {
+      font-size: 20px;
+      margin: 0; }
+      @media screen and (min-width: 200px) and (max-width: 833px) {
+        .mainContainer .header .jobName {
+          font-size: 15px; } }
+    .mainContainer .header .companyName {
+      margin: 0; }
+      .mainContainer .header .companyName pre {
+        font-family: 'Montserrat', sans-serif;
+        color: #9AAAB5;
+        font-size: 10px; }
+  .mainContainer .salary {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 37px 30px;
+    padding: 0;
+    text-align: left; }
+    @media screen and (min-width: 200px) and (max-width: 833px) {
+      .mainContainer .salary {
+        font-size: 15px;
+        margin: 0 0 21px 30px; } }
+
+/*# sourceMappingURL=VacancyDescription.module.css.map */

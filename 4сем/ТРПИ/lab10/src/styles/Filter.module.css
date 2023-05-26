@@ -1,0 +1,272 @@
+.containerDesktop {
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%;
+  height: 60px;
+  margin: 34px auto 40px auto;
+  background-color: white;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 0 2px 15px #E1E1E1;
+  justify-content: space-between; }
+  @media screen and (min-width: 200px) and (max-width: 1439px) {
+    .containerDesktop {
+      display: none; } }
+  .containerDesktop .filterContainers {
+    border-right: 2px solid #F9F9F9;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    max-width: 220px; }
+    .containerDesktop .filterContainers:last-of-type {
+      border-right: none; }
+    .containerDesktop .filterContainers .filterCurrentOption {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #49627E;
+      cursor: pointer; }
+  .containerDesktop .locationIcon {
+    margin: 20px 20px 20px 25px; }
+  .containerDesktop .salaryIcon {
+    margin: 20px 20px 20px 25px; }
+  .containerDesktop .locationInput {
+    width: 120px;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #49627E; }
+  .containerDesktop .salaryInput {
+    max-width: 130px;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #49627E; }
+    .containerDesktop .salaryInput input::-webkit-outer-spin-button,
+    .containerDesktop .salaryInput input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+  .containerDesktop .titleIcon {
+    margin: 20px 20px 20px 25px; }
+  .containerDesktop .filterCurrentOption {
+    margin: 0;
+    padding: 0; }
+  .containerDesktop .listOptions {
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    z-index: 4;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1); }
+    .containerDesktop .listOptions li {
+      display: block;
+      overflow: hidden;
+      height: 100%;
+      font-size: 12px;
+      font-weight: 500;
+      color: #49627E;
+      margin: 0 0 10px 20px;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1); }
+  .containerDesktop .searchButton {
+    width: 89px;
+    height: 100%;
+    background-color: #0070FB;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 0 10px 10px 0; }
+
+input[type='radio'] {
+  display: none; }
+
+input[type='radio'] + label {
+  background: url("../resources/radio.svg") no-repeat scroll 0 0;
+  cursor: pointer;
+  padding-left: 30px;
+  margin-left: 5px; }
+
+input[type='radio']:checked + label {
+  background: url("../resources/radioOn.svg") no-repeat scroll 0 0;
+  cursor: pointer;
+  padding-left: 30px;
+  margin-left: 5px; }
+
+.containerTablet {
+  display: flex;
+  flex-flow: row wrap;
+  width: 74%;
+  height: 60px;
+  margin: 37px auto 37px auto;
+  background-color: white;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 15px #E1E1E1; }
+  @media screen and (min-width: 200px) and (max-width: 699px) {
+    .containerTablet {
+      display: none; } }
+  @media screen and (min-width: 1439px) {
+    .containerTablet {
+      display: none; } }
+  .containerTablet .filterContainers {
+    border-right: 2px solid #F9F9F9;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    max-width: 186px; }
+  .containerTablet .searchButton {
+    width: 89px;
+    height: 100%;
+    background-color: #0070FB;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 0 10px 10px 0; }
+  .containerTablet .locationIcon {
+    margin: 20px 20px 20px 25px; }
+  .containerTablet .salaryIcon {
+    margin: 20px 20px 20px 25px; }
+  .containerTablet .locationInput {
+    width: 79px;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #49627E; }
+  .containerTablet .salaryInput {
+    max-width: 79px;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #49627E; }
+    .containerTablet .salaryInput input::-webkit-outer-spin-button,
+    .containerTablet .salaryInput input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+  .containerTablet .Title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #49627E; }
+  .containerTablet .allFilters {
+    background: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 20px 15px #E1E1E1;
+    padding: 34px 0 41px 0;
+    width: 85%;
+    z-index: 2; }
+    .containerTablet .allFilters .allFiltersContainer {
+      display: flex;
+      flex-flow: row wrap;
+      width: 40%;
+      margin: 0 auto; }
+      .containerTablet .allFilters .allFiltersContainer .listOptions {
+        list-style-type: none;
+        margin: 0;
+        padding: 0; }
+        .containerTablet .allFilters .allFiltersContainer .listOptions li {
+          font-size: 12px;
+          color: #49627E;
+          font-weight: 500;
+          margin-bottom: 8px; }
+
+.containerMobile {
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%;
+  height: 60px;
+  margin: 37px auto 37px auto;
+  background-color: white;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 15px #E1E1E1; }
+  @media screen and (min-width: 700px) {
+    .containerMobile {
+      display: none; } }
+  .containerMobile .Title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #49627E; }
+  .containerMobile .locationIcon {
+    margin: 24px 11px 24px 13px; }
+  .containerMobile .locationInput {
+    width: 77px;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #49627E; }
+  .containerMobile .filterContainers {
+    border-right: 2px solid #F9F9F9;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    max-width: 130px; }
+  .containerMobile .allFilters {
+    background: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 20px 15px #E1E1E1;
+    padding: 22px 0 22px 0;
+    width: 80%;
+    z-index: 2; }
+    .containerMobile .allFilters .allFiltersContainer {
+      display: flex;
+      flex-flow: row wrap;
+      width: 70%;
+      margin: 0 auto; }
+      .containerMobile .allFilters .allFiltersContainer .listOptions {
+        list-style-type: none;
+        margin: 0;
+        padding: 0; }
+        .containerMobile .allFilters .allFiltersContainer .listOptions li {
+          font-size: 12px;
+          color: #49627E;
+          font-weight: 500;
+          margin-bottom: 5px; }
+  .containerMobile .searchButton {
+    width: 60px;
+    height: 100%;
+    background-color: #0070FB;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 0 10px 10px 0; }
+  .containerMobile .salaryInput {
+    max-width: 165px;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    border: 1px solid #9AAAB5;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #49627E;
+    text-indent: 12px; }
+    .containerMobile .salaryInput input::-webkit-outer-spin-button,
+    .containerMobile .salaryInput input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+
+/*# sourceMappingURL=Filter.module.css.map */

@@ -1,0 +1,22 @@
+.list {
+  width: 40.5%;
+  margin: 0;
+  padding: 0; }
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
+    .list {
+      position: absolute;
+      left: 22%;
+      width: 56.5vw; } }
+  @media screen and (min-width: 200px) and (max-width: 833px) {
+    .list {
+      position: absolute;
+      left: 10%; } }
+  @media screen and (min-width: 200px) and (max-width: 834px) {
+    .list {
+      width: 80vw; } }
+
+.nothingFound {
+  width: 100vw;
+  text-align: center; }
+
+/*# sourceMappingURL=VacanciesList.module.css.map */

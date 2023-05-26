@@ -1,0 +1,90 @@
+.wrapperPresent{
+    width: 660px;
+    display: flex;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    height: fit-content;
+    position: relative;
+}
+
+@media (max-width: 690px){  
+    .wrapperPresent{
+        max-width: 90%;
+    }
+   
+
+}
+
+.buttonStyle{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.buttonStyle > img{
+    width: 100%;
+}
+.containerPresent{
+    display: flex;
+    flex-direction: column;
+
+}
+.selectItemHeader{
+    display: flex;
+    justify-content: left;
+    padding: 5% 0 0 5%;
+    gap: 60px;
+}
+.itemSelected{
+    padding: 10px 30px 5px 30px;
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+}
+.cost{
+    margin-left: 15px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+.middle{
+    margin-bottom: 15px;
+}
+.textDop{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    color: #9AAAB5;
+}
+.textMain{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 24px;
+    margin-bottom: 5px;
+}
+.secondContainer{
+    display: flex;
+    width: 660px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 24px;
+    margin-bottom: 5px;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    height: fit-content;
+
+}

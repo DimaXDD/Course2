@@ -1,0 +1,102 @@
+.containerCard{
+    display: flex;
+    max-width: 460px;
+    justify-content: space-between;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    padding: 15px;
+    gap: 15px;
+    position: relative;
+}
+.infoBlock{
+    flex-grow: 1;
+}
+@media(max-width: 456px){
+    .imageCard{
+        width: 100%;
+    }
+    .containerCard{
+        flex-wrap: wrap;
+    }
+
+    .infoBlock > .jobName{
+        font-size: 25px;
+    }
+}
+.date{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+.dopFunc > img{
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+.imageCard{
+    padding-top: 20px;
+    width: 100px;
+
+}
+.imageCard > img{
+    width: 100%;
+}
+.corporationName{
+    color: gray;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 12px;
+  
+}
+.jobName{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 17px;
+}
+.countryName{
+    color: gray;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 12px;
+}
+.tagsMass{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.tag{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9px;
+    line-height: 11px;
+    color: #95A5B2;
+    padding: 5px;
+    margin: 0;
+    background: #F7F8F9;
+    border-radius: 4px;
+}
+.tag.active{
+    background-color: #0070FB;
+    color: #FFFFFF;
+}
+.dopFunc{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.likeBtn{
+    width: 30px;
+}
+.date{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 11px;
+    color: #95A5B2;;
+}

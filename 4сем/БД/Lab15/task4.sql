@@ -51,7 +51,7 @@ end
 
 go
 update TEACHER set GENDER = 'м' where TEACHER='РЖК'
---delete from TEACHER where TEACHER = 'ИВНВ'
---insert into TEACHER values ('ИВНВ', 'Иванов Иван Иванович', 'м', 'ИСиТ')
+--delete from TEACHER where TEACHER = 'ТРДС'
+--insert into TEACHER values ('ТРДС', 'Трубач Дмитрий Сергеевич', 'м', 'ИСиТ')
 select * from TEACHER
 select * from TR_AUDIT;

@@ -1,0 +1,26 @@
+$mobile: 375px;
+$tablet: 834px;
+$desktop: 1440px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FAFAFA;
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0 auto 0 auto;
+  @media screen and (min-width: $mobile) and (max-width: $desktop) {
+    width: 100%;
+  }
+  width: 80.6%;
+}
+.header {
+  height: 74px;
+}

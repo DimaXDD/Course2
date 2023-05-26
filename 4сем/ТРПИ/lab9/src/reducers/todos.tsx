@@ -4,6 +4,8 @@ export interface Todo {
   completed: boolean;
 }
 
+
+// Типы действий
 export type Action =
   | { type: 'ADD_TODO'; id: number; text: string }
   | { type: 'TOGGLE_TODO'; id: number };

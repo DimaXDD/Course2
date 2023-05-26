@@ -1,0 +1,38 @@
+.wrapperHeaderMob{
+    height: 74px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+.containerMob{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    padding: 0 10px 0 5px;
+}
+.buttonMenu{
+    border: 0;
+    background-color: white;
+}
+.List{
+    left: 0;
+    width: 100%;
+    
+    top: 74px;
+    position: absolute;
+    background-color: white;
+}
+.List > div{
+    display: flex;
+    padding-right: 15px;
+    align-items: center;
+    justify-content: right;
+    height: 60px;
+    border-collapse: collapse;
+    border-top: solid 1px rgba(0, 0, 0, 0.658);
+}
+.List > div:last-child{
+    border-bottom: solid 1px rgba(0, 0, 0, 0.658);
+}

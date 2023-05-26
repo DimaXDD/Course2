@@ -1,0 +1,117 @@
+$mobile: 200px;
+$tablet: 834px;
+$desktop: 1440px;
+
+.sectionStyle {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 140px;
+  box-shadow: 0 2px 15px #E1E1E1;
+  @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+    height: max-content;
+  }
+  max-height: max-content;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-top: 18px;
+  .container {
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+    background-color: white;
+    display: flex;
+    margin-right: -1px;
+    width: 97.6%;
+    .headContainer {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      .mainContainer {
+        width: 70%;
+        @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+          width: 260px;
+          margin: 6px 0 16px 12px;
+        }
+      }
+      .logo {
+        width: 68px;
+        height: 49px;
+        border-radius: 10px;
+        margin: 20px 15px 0 9px;
+        @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+          width: 40px;
+          height: 29px;
+          margin: 20px 0 0 12px;
+        }
+      }
+
+      .location {
+        font-style: normal;
+        color: #9AAAB5;
+        font-size: 10px;
+        line-height: 12px;
+        margin: 0;
+      }
+      .companyName {
+        font-style: normal;
+        color: #9AAAB5;
+        font-size: 10px;
+        line-height: 12px;
+        margin: 20px 0 0 0;
+        @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+          margin: 0;
+        }
+      }
+      .jobHeader {
+        color: black;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 17px;
+        margin-top: 5px;
+        margin-bottom: 4px;
+      }
+      .tagsContainer {
+        display: flex;
+        margin: 10px 0 3px 0;
+        flex-flow: row wrap;
+        .tag {
+          width: max-content;
+          height: 20px;
+          font-size: 9px;
+          font-weight: 700;
+          color: #95A5B2;
+          background-color: #F7F8F9;
+          border-radius: 4px;
+          padding: 5px 8px 0 8px;
+          margin: 0 5px 5px 0;
+        }
+      }
+    }
+    .date {
+      font-style: normal;
+      color: #9AAAB5;
+      font-size: 9px;
+      font-weight: 500;
+      @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+        display: none;
+      }
+    }
+    .sideContainer {
+      display: flex;
+      flex-flow: row wrap;
+      width: 10%;
+      margin: 20px 20px 12px 0;
+      align-content: space-between;
+      justify-content: flex-end;
+      svg {
+        cursor: pointer;
+      }
+      @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+        position: absolute;
+        right: 20px;
+        margin: 20px 0 0 0;
+      }
+    }
+  }
+}

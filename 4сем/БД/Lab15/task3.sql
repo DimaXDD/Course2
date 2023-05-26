@@ -1,4 +1,4 @@
-﻿--ex.3
+﻿﻿--ex.3
 use UNIVER
 go
 create trigger TR_TEACHER_UPD on TEACHER after update

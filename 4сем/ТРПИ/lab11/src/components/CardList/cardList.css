@@ -1,0 +1,16 @@
+.wrapperList{
+    display: flex;
+    justify-content: center;
+}
+.containerList{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+}
+
+@media (max-width: 530px){
+    .containerList{
+        width: 90%;
+    }
+}

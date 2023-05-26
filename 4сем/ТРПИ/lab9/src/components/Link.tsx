@@ -11,7 +11,7 @@ const Link: React.FC<Props> = ({ active, children, onClick }) => (
     onClick={onClick}
     disabled={active}
     style={{
-      marginLeft: '4px',
+      marginLeft: '8px',
     }}
   >
     {children}

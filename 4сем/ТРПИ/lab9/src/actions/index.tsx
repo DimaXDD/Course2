@@ -6,26 +6,26 @@ interface AddTodoAction {
   text: string;
 }
 
+interface SetVisibilityFilterAction {
+  type: 'SET_VISIBILITY_FILTER';
+  filter: string;
+}
+
+interface ToggleTodoAction {
+  type: 'TOGGLE_TODO';
+  id: number;
+}
+
 export const addTodo = (text: string): AddTodoAction => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
   text,
 });
 
-interface SetVisibilityFilterAction {
-  type: 'SET_VISIBILITY_FILTER';
-  filter: string;
-}
-
 export const setVisibilityFilter = (filter: string): SetVisibilityFilterAction => ({
   type: 'SET_VISIBILITY_FILTER',
   filter,
 });
-
-interface ToggleTodoAction {
-  type: 'TOGGLE_TODO';
-  id: number;
-}
 
 export const toggleTodo = (id: number): ToggleTodoAction => ({
   type: 'TOGGLE_TODO',

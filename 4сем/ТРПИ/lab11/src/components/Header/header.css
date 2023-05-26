@@ -1,0 +1,33 @@
+.containerHeader{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 15%;
+    height: 100%;
+    width: 80%;
+    
+    
+}
+.wrapper{
+    z-index: 3;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0px;
+    width: 100%;
+}
+.header{
+    height: 74px;
+    display: flex;
+    justify-content: center;
+}
+.itemHeader{
+    color: gray;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 17px;
+}
+.active{
+    color:rgb(13, 144, 196)
+}
