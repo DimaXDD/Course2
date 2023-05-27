@@ -1,0 +1,71 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+div1 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+fieldset {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+legend {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    margin-right: 10px;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+h3.error {
+    color: red;
+}
+
+.center {
+    text-align: center;
+}
+
+.footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
